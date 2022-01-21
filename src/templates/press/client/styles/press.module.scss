@@ -1,0 +1,28 @@
+.row-eq-height {
+  display: flex;
+}
+
+.header {
+  text-align: center;
+}
+
+.subheader {
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "lato", sans-serif;
+}
+
+.mention {
+  margin: 1em;
+}
+
+.title {
+  color: black;
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+}
+
+.title:hover {
+  color: black;
+  text-decoration: underline;
+}

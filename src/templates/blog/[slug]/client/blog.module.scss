@@ -1,0 +1,39 @@
+.clickable {
+  color: black;
+  text-decoration: none;
+}
+
+.clickable:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-family: "DM Sans", sans-serif;
+  margin: 16px;
+}
+
+.image {
+  display: block;
+  position: relative;
+  margin: 16px;
+  height: 272px;
+  transition: opacity 0.15s;
+}
+
+.image:hover {
+  opacity: 0.7;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  padding-bottom: 8px;
+  margin: 32px 0;
+}

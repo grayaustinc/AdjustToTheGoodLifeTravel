@@ -1,0 +1,14 @@
+.image-container {
+  position: relative;
+  width: 100%;
+
+  > span {
+    position: relative !important;
+  }
+
+  .image {
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}

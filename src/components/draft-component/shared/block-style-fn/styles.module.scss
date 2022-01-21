@@ -1,0 +1,83 @@
+.atom {
+  margin-top: 2em;
+}
+
+.blockquote {
+  border-left: 3.5px solid black;
+  margin-bottom: 0;
+  padding-left: 1em;
+}
+
+.atom + .blockquote {
+  border-left: 0;
+  margin-top: -0.5em;
+  text-align: center;
+  text-align-last: center;
+  font-size: 0.875em;
+  color: #6c757d;
+}
+
+.atom + .blockquote > div {
+  display: inline-block;
+}
+
+.blockquote + .blockquote {
+  margin-top: 0;
+  padding-top: 1em;
+}
+
+.blockquote + .blockquote:last-of-type {
+  margin-top: -0.5em;
+  font-size: 0.875em;
+  color: #6c757d;
+}
+
+.blockquote + .blockquote:last-of-type > div::before {
+  content: "—";
+  position: relative;
+}
+
+.ol {
+  margin-top: 2em;
+  margin-left: 28px;
+}
+
+.ol + .ol {
+  margin-top: 1em;
+}
+
+.ul {
+  margin-top: 2em;
+  margin-left: 28px;
+}
+
+.ul + .ul {
+  margin-top: 1em;
+}
+
+.h1 {
+  font-size: 1.5em;
+}
+
+.h2 {
+  font-size: 1.2em;
+}
+
+.h1:first-of-type {
+  margin-top: 0.5em;
+  font-size: 2em;
+}
+
+.h1 + .h2 {
+  margin-top: 0.5em;
+  font-size: 1.125em;
+  color: #6c757d;
+}
+
+.bl {
+  margin-top: 2em;
+}
+
+.ff {
+  font-family: "DM Sans", sans-serif;
+}

@@ -1,0 +1,11 @@
+.inline-toolbar-show {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.inline-toolbar-hide {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}

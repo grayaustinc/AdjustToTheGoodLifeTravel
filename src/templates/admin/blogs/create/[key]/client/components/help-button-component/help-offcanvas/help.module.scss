@@ -1,0 +1,39 @@
+.item {
+  text-align: center;
+  height: 276px;
+}
+
+.head {
+  padding-bottom: 0;
+}
+
+.h {
+  font-size: 2em;
+}
+
+.p {
+  font-size: 1.2em;
+}
+
+.draw_table {
+  letter-spacing: 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8em;
+  text-align: left;
+  margin: 20px auto 0;
+}
+
+.draw_cell {
+  padding: 4px 10px;
+}
+
+.keyboard_key {
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #00000026;
+  min-width: 48px;
+  text-align: center;
+  display: inline-block;
+}

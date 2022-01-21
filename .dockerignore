@@ -1,0 +1,11 @@
+node_modules
+pricing.txt
+server-plan.TODO
+captain-definition
+docker-compose.yml
+.TODO
+.gitignore
+.prettierrc.json
+.env-cmdrc.js
+.next
+Dockerfile

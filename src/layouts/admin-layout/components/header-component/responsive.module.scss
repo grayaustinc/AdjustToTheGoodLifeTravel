@@ -1,0 +1,16 @@
+.title-toggle-1 {
+  display: none;
+}
+
+.title-toggle-2 {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .title-toggle-1 {
+    display: inline-block;
+  }
+  .title-toggle-2 {
+    display: none;
+  }
+}

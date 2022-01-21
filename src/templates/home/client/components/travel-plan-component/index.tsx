@@ -1,0 +1,77 @@
+import React, { FunctionComponent } from "react";
+import NextImage from "next/image";
+import { Card, Container, Row, Col, Image } from "react-bootstrap";
+
+import image1 from "src/images/8df5c93fd190e56f46108d39ed8bbb51.png";
+import image2 from "src/images/489ed5fcc1a16101dbbc7757ad75b945.png";
+import image3 from "src/images/baa0727900308633b333db5ad820bc56.png";
+import image4 from "src/images/d9aa28303e629eb1d172dc829b68caff.png";
+
+//style
+import style from "../../styles/home.module.scss";
+
+const data = [
+  {
+    title: "Let's chat!",
+    description: "Set up a free, no-obligation consultation with us via zoom or phone.",
+    src: image1,
+    alt: "Picture of family",
+    quality: 30,
+  },
+  {
+    title: "Make a plan!",
+    description: "we put together the best options that meet your needs",
+    src: image2,
+    alt: "Picture of a seal",
+    quality: 10,
+  },
+  {
+    title: "Booked!",
+    description: "Book your trip! Make the payment and reserve the trip you have always wanted to experience!",
+    src: image3,
+    alt: "Picture of birds",
+    quality: 50,
+  },
+  {
+    title: "Enjoy!",
+    description: "Look forward to sharing amazing, memorable experiences with your friends and family!",
+    src: image4,
+    alt: "Vase full of flowers",
+    quality: 50,
+  },
+];
+
+//TODO change up text inside container
+
+import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
+
+const sizes = getBootstrapSizes(384, 384, 384, 384, 256, 256);
+
+const TravelPlanComponent: FunctionComponent = () => {
+  return (
+    // <div className={style["bg"]}>
+    <Container className="my-5">
+      <h1 className="text-center">TRAVEL PLANNING</h1>
+      <Row>
+        {data.map((info) => {
+          return (
+            <Col key={info.title} sm={12} md={6} xl={3} className="align-self-end">
+              <Card.Body className="text-center">
+                <Card.Title as="h2" className="h4">
+                  {info.title}
+                </Card.Title>
+                <Card.Text>{info.description}</Card.Text>
+              </Card.Body>
+              <Card.Body>
+                <NextImage src={info.src} alt={info.alt} placeholder="blur" width="100%" height="100%" sizes={sizes} quality={info.quality} layout="responsive" />
+              </Card.Body>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
+    // </div>
+  );
+};
+
+export default React.memo(TravelPlanComponent);

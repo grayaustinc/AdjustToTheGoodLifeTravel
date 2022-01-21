@@ -1,0 +1,24 @@
+{
+  "name": "Adjust to the Good Life Travel",
+  "short_name": "Adjust Travel",
+  "description": "A Travel Agency that specializes in family vacations!",
+  "icons": [
+    {
+      "src": "/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone"
+}

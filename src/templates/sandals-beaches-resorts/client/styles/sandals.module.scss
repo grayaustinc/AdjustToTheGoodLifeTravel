@@ -1,0 +1,45 @@
+.parallax-row {
+  min-height: 596px;
+}
+
+.parallax-text {
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-size: 3em;
+  text-align: center;
+  text-shadow: 2px 2px black;
+}
+
+.image {
+  position: relative;
+  max-width: 256px;
+  margin: 1em auto;
+}
+
+.referral {
+  margin: 1em;
+  border: 2px solid transparent;
+}
+
+.referral:hover {
+  border: 2px solid black;
+}
+
+.p {
+  font-family: "lato", sans-serif;
+  font-size: 1.15em;
+}
+
+.bg-alt {
+  background-color: #f8f9fa;
+}
+
+.card {
+  width: 18em;
+}
+
+@media (max-width: 576px) {
+  .parallax-text {
+    font-size: 2.5em;
+  }
+}

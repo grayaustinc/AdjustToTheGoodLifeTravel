@@ -1,0 +1,12 @@
+.h {
+  color: black;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .h {
+    font-size: 1.5em;
+  }
+}
