@@ -99,7 +99,7 @@ const FooterComponent: FunctionComponent = () => {
                 <Card.Title className={style["heading"]}>Agent Portal</Card.Title>
                 <div className={style["link-wrapper"]}>
                   <Link href="/admin/login/" passHref>
-                    <a className={style["link"]} rel="nofollow">
+                    <a className={style["link"]} rel="nofollow noindex">
                       Agent Login
                     </a>
                   </Link>

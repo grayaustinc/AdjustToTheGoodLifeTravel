@@ -2,9 +2,9 @@
 
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const CAN_ANALYZE = process.env.ANALYZE === "true";
-const { LicenseWebpackPlugin } = require("license-webpack-plugin");
-const withPWA = require("next-pwa");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: CAN_ANALYZE });
+import { LicenseWebpackPlugin } from "license-webpack-plugin";
+import withPWA from "next-pwa";
+import bundleAnalyzer from "@next/bundle-analyzer";
 
 function createLicenseWebpackPlugin() {
   const licensePlugin = new LicenseWebpackPlugin({
@@ -13,7 +13,7 @@ function createLicenseWebpackPlugin() {
   return licensePlugin;
 }
 
-const envalid = require("envalid");
+import envalid from "envalid";
 
 /**
  * @type {import('./runtime-config').ServerRuntimeConfig}
@@ -70,6 +70,21 @@ const defaultConfig = {
 
   async rewrites() {
     return [
+      {
+        //favicon
+        source: "/favicon.ico",
+        destination: "/favicon/favicon.ico",
+      },
+      {
+        //rss
+        source: "/.rss",
+        destination: "/rss/",
+      },
+      {
+        //sitemap
+        source: "/sitemap.xml",
+        destination: "/sitemap/",
+      },
       {
         //home
         source: "/",
@@ -182,8 +197,9 @@ const defaultConfig = {
 let nextConfig = defaultConfig;
 
 if (CAN_ANALYZE) {
+  const withBundleAnalyzer = bundleAnalyzer({ enabled: true });
   nextConfig = withBundleAnalyzer(nextConfig);
 }
 nextConfig = withPWA(nextConfig);
 
-module.exports = nextConfig;
+export default nextConfig;

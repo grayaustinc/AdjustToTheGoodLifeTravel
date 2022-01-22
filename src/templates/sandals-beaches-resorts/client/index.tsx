@@ -59,7 +59,7 @@ const SandalsPage: NextComponentType<any, any, any> = (p) => {
             </p>
           </Col>
         </Row>
-        <h1 className="text-center mt-5 mb-2">Sandals Referral Links</h1>
+        <h1 className="text-center mt-5 mb-2">Sandals Referral</h1>
         <Row className="g-0">
           <Col className={styles["referral"]}>
             <Link href="http://www.sandals.com/?referral=104018&agentid=STGR2506" passHref>
