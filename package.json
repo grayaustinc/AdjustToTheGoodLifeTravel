@@ -7,12 +7,11 @@
   "scripts": {
     "dev": "env-cmd -e keys next dev -p 8872",
     "license": "npx license-checker --summary",
-    "dev-build": "env-cmd -e keys next build && next-sitemap --config next-sitemap.config.js",
+    "dev-build": "env-cmd -e keys next build",
     "dev-analyze-build": "env-cmd -e keys,analyze next build",
-    "build": "next build && next-sitemap --config next-sitemap.config.js",
     "dev-start": "env-cmd -e keys next start -p 8872",
+    "build": "next build",
     "start": "next start",
-    "docker-build": "env-cmd -e keys node docker-build.js",
     "lint": "next lint"
   },
   "author": "Austin C. Gray",

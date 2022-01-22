@@ -2,14 +2,11 @@
 import crateGetStaticHandler from "libs/get-static-props";
 import ErrorWrapperMiddleware from "libs/middleware/ssg/error-wrapper";
 
-//helpers
-import type { PageProps } from "../types";
-
-const handler = crateGetStaticHandler<PageProps>();
+const handler = crateGetStaticHandler();
 
 handler.use(ErrorWrapperMiddleware);
 
-export const getStaticProps = handler.run(async (_) => {
+export const getStaticProps = handler.run(async (context) => {
   return {
     props: {},
   };

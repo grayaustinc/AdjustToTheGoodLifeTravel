@@ -1,5 +1,6 @@
-import { AppProps, NextWebVitalsMetric } from "next/app";
+import { AppContext, AppProps, NextWebVitalsMetric } from "next/app";
 import { useEffectOnce } from "react-use";
+import App from "next/app";
 import Head from "next/head";
 
 //components
