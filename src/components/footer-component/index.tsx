@@ -7,15 +7,15 @@ import style from "./footer.module.scss";
 
 const linkData = [
   {
-    href: "/blogs/",
+    href: "/blogs",
     text: "Blog",
   },
   {
-    href: "/testimonials/",
+    href: "/testimonials",
     text: "Testimonials",
   },
   {
-    href: "/faq/",
+    href: "/faq",
     text: "FAQ",
   },
 ];
@@ -29,10 +29,10 @@ const socialData = [
     href: "https://www.instagram.com/adjusttothegoodlifetravel/",
     text: "Instagram",
   },
-  {
-    href: "/#", //TODO get pinterest href
-    text: "Pinterest",
-  },
+  // {
+  //   href: "/#", //TODO get pinterest href
+  //   text: "Pinterest",
+  // },
 ];
 
 const contactData = [
@@ -45,7 +45,7 @@ const contactData = [
     text: "Email Travel Agent",
   },
   {
-    href: "/contact/",
+    href: "/contact",
     text: "Contact Page",
   },
 ];
@@ -98,7 +98,7 @@ const FooterComponent: FunctionComponent = () => {
               <Card.Body className="text-center">
                 <Card.Title className={style["heading"]}>Agent Portal</Card.Title>
                 <div className={style["link-wrapper"]}>
-                  <Link href="/admin/login/" passHref>
+                  <Link href="/admin/login" passHref>
                     <a className={style["link"]} rel="nofollow noindex">
                       Agent Login
                     </a>
@@ -112,7 +112,7 @@ const FooterComponent: FunctionComponent = () => {
       <div className={`${style["f-2"]} text-center`}>
         <span>
           © 2013 Adjust to the Good Life Travel • Independent Agent of{" "}
-          <Link href="https://www.travelathome.com/" passHref>
+          <Link href="https://www.travelathome.com" passHref>
             <a className={style["special-link"]} rel="noopener nofollow" target="_blank">
               Dugan’s Travels
             </a>

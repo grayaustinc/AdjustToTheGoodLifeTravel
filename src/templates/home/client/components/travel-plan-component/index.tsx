@@ -7,9 +7,6 @@ import image2 from "src/images/489ed5fcc1a16101dbbc7757ad75b945.png";
 import image3 from "src/images/baa0727900308633b333db5ad820bc56.png";
 import image4 from "src/images/d9aa28303e629eb1d172dc829b68caff.png";
 
-//style
-import style from "../../styles/home.module.scss";
-
 const data = [
   {
     title: "Let's chat!",
@@ -49,7 +46,6 @@ const sizes = getBootstrapSizes(384, 384, 384, 384, 256, 256);
 
 const TravelPlanComponent: FunctionComponent = () => {
   return (
-    // <div className={style["bg"]}>
     <Container className="my-5">
       <h1 className="text-center">TRAVEL PLANNING</h1>
       <Row>
@@ -70,7 +66,6 @@ const TravelPlanComponent: FunctionComponent = () => {
         })}
       </Row>
     </Container>
-    // </div>
   );
 };
 

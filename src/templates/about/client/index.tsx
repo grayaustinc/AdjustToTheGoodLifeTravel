@@ -14,7 +14,8 @@ import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 import HeaderComponent from "src/components/header-component";
 import FooterComponent from "src/components/footer-component";
 import MapComponent from "src/components/map-component";
-import Parallax from "src/components/react-parallax-component";
+import ParallaxComponent from "src/components/parallax-component";
+import ParallaxHeaderComponent from "src/components/parallax-header-component";
 
 //locals
 import LocationsCarouselComponent from "./components/locations-carousel-component";
@@ -25,32 +26,27 @@ import style from "./tc.module.scss";
 
 //images
 import stacy from "src/images/9e528c4d2bebc8f4e28a959be207953c.png";
-import parallax1 from "src/images/034a26112ead212bfa4442bfc89c3267.png";
+import haley from "src/images/f7091e063ae7ef9ef00e1d938eb4587a.png";
+import parallax1 from "src/images/d40aaf23ea6975f9fd137914e53aeaef.png";
 
 const sizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
 
-//TODO change image to haley
+//TODO modify bio of both
 
 const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
   return (
     <>
       <MetaComponent />
       <HeaderComponent />
-      <Parallax bgImage={parallax1} bgImageAlt="Parallax Background Image" strength={-200}>
-        <Container className="my-5">
-          <Row className="g-0 justify-content-center" style={{ minHeight: "596px" }}>
-            <Col className="my-auto d-flex justify-content-center">
-              <h1 className={style["hh"]}>Learn About Us!</h1>
-            </Col>
-          </Row>
-        </Container>
-      </Parallax>
+      <ParallaxComponent bgImage={parallax1} bgImageAlt="Parallax Background Image" quality={60} strength={-200} priority>
+        <ParallaxHeaderComponent>Learn About Us!</ParallaxHeaderComponent>
+      </ParallaxComponent>
       <div className={style["bg"]}>
         <Container className="my-2">
           <Row className="my-5">
             <Col md={4} className="my-auto text-center">
               <Card.Body className={style["image-container"]}>
-                <NextImage src={stacy} sizes={sizes} quality={75} objectFit="contain" />
+                <NextImage src={stacy} sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
               </Card.Body>
             </Col>
             <Col md={8}>
@@ -73,7 +69,7 @@ const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
           <Row className="my-5">
             <Col md={{ span: 4, order: "last" }} className="my-auto text-center">
               <Card.Body className={style["image-container"]}>
-                <NextImage src={stacy} sizes={sizes} quality={75} objectFit="contain" />
+                <NextImage src={haley} sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
               </Card.Body>
             </Col>
             <Col md={{ span: 8, order: "first" }}>

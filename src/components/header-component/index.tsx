@@ -85,12 +85,12 @@ interface NavSocialInterface {
   href: string;
 }
 
-type SocialsType = "Facebook" | "Instagram" | "Pinterest";
+type SocialsType = "Facebook" | "Instagram";
 
 const socials: { [key in SocialsType]: NavSocialInterface } = {
   Facebook: { name: "Facebook", icon: faFacebook, color: "#4267B2", href: "https://www.facebook.com/AdjusttotheGoodLifeTravel/" },
   Instagram: { name: "Instagram", icon: faInstagram, color: "#DD2A7B", href: "https://www.instagram.com/adjusttothegoodlifetravel/" },
-  Pinterest: { name: "Pinterest", icon: faPinterest, color: "#E60023", href: "/#" }, //TODO get pinterest href
+  // Pinterest: { name: "Pinterest", icon: faPinterest, color: "#E60023", href: "/#" }, //TODO get pinterest href
 };
 
 const HeaderComponent: FunctionComponent = () => {
@@ -103,19 +103,20 @@ const HeaderComponent: FunctionComponent = () => {
     <>
       <Container className={style["container"]} fluid>
         <Row className="g-0">
-          <Col lg={3} className="m-2 m-md-auto text-center">
-            <h5 className={style["ff-satisfy"]}>RALEIGH, NC • EST. 2013</h5>
+          <Col lg={3} className="text-center">
+            {/* <div className={`${style["est"]} h5`}>RALEIGH, NC • EST. 2013</div> */}
+            {/* <h5 className={style["ff-sans"]}>RALEIGH, NC • EST. 2013</h5> */}
           </Col>
-          <Col lg={6} className="text-center">
-            <div className={style["logo"]}>
-              <Link href="/" passHref={true}>
-                <a>
-                  <NextImage src={logo} alt="Adjust to the Good Life Travel Logo" width="675.828125px" height="256px" unoptimized />
-                </a>
-              </Link>
-            </div>
+          <Col lg={6} className="m-2 text-center">
+            <Link href="/" passHref={true}>
+              <a className={style["logo"]}>
+                <NextImage src={logo} alt="Adjust to the Good Life Travel Logo" width="675.828125px" height="256px" unoptimized />
+              </a>
+            </Link>
           </Col>
-          <Col lg={3}></Col>
+          <Col lg={3} className="text-center">
+            {/* <div className={`${style["est"]} h5`}>RALEIGH, NC • EST. 2013</div> */}
+          </Col>
         </Row>
       </Container>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
@@ -137,7 +138,7 @@ const HeaderComponent: FunctionComponent = () => {
           <Nav className={`${style["ff-lato"]} ms-auto`}>
             <NavHeaderSocialComponent {...socials.Facebook} />
             <NavHeaderSocialComponent {...socials.Instagram} />
-            <NavHeaderSocialComponent {...socials.Pinterest} />
+            {/* <NavHeaderSocialComponent {...socials.Pinterest} /> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -162,7 +163,7 @@ const HeaderComponent: FunctionComponent = () => {
             <Row className={style["ff-lato"]}>
               <NavCanvasSocialComponent {...socials.Facebook} />
               <NavCanvasSocialComponent {...socials.Instagram} />
-              <NavCanvasSocialComponent {...socials.Pinterest} />
+              {/* <NavCanvasSocialComponent {...socials.Pinterest} /> */}
             </Row>
           </Container>
         </Offcanvas.Body>

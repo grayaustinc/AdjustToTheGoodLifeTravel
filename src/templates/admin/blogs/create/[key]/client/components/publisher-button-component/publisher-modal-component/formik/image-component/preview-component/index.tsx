@@ -1,7 +1,6 @@
 //node_modules
 import React, { FunctionComponent } from "react";
 import NextImage from "next/image";
-import urlJoin from "url-join";
 
 //helpers
 import isUnoptimized from "libs/helper/get-is-unoptimized";

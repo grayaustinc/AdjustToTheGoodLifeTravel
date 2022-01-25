@@ -13,7 +13,7 @@ const { NEXT_PUBLIC_WEBSITE_DOMAIN } = publicRuntimeConfig;
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = [
     {
-      loc: new URL("", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: new URL("/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
       changefreq: "monthly",
     },
     {

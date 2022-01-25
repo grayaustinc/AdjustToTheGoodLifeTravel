@@ -4,7 +4,7 @@ import { Tooltip, Nav, Overlay } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faLinkedin, faPinterest, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import urljoin from "url-join";
+import urljoin from "proper-url-join";
 import clipboardy from "clipboardy";
 
 //helpers
@@ -30,7 +30,7 @@ const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, descri
 
   const src = getImageAbsoluteUrl(image, 1200);
   const e_src = src ? encodeURIComponent(src) : null;
-  const url = getWebsiteUrl("/blog/", slug, "/");
+  const url = getWebsiteUrl(`/blog/${slug}/`);
   const e_url = encodeURIComponent(url);
   const e_desc = encodeURIComponent(description);
 

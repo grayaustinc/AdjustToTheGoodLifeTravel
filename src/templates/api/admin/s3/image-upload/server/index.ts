@@ -1,6 +1,6 @@
 //node_modules
 import { nanoid } from "nanoid";
-import urlJoin from "url-join";
+import urlJoin from "proper-url-join";
 
 import s3 from "libs/s3";
 import nextConnectHandler from "libs/errors/next-connect-handler";

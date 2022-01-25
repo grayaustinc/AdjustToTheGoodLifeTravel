@@ -1,16 +1,14 @@
-import React, { FunctionComponent, useCallback, useRef, useState } from "react";
-import { Container, Row, Col, Button, Carousel, ButtonGroup } from "react-bootstrap";
+import React, { FunctionComponent, useCallback, useEffect, useRef } from "react";
+import { Button, Carousel, ButtonGroup } from "react-bootstrap";
 import Link from "next/link";
 import type { TestimonialDocumentData } from "libs/arangodb/collections/testimonials";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import type { CarouselRef } from "react-bootstrap/esm/Carousel";
 
-import StarRatigComponent from "src/components/star-rating-component";
+import StarRatingComponent from "src/components/star-rating-component";
 
-import { trimText } from "libs/helper/text-trim";
-
-import style from "./tc.module.scss";
+import style from "./testimonial.module.scss";
 
 interface TestimonialCarouselProps {
   testimonials: TestimonialDocumentData[];
@@ -31,8 +29,8 @@ const TestimonialCarouselComponent: FunctionComponent<TestimonialCarouselProps> 
             <div className={style["item"]}>
               <h2 className="h3 mt-3">{testimonial.title}</h2>
               <h3 className="h5">{testimonial.locations}</h3>
-              <StarRatigComponent rating={testimonial.rating} />
-              <div>{trimText(testimonial.description, 0, 300, 360, "...")}</div>
+              <StarRatingComponent rating={testimonial.rating} />
+              <div>{testimonial.description}</div>
               <div>— {testimonial.reviewer}</div>
             </div>
           </Carousel.Item>

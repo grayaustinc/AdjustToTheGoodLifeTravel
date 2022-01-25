@@ -2,14 +2,6 @@
   min-height: 596px;
 }
 
-.parallax-text {
-  color: white;
-  font-family: "DM Sans", sans-serif;
-  font-size: 3em;
-  text-align: center;
-  text-shadow: 2px 2px black;
-}
-
 .rounded {
   background-color: white;
   border: 1px solid black !important;
@@ -22,10 +14,4 @@
 
 .card {
   width: 18em;
-}
-
-@media (max-width: 576px) {
-  .parallax-text {
-    font-size: 2.5em;
-  }
 }

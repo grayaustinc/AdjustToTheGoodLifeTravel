@@ -63,7 +63,7 @@ const SlugComponent: FunctionComponent<SlugFormikProps> = ({ blog, formik }) => 
       <div className="mb-2">
         <small>
           <b>Preview: </b>
-          <span>{getWebsiteUrl("/blog/", slug)}</span>
+          <span>{getWebsiteUrl(`/blog/${slug}/`)}</span>
         </small>
       </div>
       <FormGroup>

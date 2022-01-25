@@ -10,7 +10,8 @@ import HeaderComponent from "src/components/header-component";
 import FooterComponent from "src/components/footer-component";
 
 //components
-import ParallaxComponent from "src/components/react-parallax-component";
+import ParallaxComponent from "src/components/parallax-component";
+import ParallaxHeaderComponent from "src/components/parallax-header-component";
 
 //meta
 import MetaComponent from "./meta";
@@ -37,13 +38,7 @@ const SandalsPage: NextComponentType<any, any, any> = (p) => {
       <MetaComponent />
       <HeaderComponent />
       <ParallaxComponent bgImage={parallax} bgImageAlt="Sandals Resort" strength={-200} quality={80} priority>
-        <Container className="my-5">
-          <Row className={`g-0 justify-content-center ${styles["parallax-row"]}`}>
-            <Col className="my-auto d-flex justify-content-center">
-              <h1 className={styles["parallax-text"]}>Sandals and Beaches Resorts</h1>
-            </Col>
-          </Row>
-        </Container>
+        <ParallaxHeaderComponent>Sandals and Beaches Resorts</ParallaxHeaderComponent>
       </ParallaxComponent>
       <Container>
         <h1 className="text-center my-5">Preferred Agency for Sandals and Beaches Resorts</h1>

@@ -1,6 +1,8 @@
 {
   "name": "adjust-to-the-good-life-travel",
   "version": "1.0.0",
+  "author": "Austin C. Gray",
+  "license": "UNLICENSED",
   "private": true,
   "type": "commonjs",
   "description": "",
@@ -14,8 +16,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "author": "Austin C. Gray",
-  "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -39,7 +39,6 @@
     "metascraper-image": "^5.25.2",
     "metascraper-title": "^5.25.2",
     "metascraper-url": "^5.25.2",
-    "mjml": "^4.6.3",
     "nanoid": "^3.1.30",
     "next": "^12.0.8",
     "next-connect": "^0.11.0",
@@ -50,6 +49,7 @@
     "object-sizeof": "^1.6.1",
     "phone": "^3.1.10",
     "pretty-bytes": "^5.6.0",
+    "proper-url-join": "^2.1.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
     "react-dom": "^17.0.2",
@@ -63,8 +63,6 @@
     "rss": "^1.2.2",
     "sharp": "^0.29.3",
     "slugify": "^1.6.4",
-    "string-strip-html": "^9.1.5",
-    "url-join": "^4.0.1",
     "webpack": "^5.67.0",
     "winston": "^3.4.0",
     "yup": "^0.32.11"
@@ -80,14 +78,14 @@
     "@types/mjml": "^4.7.0",
     "@types/node": "^17.0.8",
     "@types/nodemailer": "^6.4.4",
+    "@types/proper-url-join": "^2.1.1",
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",
     "@types/react-simple-maps": "^1.0.7",
     "@types/rss": "^0.0.29",
-    "@types/url-join": "^4.0.1",
     "eslint": "^8.2.0",
     "license-webpack-plugin": "^4.0.0",
-    "next-sitemap": "^1.6.203",
+    "next-sitemap": "^2.0.2",
     "sass": "^1.43.4",
     "typescript": "^4.5.2"
   }

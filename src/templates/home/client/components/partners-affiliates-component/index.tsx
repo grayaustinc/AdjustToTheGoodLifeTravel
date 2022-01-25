@@ -19,6 +19,7 @@ import image10 from "src/images/ae7c61ef659259bdf678cdbc10d147df.png";
 import style from "../../styles/home.module.scss";
 
 const images = [
+  { alt: "Sandals Logo", src: image10, quality: 10 },
   { alt: "Askan Agent Logo", src: image1, quality: 25 },
   { alt: "Carnival Logo", src: image2, quality: 75 },
   { alt: "Cruise Line International Association Logo", src: image3, quality: 22 },
@@ -28,7 +29,6 @@ const images = [
   { alt: "International Airlines Travel Agent Network Logo", src: image7, quality: 20 },
   { alt: "Master Agent Logo", src: image8, quality: 85 },
   { alt: "Now Resorts & Spas Logo", src: image9, quality: 75 },
-  { alt: "Sandals Logo", src: image10, quality: 10 },
 ];
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";

@@ -44,8 +44,8 @@ const serverRuntimeConfig = envalid.cleanEnv(process.env, {
  * @type {import('./runtime-config').PublicRuntimeConfig}
  */
 const publicRuntimeConfig = envalid.cleanEnv(process.env, {
-  NEXT_PUBLIC_WEBSITE_DOMAIN: envalid.host(),
-  NEXT_PUBLIC_STATIC_DOMAIN: envalid.host(),
+  NEXT_PUBLIC_WEBSITE_DOMAIN: envalid.str(),
+  NEXT_PUBLIC_STATIC_DOMAIN: envalid.str(),
 });
 
 /**

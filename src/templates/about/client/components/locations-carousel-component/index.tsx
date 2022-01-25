@@ -58,9 +58,6 @@ const LocationsCarouselComponent: FunctionComponent<LocationsCarouselProps> = ({
             <FontAwesomeIcon icon={faBackward} />
             <span className="ms-2">Prev</span>
           </Button>
-          {/* <Link href="/testimonials/" passHref>
-            <Button variant="outline-success">Read More Reviews</Button>
-          </Link> */}
           <Button variant="outline-dark" onClick={gotoNext}>
             <span className="me-2">Next</span>
             <FontAwesomeIcon icon={faForward} />

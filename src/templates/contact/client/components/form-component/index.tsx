@@ -4,6 +4,7 @@ import React, { FunctionComponent, ChangeEvent, useState, useCallback } from "re
 import { Form, FloatingLabel, Row, Col, Card } from "react-bootstrap";
 import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRouter } from "next/router";
 import { phone } from "phone";
 
 //alerts
@@ -26,7 +27,8 @@ const initialValues: ContactSchemaType = {
   message: "",
 };
 
-const FormComponent: FunctionComponent = (props) => {
+const FormComponent: FunctionComponent = () => {
+  const router = useRouter();
   const makeAlert = useMakeAlert();
   const [submitting, setSubmitting] = useState(false);
   const [code, setCode] = useState("USA");
@@ -36,8 +38,7 @@ const FormComponent: FunctionComponent = (props) => {
     try {
       const response = await createContact(values);
       if (response.ok) {
-        setSubmitting(false);
-        window.alert("Contact information has been received!");
+        router.push("/contact/complete/");
       } else {
         setSubmitting(false);
         makeAlert(`Failed to submit: ${response.message}`);

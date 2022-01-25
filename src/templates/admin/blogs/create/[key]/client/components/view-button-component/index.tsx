@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React, { FunctionComponent, useCallback } from "react";
 import { Button } from "react-bootstrap";
-import urlJoin from "url-join";
 
 //config
 import getConfig from "next/config";
