@@ -18,6 +18,10 @@ import FooterComponent from "src/components/footer-component";
 import FormComponent from "./components/form-component";
 import MetaComponent from "./meta";
 
+import styles from "./contact.module.scss";
+
+//TODO update p text to something better? DM Sans?
+
 const ContactPage: NextComponentType<any, any, any> = (p) => {
   return (
     <>
@@ -26,7 +30,7 @@ const ContactPage: NextComponentType<any, any, any> = (p) => {
       <div className="mt-3 mb-auto">
         <Container className="my-3">
           <h1 className="text-center my-3" /*//TODO change text here as it is copied */>TELL US WHAT YOU ENVISION FOR YOUR TRAVEL EXPERIENCE</h1>
-          <p className="text-center mb-5">The more information we have, the better we can match you with the right advisor and ensure a successful experience.</p>
+          <p className={`text-center mb-5 ${styles["p"]}`}>The more information we have, the better we can match you with the right advisor and ensure a successful experience.</p>
           <Row className="text-center g-0">
             <Col md={6} className="d-grid gap-2 border border-1 p-0">
               <Button variant="light" href="tel:+1-919-810-3743">

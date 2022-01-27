@@ -11,7 +11,7 @@ function getImageSrc(image?: ImageType | null) {
     default:
       return null;
     case "STATIC":
-      return getStaticUrl(image.src);
+      return getStaticUrl(image.src, false);
     case "EXTERNAL":
       return image.src;
   }

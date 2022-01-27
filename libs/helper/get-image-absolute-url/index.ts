@@ -12,7 +12,7 @@ function getImageAbsoluteUrl(image: ImageType | null | undefined, width: ImageWi
     default:
       return null;
     case "STATIC":
-      return getImageLoaderSrc(getStaticUrl(image.src), width, quality);
+      return getImageLoaderSrc(getStaticUrl(image.src, false), width, quality);
     case "EXTERNAL":
       return image.src;
   }

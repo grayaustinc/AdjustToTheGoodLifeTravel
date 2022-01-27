@@ -107,13 +107,11 @@ const HeaderComponent: FunctionComponent = () => {
             {/* <div className={`${style["est"]} h5`}>RALEIGH, NC • EST. 2013</div> */}
             {/* <h5 className={style["ff-sans"]}>RALEIGH, NC • EST. 2013</h5> */}
           </Col>
-          <Col lg={6} className="m-2 text-center">
-            <Link href="/" passHref={true}>
-              <a className={style["logo"]}>
-                <NextImage src={logo} alt="Adjust to the Good Life Travel Logo" width="675.828125px" height="256px" unoptimized />
-              </a>
-            </Link>
-          </Col>
+          <Link href="/" passHref={true}>
+            <Col as="a" lg={6} className={`m-2 text-center ${style["logo"]}`}>
+              <NextImage src={logo} alt="Adjust to the Good Life Travel Logo" width="675.828125px" height="256px" unoptimized />
+            </Col>
+          </Link>
           <Col lg={3} className="text-center">
             {/* <div className={`${style["est"]} h5`}>RALEIGH, NC • EST. 2013</div> */}
           </Col>

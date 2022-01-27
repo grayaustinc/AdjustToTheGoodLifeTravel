@@ -1,8 +1,9 @@
 //node_modules
 import React, { useCallback, useState, FunctionComponent } from "react";
 import { useRouter } from "next/router";
-import { Button, Navbar, Spinner } from "react-bootstrap";
-import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import { Button, Navbar } from "react-bootstrap";
+import { faBars, faHome, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //components
@@ -48,6 +49,12 @@ const AdminMainComponent: FunctionComponent<AdminMainProps> = ({ toggle, onToggl
           <FontAwesomeIcon icon={faBars} />
         </Button>
         <div className="mx-auto" />
+        <Link href="/" passHref>
+          <Button variant="outline-success">
+            <span className="me-2">Home</span>
+            <FontAwesomeIcon icon={faHome} />
+          </Button>
+        </Link>
         <SubmitButton variant="outline-danger" className="m-2" submitting={submitting} onClick={sendLogout}>
           <span className="me-2">Logout</span>
           <FontAwesomeIcon icon={faSignOutAlt} />

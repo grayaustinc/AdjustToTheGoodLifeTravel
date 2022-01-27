@@ -38,7 +38,7 @@ const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
     <>
       <MetaComponent />
       <HeaderComponent />
-      <ParallaxComponent bgImage={parallax1} bgImageAlt="Parallax Background Image" quality={60} strength={-200} priority>
+      <ParallaxComponent bgImage={parallax1} bgImageAlt="Parallax Background Image" quality={60} strength={-250} priority>
         <ParallaxHeaderComponent>Learn About Us!</ParallaxHeaderComponent>
       </ParallaxComponent>
       <div className={style["bg"]}>

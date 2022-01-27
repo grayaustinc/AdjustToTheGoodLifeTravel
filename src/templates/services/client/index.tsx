@@ -27,7 +27,7 @@ const ServicesPage: NextComponentType<any, any, any> = () => {
       <MetaComponent />
       <HeaderComponent />
       <ParallaxComponent bgImage={parallax1} bgImageAlt="Parallax Image" strength={-200} priority>
-        <ParallaxHeaderComponent>Services We Provide</ParallaxHeaderComponent>
+        <ParallaxHeaderComponent size="sm">Services We Provide</ParallaxHeaderComponent>
       </ParallaxComponent>
       <Container className="my-5">
         {/* <h1 className="text-center mb-4">Services We Provide</h1> */}

@@ -1,6 +1,9 @@
 //node_modules
 import bcrypt from "bcrypt";
 
+//logger
+import logger from "libs/logger";
+
 //libs
 import getSession from "libs/session";
 import { AuthenticationError, SessionError } from "libs/errors";
@@ -28,6 +31,7 @@ handler.post(async (req, res) => {
       const user = await updatePassword(session.user, password);
       session.user = user;
       await session.commit();
+      logger.log("info", `User "${user.username}" changed password`);
       return res.status(200).json({ ok: true, user: user });
     }
     throw new AuthenticationError("Old password does not match current password");

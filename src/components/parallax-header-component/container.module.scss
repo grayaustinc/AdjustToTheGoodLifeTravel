@@ -1,4 +1,8 @@
-.row {
+.height-sm {
+  min-height: 398px;
+}
+
+.height-md {
   min-height: 596px;
 }
 
@@ -10,8 +14,11 @@
   text-shadow: 2px 2px black;
 }
 
-@media (max-width: 768px) {
-  .row {
+@media (max-width: 992px) {
+  .height-sm {
+    min-height: 298px;
+  }
+  .height-md {
     min-height: 447px;
   }
   .text {
@@ -20,10 +27,13 @@
 }
 
 @media (max-width: 576px) {
-  .row {
-    min-height: 298px;
+  .height-sm {
+    min-height: 200px;
   }
 
+  .height-md {
+    min-height: 298px;
+  }
   .text {
     font-size: 2.3em;
   }

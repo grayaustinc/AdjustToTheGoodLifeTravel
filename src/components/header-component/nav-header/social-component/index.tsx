@@ -14,7 +14,7 @@ interface NavSocialInterface {
 const NavHeaderSocialComponent: FunctionComponent<NavSocialInterface> = ({ href, icon, color, name }) => {
   return (
     <Link href={href} passHref>
-      <Nav.Link className="d-flex" rel="noopener nofollow">
+      <Nav.Link className="d-flex" rel="noopener nofollow" target="_blank">
         <FontAwesomeIcon icon={icon} color={color} size="2x" />
         <span className="mx-1 my-auto">{name}</span>
       </Nav.Link>
