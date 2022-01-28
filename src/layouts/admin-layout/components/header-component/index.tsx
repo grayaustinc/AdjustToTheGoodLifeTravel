@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMedia } from "react-use";
 
 import responsive from "./responsive.module.scss";
-import styles from "../../styles/admin.module.scss";
+import styles from "src/styles/admin-layout/index.module.scss";
 
 interface AdminHeaderProps {
   toggle: boolean;

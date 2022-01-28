@@ -1,8 +1,10 @@
 import React, { FunctionComponent, useState } from "react";
 
-import styles from "./styles/admin.module.scss";
 import AdminHeaderComponent from "./components/header-component";
 import AdminMainComponent from "./components/main-component";
+
+import styles from "src/styles/admin-layout/index.module.scss";
+import "src/styles/global/pro-sidebar/index.scss";
 
 const AdminLayout: FunctionComponent = ({ children }) => {
   const [toggle, setToggle] = useState<boolean>(false);

@@ -2,6 +2,7 @@
 
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const CAN_ANALYZE = process.env.ANALYZE === "true";
+import { patchWebpackConfig } from "next-global-css";
 import { LicenseWebpackPlugin } from "license-webpack-plugin";
 import withPWA from "next-pwa";
 import bundleAnalyzer from "@next/bundle-analyzer";
@@ -186,6 +187,7 @@ const defaultConfig = {
   excludeDefaultMomentLocales: true,
 
   webpack(config, { dev, isServer }) {
+    patchWebpackConfig(config, { isServer });
     if (isServer) return config;
     if (!dev && !isServer) {
       config.plugins?.push(createLicenseWebpackPlugin());

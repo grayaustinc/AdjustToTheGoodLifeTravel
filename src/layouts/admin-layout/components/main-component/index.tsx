@@ -13,7 +13,7 @@ import SubmitButton from "src/components/submit-button";
 import logoutFetch from "src/templates/api/admin/logout/client";
 
 //styles
-import styles from "../../styles/admin.module.scss";
+import styles from "src/styles/admin-layout/index.module.scss";
 
 interface AdminMainProps {
   toggle: boolean;

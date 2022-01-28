@@ -7,7 +7,7 @@ import Head from "next/head";
 import LoadingBarComponent from "src/components/loading-bar-component";
 
 //styles
-import "src/scss/styles.scss";
+import "src/styles/global/app/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //secret
