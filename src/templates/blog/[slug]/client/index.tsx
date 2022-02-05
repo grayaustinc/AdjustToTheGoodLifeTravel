@@ -47,8 +47,8 @@ const BlogPage: NextComponentType<any, any, PageProps> = ({ blog, recommendation
           </small>
         </div>
         <BlogRenderComponent editorState={editorState} setEditorState={() => {}} />
-        <ShareLinksComponent title={blog.title} description={blog.description} slug={blog.slug} image={blog.image} />
       </BlogContainerComponent>
+      <ShareLinksComponent title={blog.title} description={blog.description} slug={blog.slug} image={blog.image} />
       <RecommendationBlogsComponent recommendations={recommendations} />
       <div className="my-auto" />
       <FooterComponent />

@@ -15,7 +15,7 @@ const NavCanvasSocialComponent: FunctionComponent<NavSocialInterface> = ({ name,
   return (
     <Col xs={4} className="my-3">
       <Link href={href} passHref>
-        <Nav.Link className="p-0 text-center text-secondary" rel="noopener nofollow">
+        <Nav.Link className="p-0 text-center text-muted" rel="noopener nofollow">
           <FontAwesomeIcon icon={icon} color={color} size="2x" />
           <div>{name}</div>
         </Nav.Link>

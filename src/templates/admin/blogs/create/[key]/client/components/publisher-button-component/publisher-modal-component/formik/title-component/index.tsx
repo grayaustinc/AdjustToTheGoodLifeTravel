@@ -27,7 +27,7 @@ const TitleComponent: FunctionComponent<TitleFormikProps> = ({ formik, draft }) 
   const currentLength = useMemo(() => title.length, [title]);
 
   const autofill = useCallback(() => {
-    const newTitle = createTitleFromDraft(draft);
+    const newTitle = createTitleFromDraft(draft).trim();
     formik.setFieldValue("title", newTitle, true);
   }, [draft, formik]);
 

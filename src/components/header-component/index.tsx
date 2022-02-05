@@ -145,8 +145,8 @@ const HeaderComponent: FunctionComponent = () => {
           <Offcanvas.Title className={style["oc-title"]}>Adjust to the Good Life Travel</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Container fluid>
-            <Row className={`${style["ff-lato"]} justify-content-center`}>
+          <Container className={style["ff-lato"]} fluid>
+            <Row className="justify-content-center">
               <NavCanvasLinkComponent {...navigation.Home} />
               <NavCanvasLinkComponent {...navigation.AboutUs} />
               <NavCanvasLinkComponent {...navigation.Testimonials} />
@@ -158,7 +158,7 @@ const HeaderComponent: FunctionComponent = () => {
               <NavCanvasLinkComponent {...navigation.Press} />
             </Row>
             <hr />
-            <Row className={style["ff-lato"]}>
+            <Row>
               <NavCanvasSocialComponent {...socials.Facebook} />
               <NavCanvasSocialComponent {...socials.Instagram} />
               {/* <NavCanvasSocialComponent {...socials.Pinterest} /> */}

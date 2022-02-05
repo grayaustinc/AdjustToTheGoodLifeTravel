@@ -14,7 +14,7 @@ const NavCanvasLinkComponent: FunctionComponent<NavInterface> = ({ href, name, i
   return (
     <Col xs={4} className="my-3">
       <Link href={href} passHref>
-        <Nav.Link className="p-0 text-center text-secondary">
+        <Nav.Link className="p-0 text-center text-muted">
           <FontAwesomeIcon icon={icon} size="lg" />
           <div>{name}</div>
         </Nav.Link>

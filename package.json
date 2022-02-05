@@ -62,7 +62,7 @@
     "react-youtube": "^7.13.1",
     "reading-time": "^1.5.0",
     "rss": "^1.2.2",
-    "sharp": "^0.29.3",
+    "sharp": "^0.30.0",
     "slugify": "^1.6.4",
     "webpack": "^5.67.0",
     "winston": "^3.4.0",

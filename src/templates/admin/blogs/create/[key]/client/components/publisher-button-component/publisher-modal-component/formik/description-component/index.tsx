@@ -30,7 +30,7 @@ const DescriptionComponent: FunctionComponent<DescriptionFormikProps> = ({ formi
   const currentLength = useMemo(() => description.length, [description]);
 
   const autofill = useCallback(() => {
-    const newDescription = createDescriptionFromDraft(draft);
+    const newDescription = createDescriptionFromDraft(draft).trim();
     formik.setFieldValue("description", newDescription, true);
   }, [draft, formik]);
 
