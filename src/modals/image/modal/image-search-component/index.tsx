@@ -49,7 +49,7 @@ const ImageSearchComponent: FunctionComponent<ImageModalBodySrcProps> = ({ asset
     setLoading(true);
     getImageList({
       Bucket: "public",
-      Prefix: "/blog/images/",
+      Prefix: "/images/",
       StartAfter: undefined,
       MaxKeys: TOTAL_IMAGES_PER_PAGE,
       ContinuationToken: ContinuationToken,

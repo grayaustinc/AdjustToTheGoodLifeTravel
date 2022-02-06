@@ -21,10 +21,10 @@ handler.post(async (req, res) => {
 
   const buffer = Buffer.from(data.image.replace(/^data:image\/\w+;base64,/, ""), "base64");
   const filename = nanoid(30) + ".webp";
-  const objectName = urlJoin(data.objectPrefix || "", filename);
-  const staticRelativeUrl = urlJoin(data.bucketName, objectName);
+  const objectName = urlJoin(data.Prefix, filename);
+  const staticRelativeUrl = urlJoin(data.Bucket, objectName);
 
-  const info = await s3.putObject({ Bucket: data.bucketName, Key: objectName, Body: buffer, ContentType: "image/webp" }).promise();
+  const info = await s3.putObject({ Bucket: data.Bucket, Key: objectName, Body: buffer, ContentType: "image/webp" }).promise();
 
   return res.status(200).json({ ok: true, staticSrc: staticRelativeUrl, info: info });
 });

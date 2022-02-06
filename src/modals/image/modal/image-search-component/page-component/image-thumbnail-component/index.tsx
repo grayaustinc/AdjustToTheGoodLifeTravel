@@ -14,7 +14,7 @@ interface ImageModalBodySrcProps {
 }
 
 const ImageThumbnailComponent: FunctionComponent<ImageModalBodySrcProps> = ({ src, onClick }) => {
-  return <NextImage src={getStaticUrl(src)} sizes={sizes} width="100%" height="100%" quality={1} onClick={onClick} objectFit="contain" />;
+  return <NextImage src={getStaticUrl(src, false)} sizes={sizes} width="100%" height="100%" quality={1} onClick={onClick} objectFit="contain" />;
 };
 
 export default React.memo(ImageThumbnailComponent);

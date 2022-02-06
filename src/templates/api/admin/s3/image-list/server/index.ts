@@ -20,7 +20,7 @@ handler.post(async (req, res) => {
 
   if (result.Contents) {
     const data = result.Contents.reduce<string[]>((prev, item) => {
-      if (item.Key) prev.push(urlJoin(params.Bucket, item.Key, "/"));
+      if (item.Key) prev.push(urlJoin(params.Bucket, item.Key, { trailingSlash: false }));
       return prev;
     }, []);
     return res.status(200).json({ ok: true, data: data, ContinuationToken: result.NextContinuationToken });
