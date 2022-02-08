@@ -109,7 +109,7 @@ const HeaderComponent: FunctionComponent = () => {
           </Col>
           <Link href="/" passHref={true}>
             <Col as="a" lg={6} className={`m-2 text-center ${style["logo"]}`}>
-              <NextImage src={logo} alt="Adjust to the Good Life Travel Logo" width="675.828125px" height="256px" unoptimized />
+              <NextImage src={logo} alt="Adjust to the Good Life Travel Logo" width="675.828125px" height="256px" priority={true} unoptimized={true} />
             </Col>
           </Link>
           <Col lg={3} className="text-center">

@@ -18,10 +18,10 @@ interface BadResponse {
   message: string;
 }
 
-export type InferResponse<Response extends GoodResponse> = Response | BadResponse;
+export type InferResponse<T extends GoodResponse> = T | BadResponse;
 
-function handler<Response extends GoodResponse>() {
-  const handler = nextConnect<NextApiRequest, NextApiResponse<InferResponse<Response>>>({
+function handler<T extends GoodResponse>() {
+  const handler = nextConnect<NextApiRequest, NextApiResponse<InferResponse<T>>>({
     onError(error, _, res) {
       if (error instanceof NotFoundError) {
         return res.status(404).json({ ok: false, message: error.message });

@@ -1,5 +1,4 @@
 /node_modules
-.env-cmdrc.js
 .vscode
 .next
 .TODO
@@ -8,3 +7,4 @@ docker-compose.yml
 package-lock.json
 server-plan.TODO
 pricing.txt
+.env.local

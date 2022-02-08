@@ -10,7 +10,8 @@ function handler<T extends (...args: any[]) => any>(callback: T) {
       return callback(...args);
     } catch (error) {
       logger.log("error", error);
-      throw new DatabaseError("Database error occurred");
+      if (error instanceof Error) throw new DatabaseError("Database error occurred");
+      throw error;
     }
   };
 }

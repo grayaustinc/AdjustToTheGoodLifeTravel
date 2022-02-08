@@ -58,7 +58,7 @@ const defaultConfig = {
   },
 
   images: {
-    domains: ["127.0.0.1", "localhost", publicRuntimeConfig.NEXT_PUBLIC_WEBSITE_DOMAIN, publicRuntimeConfig.NEXT_PUBLIC_STATIC_DOMAIN],
+    domains: ["127.0.0.1", "localhost", publicRuntimeConfig.NEXT_PUBLIC_STATIC_DOMAIN],
   },
 
   eslint: {

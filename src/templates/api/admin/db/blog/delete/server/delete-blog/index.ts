@@ -15,7 +15,7 @@ async function deleteBlog(data: SchemaType) {
   const cursor = await database.query(aql`
     let a = (REMOVE ${data} IN ${blogCollection} RETURN OLD)
     let b = (FOR draft IN ${draftCollection} FILTER draft.blog_id == ${data._id} REMOVE draft IN ${draftCollection} RETURN OLD)
-    RETURN [a,b]
+    RETURN true
   `);
   if (cursor.hasNext) {
     return;

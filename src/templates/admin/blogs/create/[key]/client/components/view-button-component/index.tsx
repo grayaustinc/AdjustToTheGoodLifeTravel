@@ -5,10 +5,6 @@ import Link from "next/link";
 import React, { FunctionComponent, useCallback } from "react";
 import { Button } from "react-bootstrap";
 
-//config
-import getConfig from "next/config";
-const { publicRuntimeConfig } = getConfig();
-
 //types
 import type { BlogDocumentData } from "libs/arangodb/collections/blogs";
 

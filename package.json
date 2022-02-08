@@ -7,11 +7,11 @@
   "type": "commonjs",
   "description": "",
   "scripts": {
-    "dev": "env-cmd -e keys next dev -p 8872",
+    "dev": "next dev -p 8872",
     "license": "license-checker",
-    "dev-build": "env-cmd -e keys next build",
-    "dev-analyze-build": "env-cmd -e keys,analyze next build",
-    "dev-start": "env-cmd -e keys next start -p 8872",
+    "dev-build": "next build",
+    "dev-analyze-build": "cross-env ANALYZE=true next build",
+    "dev-start": "next start -p 8872",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

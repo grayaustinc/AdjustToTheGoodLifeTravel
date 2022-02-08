@@ -21,6 +21,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 const { serverRuntimeConfig } = getConfig();
 const { EMAIL_HOST, EMAIL_PORT, EMAIL_SECURE, EMAIL_TO, EMAIL_USERNAME, EMAIL_PASSWORD } = serverRuntimeConfig;
 
+process.env.EMAIL_HOST;
+
 const transporter = nodemailer.createTransport({
   host: EMAIL_HOST,
   port: EMAIL_PORT,
