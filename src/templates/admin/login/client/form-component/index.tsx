@@ -31,7 +31,7 @@ const AdminLoginPage: FunctionComponent = () => {
       try {
         const data = await loginFetch(values);
         if (data.ok) {
-          router.push("/admin/");
+          router.push("/admin/dashboard/");
         } else {
           setSubmitting(false);
           makeAlert(data.message);

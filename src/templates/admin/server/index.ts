@@ -2,17 +2,16 @@
 import createServerSideHandler from "libs/get-server-side-props";
 import LoginRedirectMiddleware from "libs/middleware/ssr/login-redirect";
 
-//types
-type PageProps = {};
+//router
+import router from "libs/ssr-router";
 
-const handler = createServerSideHandler<PageProps>();
+//paths
+import paths from "./paths";
+
+const handler = createServerSideHandler<any>();
 
 handler.use(LoginRedirectMiddleware);
 
-export const getServerSideProps = handler.run(async (_) => {
-  return {
-    props: {},
-  };
-});
+export const getServerSideProps = handler.run(router(paths));
 
 export default getServerSideProps;

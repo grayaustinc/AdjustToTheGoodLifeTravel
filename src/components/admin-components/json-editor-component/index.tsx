@@ -11,12 +11,10 @@ interface JsonEditorProps {
   name: string;
   json: any;
   href: string;
-  onDelete: (value: any) => void;
+  onDelete?: (value: any) => void;
 }
 
 const JsonEditorComponent: FunctionComponent<JsonEditorProps> = ({ name, json, href, onDelete }) => {
-  const onHandleDelete = useCallback(() => onDelete(json), [json, onDelete]);
-
   return (
     <Card.Body>
       <ReactJsonComponent name={name} src={json} collapsed={1} collapseStringsAfterLength={96} />
@@ -26,7 +24,7 @@ const JsonEditorComponent: FunctionComponent<JsonEditorProps> = ({ name, json, h
             Edit
           </Button>
         </Link>
-        <Button className="flex-grow-0 px-3" variant="danger" onClick={onHandleDelete}>
+        <Button className="flex-grow-0 px-3" variant="danger" onClick={() => onDelete?.(json)} disabled={!onDelete}>
           Delete
         </Button>
       </ButtonGroup>

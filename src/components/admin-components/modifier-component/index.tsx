@@ -13,7 +13,7 @@ interface ModifierProps<Value extends DocumentMetadata> {
   subtitle: string;
   getHref: (value: Value) => string;
   getHeader: (value: Value) => string;
-  onDelete: (value: Value) => void;
+  onDelete?: (value: Value) => void;
 }
 
 function createModifierComponent<DocumentType extends DocumentMetadata>() {

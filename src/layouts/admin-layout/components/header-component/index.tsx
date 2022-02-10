@@ -33,7 +33,7 @@ const AdminHeaderComponent: FunctionComponent<AdminHeaderProps> = ({ toggle, onT
       <SidebarContent>
         <Menu iconShape="circle">
           <MenuItem icon={<FontAwesomeIcon icon={faTachometerAlt} />}>
-            <Link href="/admin/">dashboard</Link>
+            <Link href="/admin/dashboard/">dashboard</Link>
           </MenuItem>
           <SubMenu title="Account" icon={<FontAwesomeIcon icon={faUser} />}>
             <MenuItem>
@@ -44,9 +44,9 @@ const AdminHeaderComponent: FunctionComponent<AdminHeaderProps> = ({ toggle, onT
             <MenuItem>
               <Link href="/admin/users/">View All</Link>
             </MenuItem>
-            <MenuItem>
+            {/* <MenuItem>
               <Link href="/admin/users/create/">Create New</Link>
-            </MenuItem>
+            </MenuItem> */}
           </SubMenu>
           <SubMenu title="Testimonials" icon={<FontAwesomeIcon icon={faPen} />}>
             <MenuItem>

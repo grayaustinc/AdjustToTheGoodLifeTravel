@@ -102,55 +102,55 @@ const defaultConfig = {
         destination: "/testimonials/1/",
       },
       {
-        //admin users
-        source: "/admin/users/",
-        destination: "/admin/users/view/1/",
+        //admin
+        source: "/admin/",
+        destination: "/admin/dashboard/",
       },
-      {
-        //admin users
-        source: "/admin/users/view/",
-        destination: "/admin/users/view/1/",
-      },
-      {
-        //admin mentions
-        source: "/admin/mentions/",
-        destination: "/admin/mentions/view/1/",
-      },
-      {
-        //admin mentions
-        source: "/admin/mentions/view/",
-        destination: "/admin/mentions/view/1/",
-      },
-      {
-        //admin blogs
-        source: "/admin/blogs/",
-        destination: "/admin/blogs/view/1/",
-      },
-      {
-        //admin blogs
-        source: "/admin/blogs/view/",
-        destination: "/admin/blogs/view/1/",
-      },
-      {
-        //admin locations
-        source: "/admin/locations/",
-        destination: "/admin/locations/view/1/",
-      },
-      {
-        //admin locations
-        source: "/admin/locations/view/",
-        destination: "/admin/locations/view/1/",
-      },
-      {
-        //admin testimonials
-        source: "/admin/testimonials/",
-        destination: "/admin/testimonials/view/1/",
-      },
-      {
-        //admin testimonials
-        source: "/admin/testimonials/view/",
-        destination: "/admin/testimonials/view/1/",
-      },
+      // {
+      //   //admin users
+      //   source: "/admin/users/view/",
+      //   destination: "/admin/users/view/1/",
+      // },
+      // {
+      //   //admin mentions
+      //   source: "/admin/mentions/",
+      //   destination: "/admin/mentions/view/1/",
+      // },
+      // {
+      //   //admin mentions
+      //   source: "/admin/mentions/view/",
+      //   destination: "/admin/mentions/view/1/",
+      // },
+      // {
+      //   //admin blogs
+      //   source: "/admin/blogs/",
+      //   destination: "/admin/blogs/view/1/",
+      // },
+      // {
+      //   //admin blogs
+      //   source: "/admin/blogs/view/",
+      //   destination: "/admin/blogs/view/1/",
+      // },
+      // {
+      //   //admin locations
+      //   source: "/admin/locations/",
+      //   destination: "/admin/locations/view/1/",
+      // },
+      // {
+      //   //admin locations
+      //   source: "/admin/locations/view/",
+      //   destination: "/admin/locations/view/1/",
+      // },
+      // {
+      //   //admin testimonials
+      //   source: "/admin/testimonials/",
+      //   destination: "/admin/testimonials/view/1/",
+      // },
+      // {
+      //   //admin testimonials
+      //   source: "/admin/testimonials/view/",
+      //   destination: "/admin/testimonials/view/1/",
+      // },
     ];
   },
 
