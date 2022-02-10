@@ -42,7 +42,6 @@ const UsersViewPage = dynamic(() => import("./pages/users/view"), { loading: Loa
 const NotFoundPage = dynamic(() => import("./pages/404"), { loading: LoadingComponent });
 
 const AdminPage: NextPage<{ location: string; notFound: boolean; props: any }> = ({ location, notFound, props }) => {
-  console.log(location, props);
   return (
     <>
       <Head>

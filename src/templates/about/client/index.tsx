@@ -2,6 +2,7 @@
 import React from "react";
 import { NextComponentType } from "next";
 import NextImage from "next/image";
+import dynamic from "next/dynamic";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 //pages
@@ -13,9 +14,11 @@ import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 //components
 import HeaderComponent from "src/components/header-component";
 import FooterComponent from "src/components/footer-component";
-import MapComponent from "src/components/map-component";
 import ParallaxComponent from "src/components/parallax-component";
 import ParallaxHeaderComponent from "src/components/parallax-header-component";
+
+//dynamic
+const MapComponent = dynamic(() => import("src/components/map-component"));
 
 //locals
 import LocationsCarouselComponent from "./components/locations-carousel-component";
