@@ -127,7 +127,7 @@ const defaultConfig = {
     mode: "production",
   },
 
-  compress: true,
+  compress: false,
   swcMinify: true,
   optimizeCss: true,
   optimizeImages: true,

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { ComposableMap, Geographies, Geography, Graticule, Marker } from "react-simple-maps";
 
 import geography from "./geography.json";
@@ -37,12 +38,14 @@ const MapComponent: FunctionComponent<MapProps> = ({ locations: markers, onClick
         }
       </Geographies>
       {markers.map(({ name, coordinates }, i) => (
-        <Marker key={name} coordinates={coordinates} onClick={() => onClick?.(i)}>
-          <circle r={5} className={markerStyle.marker} />
+        <Marker key={i} coordinates={coordinates} onClick={() => onClick?.(i)}>
+          <OverlayTrigger placement="top" overlay={<Tooltip>{name}</Tooltip>}>
+            <circle r={5} className={markerStyle.marker} />
+          </OverlayTrigger>
         </Marker>
       ))}
     </ComposableMap>
   );
 };
 
-export default MapComponent;
+export default React.memo(MapComponent);

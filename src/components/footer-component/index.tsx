@@ -52,7 +52,7 @@ const contactData = [
 
 const FooterComponent: FunctionComponent = () => {
   return (
-    <>
+    <footer>
       <div className={style["f-1"]}>
         <Container>
           <Row>
@@ -125,7 +125,7 @@ const FooterComponent: FunctionComponent = () => {
           </Link>
         </span>
       </div>
-    </>
+    </footer>
   );
 };
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import NextImage from "next/image";
 import { Navbar, Nav, Row, Col, Container, Offcanvas } from "react-bootstrap";
 import { faFacebook, faInstagram, faPinterest } from "@fortawesome/free-brands-svg-icons";
-import { faHome, faChild, faHotel, faIdCard, faConciergeBell, faQuestionCircle, faBlog, faNewspaper, IconDefinition, faPen } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUsers, faHotel, faIdCard, faConciergeBell, faQuestionCircle, faBlog, faNewspaper, IconDefinition, faPen } from "@fortawesome/free-solid-svg-icons";
 
 //header components
 import NavHeaderLinkComponent from "./nav-header/link-component";
@@ -37,8 +37,8 @@ const navigation: { [key in NavigationType]: NavInterface } = {
     href: "/",
   },
   AboutUs: {
-    name: "About Us",
-    icon: faChild,
+    name: "Meet the Gray's",
+    icon: faUsers,
     href: "/about/",
   },
   Testimonials: {
@@ -47,7 +47,7 @@ const navigation: { [key in NavigationType]: NavInterface } = {
     href: "/testimonials/",
   },
   Sandals: {
-    name: "Sandals",
+    name: "Sandals / Beaches",
     icon: faHotel,
     href: "/sandals-beaches-resorts/",
   },
@@ -100,7 +100,7 @@ const HeaderComponent: FunctionComponent = () => {
   const handleClose = useCallback(() => setShow(false), [setShow]);
 
   return (
-    <>
+    <header>
       <Container className={style["container"]} fluid>
         <Row className="g-0">
           <Col lg={3} className="text-center">
@@ -117,21 +117,23 @@ const HeaderComponent: FunctionComponent = () => {
           </Col>
         </Row>
       </Container>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Toggle className="ms-auto me-2" onClick={handleShow} />
         <Navbar.Collapse className="d-none d-lg-block">
           <Nav className={`${style["ff-lato"]} me-auto`}>
             <NavHeaderLinkComponent {...navigation.Home} />
-            <NavHeaderDropdownLinkComponent title="About">
+            {/* <NavHeaderDropdownLinkComponent title="About">
               <NavHeaderDropdownLinkItemComponent {...navigation.AboutUs} />
               <NavHeaderDropdownLinkItemComponent {...navigation.Testimonials} />
-            </NavHeaderDropdownLinkComponent>
+            </NavHeaderDropdownLinkComponent> */}
+            <NavHeaderLinkComponent {...navigation.AboutUs} />
+            <NavHeaderLinkComponent {...navigation.Testimonials} />
             <NavHeaderLinkComponent {...navigation.Sandals} />
             <NavHeaderLinkComponent {...navigation.Contact} />
             <NavHeaderLinkComponent {...navigation.Services} />
             <NavHeaderLinkComponent {...navigation.FAQ} />
             <NavHeaderLinkComponent {...navigation.Blog} />
-            <NavHeaderLinkComponent {...navigation.Press} />
+            {/* <NavHeaderLinkComponent {...navigation.Press} /> */}
           </Nav>
           <Nav className={`${style["ff-lato"]} ms-auto`}>
             <NavHeaderSocialComponent {...socials.Facebook} />
@@ -155,7 +157,7 @@ const HeaderComponent: FunctionComponent = () => {
               <NavCanvasLinkComponent {...navigation.Services} />
               <NavCanvasLinkComponent {...navigation.FAQ} />
               <NavCanvasLinkComponent {...navigation.Blog} />
-              <NavCanvasLinkComponent {...navigation.Press} />
+              {/* <NavCanvasLinkComponent {...navigation.Press} /> */}
             </Row>
             <hr />
             <Row>
@@ -166,7 +168,7 @@ const HeaderComponent: FunctionComponent = () => {
           </Container>
         </Offcanvas.Body>
       </Offcanvas>
-    </>
+    </header>
   );
 };
 

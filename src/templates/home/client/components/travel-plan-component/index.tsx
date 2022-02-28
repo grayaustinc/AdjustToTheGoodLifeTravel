@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from "react";
 import NextImage from "next/image";
-import { Card, Container, Row, Col, Image } from "react-bootstrap";
+import Link from "next/link";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Card, Container, Row, Col, Button } from "react-bootstrap";
 
 import image1 from "src/images/8df5c93fd190e56f46108d39ed8bbb51.png";
 import image2 from "src/images/489ed5fcc1a16101dbbc7757ad75b945.png";
@@ -10,7 +13,7 @@ import image4 from "src/images/d9aa28303e629eb1d172dc829b68caff.png";
 const data = [
   {
     title: "Let's chat!",
-    description: "Set up a free, no-obligation consultation with us via zoom or phone.",
+    description: "Set up a free, no-obligation consultation with us via email or phone.",
     src: image1,
     alt: "Picture of family",
     quality: 30,
@@ -64,6 +67,21 @@ const TravelPlanComponent: FunctionComponent = () => {
             </Col>
           );
         })}
+      </Row>
+      <Row className="mt-5">
+        <h2 className="text-center">Dream Vacation Planning Session</h2>
+        <p className="text-center">
+          Let’s schedule your FREE 15-minute travel consultation and speak by phone. I can answer your travel questions and collect information I need to turn your travel dreams
+          into a memorable vacation!
+        </p>
+        <div className="text-center">
+          <Link href="https://10to8.com/book/tjfpqu-free/" passHref>
+            <Button target="_blank" size="lg">
+              <FontAwesomeIcon icon={faCalendarAlt} />
+              <span className="ms-2">BOOK YOUR FREE CONSULTATION</span>
+            </Button>
+          </Link>
+        </div>
       </Row>
     </Container>
   );

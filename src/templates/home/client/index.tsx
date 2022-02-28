@@ -43,7 +43,7 @@ const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
         <Container className="my-5">
           <Row className={`g-0 text-center ${styles["parallax-row"]}`}>
             <Col md={6} className="my-auto d-flex">
-              <Card className={`mx-auto ${styles["card"]}`}>
+              <Card className={`mx-auto ${styles["card"]} border-dark`}>
                 <Card.Body>
                   <Card.Title>Ready to get started?</Card.Title>
                   <Card.Text>
@@ -58,7 +58,7 @@ const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
               </Card>
             </Col>
             <Col md={6} className="my-auto d-flex">
-              <Card className={`mx-auto ${styles["card"]}`}>
+              <Card className={`mx-auto ${styles["card"]} border-dark`}>
                 <Card.Body>
                   <Card.Title>Sandals Resorts</Card.Title>
                   <Card.Text>
