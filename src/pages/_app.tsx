@@ -1,21 +1,22 @@
+//node_modules
 import { AppProps, NextWebVitalsMetric } from "next/app";
 import { useEffectOnce } from "react-use";
+import { SSRProvider } from "@react-aria/ssr";
 import Head from "next/head";
 
 //components
 import LoadingBarComponent from "src/components/loading-bar-component";
 
+//secret
+import secretFunction from "libs/secret";
+
 //styles
 import "src/styles/global/app/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-//secret
-import secretFunction from "libs/secret";
-
 //configs
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { SSRProvider } from "@react-aria/ssr";
 config.autoAddCss = false;
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

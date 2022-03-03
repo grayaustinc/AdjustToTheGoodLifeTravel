@@ -6,19 +6,11 @@ import { PageItemProps, Pagination } from "react-bootstrap";
 //libs
 import getPagingRange from "libs/helper/get-page-range";
 
-const LinkWrapper = (Component: FunctionComponent) =>
-  React.forwardRef<any, PageItemProps>((props, ref) => {
-    return (
-      <span ref={ref}>
-        <Component {...props} />
-      </span>
-    );
-  });
-
-const First = LinkWrapper(Pagination.First);
-const Prev = LinkWrapper(Pagination.Prev);
-const Next = LinkWrapper(Pagination.Next);
-const Last = LinkWrapper(Pagination.Last);
+//local components
+import First from "./first-component";
+import Prev from "./prev-component";
+import Next from "./next-component";
+import Last from "./last-component";
 
 interface PagingProps {
   page: number;
@@ -34,12 +26,8 @@ const PagingComponent: FunctionComponent<PagingProps> = ({ page, total, totalPer
 
   return (
     <Pagination className="justify-content-center">
-      <Link href={generateHref(1)} passHref>
-        <First disabled={page === 1} />
-      </Link>
-      <Link href={generateHref(page - 1)} passHref>
-        <Prev disabled={page === 1} />
-      </Link>
+      <First page={page} generateHref={generateHref} />
+      <Prev page={page} generateHref={generateHref} />
       {pages[0] !== 1 && <Pagination.Ellipsis disabled={true} />}
       {pages.map((i) => {
         return (
@@ -49,12 +37,8 @@ const PagingComponent: FunctionComponent<PagingProps> = ({ page, total, totalPer
         );
       })}
       {pages[pages.length - 1] !== totalPages && <Pagination.Ellipsis disabled={true} />}
-      <Link href={generateHref(page + 1)} passHref>
-        <Next disabled={page === totalPages} />
-      </Link>
-      <Link href={generateHref(totalPages)} passHref>
-        <Last disabled={page === totalPages} />
-      </Link>
+      <Next page={page} totalPages={totalPages} generateHref={generateHref} />
+      <Last page={page} totalPages={totalPages} generateHref={generateHref} />
     </Pagination>
   );
 };

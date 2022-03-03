@@ -124,6 +124,8 @@ const defaultConfig = {
     dest: "public",
     register: true,
     disable: !IS_PRODUCTION,
+    dynamicStartUrl: false,
+    cacheOnFrontEndNav: true,
     mode: "production",
   },
 
