@@ -6,10 +6,10 @@ export interface RendererProps {
   block: ContentBlock;
 }
 
-type FCRP = FunctionComponent<RendererProps>;
+type ComponentType = FunctionComponent<RendererProps>;
 
-function getAtomicComponent(ImageAtomicComponent: FCRP, YoutubeAtomicComponent: FCRP, PartAtomicComponent: FCRP) {
-  const AtomicComponent: FCRP = ({ contentState, block }) => {
+function getAtomicComponent(ImageAtomicComponent: ComponentType, YoutubeAtomicComponent: ComponentType, PartAtomicComponent: ComponentType) {
+  const AtomicComponent: ComponentType = ({ contentState, block }) => {
     const data = block.getData();
 
     const type = data.get("type");
@@ -28,7 +28,7 @@ function getAtomicComponent(ImageAtomicComponent: FCRP, YoutubeAtomicComponent: 
   return AtomicComponent;
 }
 
-function wrapper(ImageAtomicComponent: FCRP, YoutubeAtomicComponent: FCRP, PartAtomicComponent: FCRP) {
+function wrapper(ImageAtomicComponent: ComponentType, YoutubeAtomicComponent: ComponentType, PartAtomicComponent: ComponentType) {
   const AtomicComponent = getAtomicComponent(ImageAtomicComponent, YoutubeAtomicComponent, PartAtomicComponent);
 
   function getBlockRenderer(block: ContentBlock): any {

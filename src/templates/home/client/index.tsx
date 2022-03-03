@@ -29,7 +29,6 @@ import styles from "./styles/home.module.scss";
 
 //TODO brand statement
 //TODO short bio
-//TODO bgImageAlts
 const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
   return (
     <>

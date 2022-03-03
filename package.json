@@ -46,6 +46,7 @@
     "next-global-css": "^1.2.0",
     "next-pwa": "^5.4.4",
     "next-session": "^4.0.4",
+    "node-cache": "^5.1.2",
     "nodemailer": "^6.7.2",
     "normalize-url": "^7.0.3",
     "object-sizeof": "^1.6.1",

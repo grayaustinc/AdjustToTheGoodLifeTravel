@@ -8,7 +8,7 @@ import createDatabaseWrapper from "libs/errors/database-error-middleware";
 
 const keys = ["title", "description", "slug", "published_time"] as const;
 
-type ModifiedBlogDocumentData = Pick<BlogDocumentData, typeof keys[number]>;
+export type ModifiedBlogDocumentData = Pick<BlogDocumentData, typeof keys[number]>;
 
 async function getBlogs() {
   const cursor = await database.query(aql`FOR doc IN ${collection} FILTER doc.published == true SORT doc.published_time DESC LIMIT 50 RETURN KEEP(doc, ${keys})`);

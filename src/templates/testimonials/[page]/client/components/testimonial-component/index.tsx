@@ -23,8 +23,8 @@ const TestimonialComponent: FunctionComponent<TestimonialProps> = ({ index, test
         <h2 className="h3 mt-3">{testimonial.title}</h2>
         <h3 className="h5">{testimonial.locations}</h3>
         <StarRatigComponent rating={testimonial.rating} />
-        <div>{testimonial.description}</div>
-        <div>— {testimonial.reviewer}</div>
+        <p>{testimonial.description}</p>
+        <p>{`— ${testimonial.reviewer}`}</p>
       </div>
     </div>
   );

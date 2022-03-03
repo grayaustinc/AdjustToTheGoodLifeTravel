@@ -29,11 +29,11 @@ const FaqPage: NextComponentType<any, any, any> = () => {
               <Accordion.Header>
                 <span className={style["h"]}>{item.title}</span>
               </Accordion.Header>
-              {item.text.map((text, j) => (
-                <Accordion.Body key={j} className={style["b"]}>
-                  {text}
-                </Accordion.Body>
-              ))}
+              <Accordion.Body className={style["b"]}>
+                {item.text.map((text, j) => (
+                  <p key={j}>{text}</p>
+                ))}
+              </Accordion.Body>
             </Accordion.Item>
           ))}
         </Accordion>

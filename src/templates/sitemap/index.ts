@@ -1,60 +1,71 @@
 //node_modules
 import { GetServerSideProps } from "next";
-import getConfig from "next/config";
 import { getServerSideSitemap, ISitemapField } from "next-sitemap";
 import formatISO from "date-fns/formatISO";
+
+//helper
+import cache from "libs/cache";
+import getWebsiteUrl from "libs/helper/get-website-url";
 
 //libs
 import getBlogs from "./get-blogs";
 
-const { publicRuntimeConfig } = getConfig();
-const { NEXT_PUBLIC_WEBSITE_DOMAIN } = publicRuntimeConfig;
+const CACHE_KEY = "sitemap-fields";
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+async function generateFields() {
   const fields: ISitemapField[] = [
     {
-      loc: new URL("/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/"),
       changefreq: "monthly",
     },
     {
-      loc: new URL("/about/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/about/"),
       changefreq: "monthly",
     },
     {
-      loc: new URL("/testimonials/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/testimonials/"),
       changefreq: "monthly",
     },
     {
-      loc: new URL("/sandals-beaches-resorts/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/sandals-beaches-resorts/"),
       changefreq: "yearly",
     },
     {
-      loc: new URL("/contact/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/contact/"),
       changefreq: "yearly",
     },
     {
-      loc: new URL("/services/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/services/"),
       changefreq: "yearly",
     },
     {
-      loc: new URL("/faq/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/faq/"),
       changefreq: "yearly",
     },
     {
-      loc: new URL("/blogs/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
+      loc: getWebsiteUrl("/blogs/"),
       changefreq: "weekly",
     },
-    {
-      loc: new URL("/press/", NEXT_PUBLIC_WEBSITE_DOMAIN).href,
-      changefreq: "monthly",
-    },
+    // {
+    //   loc: getWebsiteUrl("/press/"),
+    //   changefreq: "monthly",
+    // },
   ];
 
   const blogs = await getBlogs();
 
   blogs.forEach((blog) => {
-    fields.push({ loc: `${NEXT_PUBLIC_WEBSITE_DOMAIN}/blog/${blog.slug}/`, lastmod: formatISO(blog.modified_time) });
+    fields.push({ loc: getWebsiteUrl(`/blog/${blog.slug}/`), lastmod: formatISO(blog.modified_time) });
   });
+  return fields;
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  let fields = cache.get<ISitemapField[]>(CACHE_KEY);
+  if (!fields) {
+    fields = await generateFields();
+    cache.set(CACHE_KEY, fields, 60 * 60);
+  }
 
   return getServerSideSitemap(ctx, fields);
 };
