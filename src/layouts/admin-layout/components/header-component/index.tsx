@@ -40,14 +40,14 @@ const AdminHeaderComponent: FunctionComponent<AdminHeaderProps> = ({ toggle, onT
               <Link href="/admin/account/change-password/">Change Password</Link>
             </MenuItem>
           </SubMenu>
-          <SubMenu title="Users" icon={<FontAwesomeIcon icon={faUsers} />}>
+          {/* <SubMenu title="Users" icon={<FontAwesomeIcon icon={faUsers} />}>
             <MenuItem>
               <Link href="/admin/users/">View All</Link>
             </MenuItem>
-            {/* <MenuItem>
+            <MenuItem>
               <Link href="/admin/users/create/">Create New</Link>
-            </MenuItem> */}
-          </SubMenu>
+            </MenuItem>
+          </SubMenu> */}
           <SubMenu title="Testimonials" icon={<FontAwesomeIcon icon={faPen} />}>
             <MenuItem>
               <Link href="/admin/testimonials/">View All</Link>
@@ -64,14 +64,14 @@ const AdminHeaderComponent: FunctionComponent<AdminHeaderProps> = ({ toggle, onT
               <Link href="/admin/locations/create/">Create New</Link>
             </MenuItem>
           </SubMenu>
-          <SubMenu title="Press" icon={<FontAwesomeIcon icon={faNewspaper} />}>
+          {/* <SubMenu title="Press" icon={<FontAwesomeIcon icon={faNewspaper} />}>
             <MenuItem>
               <Link href="/admin/mentions/">View All</Link>
             </MenuItem>
             <MenuItem>
               <Link href="/admin/mentions/create/">Create New</Link>
             </MenuItem>
-          </SubMenu>
+          </SubMenu> */}
           <SubMenu title="Blogs" icon={<FontAwesomeIcon icon={faBlog} />}>
             <MenuItem>
               <Link href="/admin/blogs/">View All</Link>

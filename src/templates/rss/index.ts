@@ -18,7 +18,7 @@ async function generateXML() {
     description: "A list of all of the currently known blogs",
     feed_url: getWebsiteUrl("/rss/"),
     site_url: getWebsiteUrl("/"),
-    ttl: 24 * 60,
+    ttl: 60,
   });
 
   const blogs = await getBlogs();

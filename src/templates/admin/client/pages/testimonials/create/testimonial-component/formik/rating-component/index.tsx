@@ -1,8 +1,11 @@
 //node_modules
 import React, { FunctionComponent } from "react";
 import { FormikContextType } from "formik";
-import { FormSelect, FormControl, FormGroup } from "react-bootstrap";
+import { FormSelect, FormControl, FormLabel, FormGroup } from "react-bootstrap";
 import times from "lodash/times";
+
+//components
+import StarRatingComponent from "src/components/star-rating-component";
 
 //types
 import type { TestimonialSchemaType } from "src/templates/api/admin/db/testimonial/upsert/validation";
@@ -20,6 +23,9 @@ const TitleComponent: FunctionComponent<TitleFormikProps> = ({ formik }) => {
         <span>Testimonial Rating</span>
       </h2>
       <FormGroup>
+        <FormLabel className="ms-1 mb-2">
+          <StarRatingComponent rating={rating} />
+        </FormLabel>
         <FormSelect name="rating" value={rating} onChange={formik.handleChange} isValid={formik.touched.rating && !formik.errors.rating} isInvalid={!!formik.errors.rating}>
           {times(11).map((i) => (
             <option key={i} value={i}>

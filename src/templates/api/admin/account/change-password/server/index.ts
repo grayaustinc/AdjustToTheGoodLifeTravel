@@ -34,6 +34,7 @@ handler.post(async (req, res) => {
       logger.log("info", `User "${user.username}" changed password`);
       return res.status(200).json({ ok: true, user: user });
     }
+    logger.log("info", `User "${session.user.username}" attempted to change password`);
     throw new AuthenticationError("Old password does not match current password");
   }
   throw new SessionError("A user must be logged in");

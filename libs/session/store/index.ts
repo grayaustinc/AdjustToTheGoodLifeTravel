@@ -5,11 +5,13 @@ import { aql } from "arangojs";
 import database from "libs/arangodb";
 import collection, { SessionDocumentData } from "libs/arangodb/collections/sessions";
 
+//Set to 14 days in milliseconds
 const EXPIRE_TIME = 1000 * 60 * 60 * 24 * 14;
 
 async function upsert(sid: string, data: SessionData) {
-  const newTTL = (data.cookie.expires?.getTime() || EXPIRE_TIME) + Date.now();
-  return await database.query(aql`UPSERT ${{ _key: sid }} INSERT ${{ _key: sid, ttl: newTTL, data: data }} REPLACE ${{ _key: sid, ttl: newTTL, data: data }} IN ${collection}`);
+  //divide by 1000 because arangodb requires ttl to be in seconds not milliseconds
+  const ttl = ((data.cookie.expires?.getTime() || EXPIRE_TIME) + Date.now()) / 1000;
+  return await database.query(aql`UPSERT ${{ _key: sid }} INSERT ${{ _key: sid, ttl: ttl, data: data }} REPLACE ${{ _key: sid, ttl: ttl, data: data }} IN ${collection}`);
 }
 
 class ArangoStore implements SessionStore {

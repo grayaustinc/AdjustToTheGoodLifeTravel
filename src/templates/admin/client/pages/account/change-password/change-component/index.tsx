@@ -28,7 +28,7 @@ const initialValues: ChangePasswordSchemaType = {
 
 const UserModifierComponent: FunctionComponent = () => {
   const [submitting, setSubmitting] = useState(false);
-  const makeAlert = useMakeAlert();
+  const setAlert = useMakeAlert();
 
   const onSubmit = useCallback(
     async (values: ChangePasswordSchemaType) => {
@@ -37,17 +37,18 @@ const UserModifierComponent: FunctionComponent = () => {
         const response = await createUser(values);
         if (response.ok) {
           window.alert("Password changed successfully!");
+          setAlert();
           setSubmitting(false);
         } else {
           setSubmitting(false);
-          makeAlert(`Failed to create user: ${response.message}`);
+          setAlert(`Failed to change password: ${response.message}`);
         }
       } catch (error: any) {
         setSubmitting(false);
-        makeAlert(`Failed to create user: ${error?.message || "Unknown error"}`);
+        setAlert(`Failed to change password: ${error?.message || "Unknown error"}`);
       }
     },
-    [makeAlert]
+    [setAlert]
   );
 
   const formik = useFormik<ChangePasswordSchemaType>({

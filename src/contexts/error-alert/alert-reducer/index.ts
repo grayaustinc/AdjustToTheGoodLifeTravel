@@ -1,8 +1,10 @@
 import React, { Reducer } from "react";
 
-type Action = { type: "set"; message: string } | { type: "clear" };
+type State = string | null | undefined;
 
-const reducer: Reducer<string | null, Action> = (_, action) => {
+type Action = { type: "set"; message?: string } | { type: "clear" };
+
+const reducer: Reducer<State, Action> = (_, action) => {
   switch (action.type) {
     case "set":
       return action.message;
@@ -12,6 +14,6 @@ const reducer: Reducer<string | null, Action> = (_, action) => {
   }
 };
 
-export type ReducerType = [string | null, React.Dispatch<Action>];
+export type ReducerType = [State, React.Dispatch<Action>];
 
 export default reducer;
