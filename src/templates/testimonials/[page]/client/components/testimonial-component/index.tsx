@@ -11,14 +11,12 @@ import style from "./tc.module.scss";
 import type { TestimonialDocumentData } from "libs/arangodb/collections/testimonials";
 
 interface TestimonialProps {
-  index: number;
   testimonial: TestimonialDocumentData;
 }
 
-const TestimonialComponent: FunctionComponent<TestimonialProps> = ({ index, testimonial }) => {
+const TestimonialComponent: FunctionComponent<TestimonialProps> = ({ testimonial }) => {
   return (
-    <div>
-      {index > 0 && <hr className="my-5" />}
+    <Col xs={12} xl={6} className="px-5">
       <div className={style["item"]}>
         <h2 className="h3 mt-3">{testimonial.title}</h2>
         <h3 className="h5">{testimonial.locations}</h3>
@@ -26,7 +24,7 @@ const TestimonialComponent: FunctionComponent<TestimonialProps> = ({ index, test
         <p>{testimonial.description}</p>
         <p>{`— ${testimonial.reviewer}`}</p>
       </div>
-    </div>
+    </Col>
   );
 };
 

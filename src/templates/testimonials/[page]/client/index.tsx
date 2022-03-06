@@ -1,7 +1,7 @@
 //node_modules
 import React from "react";
 import { NextComponentType } from "next";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 //pages
 import { PageProps } from "../types";
@@ -22,9 +22,11 @@ const AboutTestimonialsPage: NextComponentType<any, any, PageProps> = ({ testimo
       <HeaderComponent />
       <Container>
         <h1 className="text-center my-5">TESTIMONIALS</h1>
-        {testimonials.map((testimonial, i) => (
-          <TestimonialComponent key={testimonial._key} index={i} testimonial={testimonial} />
-        ))}
+        <Row className="justify-content-center">
+          {testimonials.map((testimonial) => (
+            <TestimonialComponent key={testimonial._key} testimonial={testimonial} />
+          ))}
+        </Row>
         <PagingComponent page={page} total={total} />
       </Container>
       <div className="my-auto" />

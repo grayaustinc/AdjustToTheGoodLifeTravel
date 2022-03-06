@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "next dev -p 8872",
     "license": "license-checker",
-    "dev-build": "next build",
-    "dev-analyze-build": "cross-env ANALYZE=true next build",
+    "dev-build": "cross-env ANALYZE=true next build",
     "dev-start": "next start -p 8872",
     "build": "next build",
     "start": "next start",
