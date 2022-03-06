@@ -34,6 +34,9 @@ ENV PORT 3000
 
 COPY . ./
 
+#install
+RUN npm install
+
 # Build app
 RUN npm run build
 
