@@ -35,8 +35,6 @@ ARG SESSION_SECRET
 ARG NEXT_PUBLIC_WEBSITE_DOMAIN
 ARG NEXT_PUBLIC_STATIC_DOMAIN
 
-ENV NODE_OPTIONS= --max_old_space_size=2048
-
 RUN npm run build
 
 # Production image, copy all the files and run next
