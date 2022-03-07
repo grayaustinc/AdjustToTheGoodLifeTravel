@@ -40,23 +40,22 @@ const initialValues: ImageDataType = {
 
 const ImageSearchComponent: FunctionComponent<ImageModalBodySrcProps> = ({ asset, handleClose }) => {
   const [page, setPage] = useState(1);
-  const [ContinuationToken, setContinuationToken] = useState<string | undefined>(undefined);
+  const [Marker, setMarker] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState<string[]>([]);
 
   useEffect(() => {
-    if (list.length > 0 && !isString(ContinuationToken)) return;
+    if (list.length > 0 && !isString(Marker)) return;
     setLoading(true);
     getImageList({
-      Prefix: "/images/",
-      StartAfter: undefined,
+      Prefix: "images/",
       MaxKeys: TOTAL_IMAGES_PER_PAGE,
-      ContinuationToken: ContinuationToken,
+      Marker: Marker,
     })
       .then((response) => {
         if (response.ok) {
           setList((list) => [...list, ...response.data]);
-          setContinuationToken(response.ContinuationToken);
+          setMarker(response.NextMarker);
           setLoading(false);
         }
       })
@@ -82,7 +81,7 @@ const ImageSearchComponent: FunctionComponent<ImageModalBodySrcProps> = ({ asset
   );
 
   const prevDisabled = loading || page === 1;
-  const nextDisabled = loading || (page * TOTAL_IMAGES_PER_PAGE >= list.length && !isString(ContinuationToken));
+  const nextDisabled = loading || (page * TOTAL_IMAGES_PER_PAGE >= list.length && !isString(Marker));
 
   return (
     <>

@@ -24,13 +24,11 @@ handler.post(async (req, res) => {
   const data = await validation.validate(req.body, { stripUnknown: true });
 
   const buffer = Buffer.from(data.image.replace(/^data:image\/\w+;base64,/, ""), "base64");
-  const filename = nanoid(30) + ".webp";
-  const objectName = urlJoin(data.Prefix, filename);
-  const staticRelativeUrl = urlJoin(objectName);
+  const staticSrc = data.Prefix + nanoid(30) + ".webp";
 
-  const info = await s3.putObject({ Bucket: S3_BUCKET, Key: objectName, Body: buffer, ContentType: "image/webp" }).promise();
+  const info = await s3.putObject({ Bucket: S3_BUCKET, Key: staticSrc, Body: buffer, ACL: "public-read", ContentType: "image/webp" }).promise();
 
-  return res.status(200).json({ ok: true, staticSrc: staticRelativeUrl, info: info });
+  return res.status(200).json({ ok: true, staticSrc: staticSrc, info: info });
 });
 
 export default handler;
