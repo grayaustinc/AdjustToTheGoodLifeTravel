@@ -19,24 +19,24 @@ function createLicenseWebpackPlugin() {
  * @type {import('./runtime-config').ServerRuntimeConfig}
  */
 const serverRuntimeConfig = envalid.cleanEnv(process.env, {
-  ARANGO_URL: envalid.str(),
+  ARANGO_URL: envalid.host(),
   ARANGO_USERNAME: envalid.str(),
   ARANGO_PASSWORD: envalid.str(),
   ARANGO_DATABASE_NAME: envalid.str(),
   ARANGO_MAX_SOCKETS: envalid.num(),
 
-  EMAIL_HOST: envalid.str(),
+  EMAIL_HOST: envalid.host(),
   EMAIL_PORT: envalid.port(),
   EMAIL_SECURE: envalid.bool(),
   EMAIL_TO: envalid.str(),
   EMAIL_USERNAME: envalid.str(),
   EMAIL_PASSWORD: envalid.str(),
 
-  S3_ENDPOINT: envalid.str(),
+  S3_ENDPOINT: envalid.host(),
   S3_BUCKET: envalid.str(),
   S3_ACCESS_KEY_ID: envalid.str(),
   S3_SECRET_ACCESS_KEY: envalid.str(),
-  S3_STATIC_DOMAIN: envalid.str(),
+  S3_STATIC_DOMAIN: envalid.host(),
 
   SESSION_COOKIE_NAME: envalid.str(),
   SESSION_SECRET: envalid.str(),
@@ -46,8 +46,8 @@ const serverRuntimeConfig = envalid.cleanEnv(process.env, {
  * @type {import('./runtime-config').PublicRuntimeConfig}
  */
 const publicRuntimeConfig = envalid.cleanEnv(process.env, {
-  NEXT_PUBLIC_WEBSITE_DOMAIN: envalid.str(),
-  NEXT_PUBLIC_STATIC_DOMAIN: envalid.str(),
+  NEXT_PUBLIC_WEBSITE_DOMAIN: envalid.url(),
+  NEXT_PUBLIC_STATIC_DOMAIN: envalid.url(),
 });
 
 /**
@@ -127,6 +127,7 @@ const defaultConfig = {
     disable: !IS_PRODUCTION,
     dynamicStartUrl: false,
     cacheOnFrontEndNav: true,
+    buildExcludes: [/media\/.*$/],
     mode: "production",
   },
 
@@ -140,8 +141,8 @@ const defaultConfig = {
   generateEtags: true,
   trailingSlash: true,
   reactStrictMode: true,
-  poweredByHeader: false,
-  productionBrowserSourceMaps: true,
+  poweredByHeader: true,
+  productionBrowserSourceMaps: false,
   excludeDefaultMomentLocales: true,
 
   webpack(config, { dev, isServer }) {
