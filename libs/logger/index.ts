@@ -1,7 +1,7 @@
 import Winston from "winston";
 
 function template(info: Winston.Logform.TransformableInfo) {
-  return `${info.level} - ${new Date().toISOString()}  ${info.message}`;
+  return `${info.level} - ${info.message}`;
 }
 
 const logger = Winston.createLogger({

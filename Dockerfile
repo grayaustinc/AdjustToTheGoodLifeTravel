@@ -1,13 +1,12 @@
 # Install dependencies only when needed
-FROM node:16-alpine AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+FROM node:alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json ./
 RUN npm install
 
 # Rebuild the source code only when needed
-FROM node:16-alpine AS builder
+FROM node:alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
@@ -26,8 +25,10 @@ ARG EMAIL_USERNAME
 ARG EMAIL_PASSWORD
 
 ARG S3_ENDPOINT
+ARG S3_BUCKET
 ARG S3_ACCESS_KEY_ID
 ARG S3_SECRET_ACCESS_KEY
+ARG S3_STATIC_DOMAIN
 
 ARG SESSION_COOKIE_NAME
 ARG SESSION_SECRET
@@ -35,10 +36,12 @@ ARG SESSION_SECRET
 ARG NEXT_PUBLIC_WEBSITE_DOMAIN
 ARG NEXT_PUBLIC_STATIC_DOMAIN
 
+ENV NODE_OPTIONS --max_old_space_size=4096
+
 RUN npm run build
 
 # Production image, copy all the files and run next
-FROM node:16-alpine AS runner
+FROM node:alpine AS runner
 WORKDIR /app
 
 # You only need to copy next.config.js if you are NOT using the default configuration

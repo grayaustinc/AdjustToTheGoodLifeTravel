@@ -48,7 +48,6 @@ const ImageSearchComponent: FunctionComponent<ImageModalBodySrcProps> = ({ asset
     if (list.length > 0 && !isString(ContinuationToken)) return;
     setLoading(true);
     getImageList({
-      Bucket: "public",
       Prefix: "/images/",
       StartAfter: undefined,
       MaxKeys: TOTAL_IMAGES_PER_PAGE,

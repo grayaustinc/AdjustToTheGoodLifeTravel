@@ -44,7 +44,6 @@ const ImageUploadComponent: FunctionComponent<ImageModalBodySrcProps> = ({ asset
           try {
             const response = await uploadImage({
               image: image,
-              Bucket: "public",
               Prefix: "/images/",
             });
 

@@ -10,4 +10,5 @@ docker-compose.yml
 .vscode
 package-lock.json
 Dockerfile
-.env.local
+.env
+build.cmd

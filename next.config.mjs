@@ -1,11 +1,12 @@
 // @ts-check
+import { patchWebpackConfig } from "next-global-css";
+import { LicenseWebpackPlugin } from "license-webpack-plugin";
+import bundleAnalyzer from "@next/bundle-analyzer";
+import withPWA from "next-pwa";
+import envalid from "envalid";
 
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const CAN_ANALYZE = process.env.ANALYZE === "true";
-import { patchWebpackConfig } from "next-global-css";
-import { LicenseWebpackPlugin } from "license-webpack-plugin";
-import withPWA from "next-pwa";
-import bundleAnalyzer from "@next/bundle-analyzer";
 
 function createLicenseWebpackPlugin() {
   const licensePlugin = new LicenseWebpackPlugin({
@@ -14,28 +15,28 @@ function createLicenseWebpackPlugin() {
   return licensePlugin;
 }
 
-import envalid from "envalid";
-
 /**
  * @type {import('./runtime-config').ServerRuntimeConfig}
  */
 const serverRuntimeConfig = envalid.cleanEnv(process.env, {
-  ARANGO_URL: envalid.host(),
+  ARANGO_URL: envalid.str(),
   ARANGO_USERNAME: envalid.str(),
   ARANGO_PASSWORD: envalid.str(),
   ARANGO_DATABASE_NAME: envalid.str(),
   ARANGO_MAX_SOCKETS: envalid.num(),
 
-  EMAIL_HOST: envalid.host(),
+  EMAIL_HOST: envalid.str(),
   EMAIL_PORT: envalid.port(),
   EMAIL_SECURE: envalid.bool(),
   EMAIL_TO: envalid.str(),
   EMAIL_USERNAME: envalid.str(),
   EMAIL_PASSWORD: envalid.str(),
 
-  S3_ENDPOINT: envalid.host(),
+  S3_ENDPOINT: envalid.str(),
+  S3_BUCKET: envalid.str(),
   S3_ACCESS_KEY_ID: envalid.str(),
   S3_SECRET_ACCESS_KEY: envalid.str(),
+  S3_STATIC_DOMAIN: envalid.str(),
 
   SESSION_COOKIE_NAME: envalid.str(),
   SESSION_SECRET: envalid.str(),
@@ -58,7 +59,7 @@ const defaultConfig = {
   },
 
   images: {
-    domains: ["127.0.0.1", "localhost", publicRuntimeConfig.NEXT_PUBLIC_STATIC_DOMAIN],
+    domains: ["127.0.0.1", "localhost", serverRuntimeConfig.S3_STATIC_DOMAIN],
   },
 
   eslint: {
@@ -159,6 +160,7 @@ if (CAN_ANALYZE) {
   const withBundleAnalyzer = bundleAnalyzer({ enabled: true });
   nextConfig = withBundleAnalyzer(nextConfig);
 }
+
 nextConfig = withPWA(nextConfig);
 
 export default nextConfig;

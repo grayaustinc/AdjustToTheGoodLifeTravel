@@ -6,8 +6,10 @@ export interface ServerRuntimeConfig {
   ARANGO_MAX_SOCKETS: number;
 
   S3_ENDPOINT: string;
+  S3_BUCKET: string;
   S3_ACCESS_KEY_ID: string;
   S3_SECRET_ACCESS_KEY: string;
+  S3_STATIC_DOMAIN: string;
 
   EMAIL_HOST: string;
   EMAIL_PORT: number;

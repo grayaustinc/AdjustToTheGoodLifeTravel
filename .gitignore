@@ -7,4 +7,5 @@ docker-compose.yml
 package-lock.json
 server-plan.TODO
 pricing.txt
-.env.local
+.env
+build.cmd
