@@ -19,7 +19,7 @@ function createLicenseWebpackPlugin() {
  * @type {import('./runtime-config').ServerRuntimeConfig}
  */
 const serverRuntimeConfig = envalid.cleanEnv(process.env, {
-  ARANGO_URL: envalid.host(),
+  ARANGO_URL: envalid.url(),
   ARANGO_USERNAME: envalid.str(),
   ARANGO_PASSWORD: envalid.str(),
   ARANGO_DATABASE_NAME: envalid.str(),

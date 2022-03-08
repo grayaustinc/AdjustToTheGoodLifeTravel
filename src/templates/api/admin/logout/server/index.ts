@@ -14,7 +14,7 @@ const handler = nextConnectHandler<ResponseType>();
 handler.post(async (req, res) => {
   const session = await getSession(req, res);
   if (session.user) {
-    logger.log("info", `User "${session.user.username}" logged out`);
+    logger.info(`User "${session.user.username}" logged out`);
     await session.destroy();
     return res.status(200).json({ ok: true });
   } else {

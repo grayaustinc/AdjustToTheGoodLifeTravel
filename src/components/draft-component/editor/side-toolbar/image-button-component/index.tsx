@@ -3,7 +3,7 @@ import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FunctionComponent, useContext, useState } from "react";
 import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
-import Immutable from "immutable";
+import { Map } from "immutable";
 
 import { modalContext } from "src/components/draft-component/editor/modal-context";
 import { ImageDataType } from "src/modals/image/validation";
@@ -21,7 +21,7 @@ const ImageButtonComponent: FunctionComponent = () => {
       key: genKey(),
       type: "atomic",
       text: "",
-      data: Immutable.Map({ type: "IMAGE", ...values }),
+      data: Map({ type: "IMAGE", ...values }),
     });
 
     const contentStateModifier_0 = replaceBlockAtSelection(editorState, newBlock);

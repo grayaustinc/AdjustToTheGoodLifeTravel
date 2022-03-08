@@ -16,7 +16,7 @@ const handler = nextConnectHandler<ResponseType>();
 handler.post(async (req, res) => {
   const data = await schema.validate(req.body, { stripUnknown: true });
   const info = await sendEmail(data);
-  logger.log("info", info);
+  logger.info(info);
   return res.status(200).json({ ok: true });
 });
 

@@ -1,5 +1,5 @@
 import { ContentBlock, ContentState, EditorState, SelectionState, genKey } from "draft-js";
-import Immutable from "immutable";
+import { Map } from "immutable";
 
 export function createEntitySelection(blockKey: string, start: number, end: number) {
   return new SelectionState({
@@ -134,7 +134,7 @@ export function createAtomicPart() {
     key: genKey(),
     type: "atomic",
     text: "",
-    data: Immutable.Map({ type: "PART" }),
+    data: Map({ type: "PART" }),
   });
   return block;
 }

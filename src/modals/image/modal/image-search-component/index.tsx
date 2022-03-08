@@ -40,22 +40,21 @@ const initialValues: ImageDataType = {
 
 const ImageSearchComponent: FunctionComponent<ImageModalBodySrcProps> = ({ asset, handleClose }) => {
   const [page, setPage] = useState(1);
-  const [Marker, setMarker] = useState<string | undefined>(undefined);
+  const [token, setToken] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState<string[]>([]);
 
   useEffect(() => {
-    if (list.length > 0 && !isString(Marker)) return;
+    if (list.length > 0 && !isString(token)) return;
     setLoading(true);
     getImageList({
-      Prefix: "images/",
       MaxKeys: TOTAL_IMAGES_PER_PAGE,
-      Marker: Marker,
+      ContinuationToken: token,
     })
       .then((response) => {
         if (response.ok) {
           setList((list) => [...list, ...response.data]);
-          setMarker(response.NextMarker);
+          setToken(response.NextContinuationToken);
           setLoading(false);
         }
       })
@@ -81,7 +80,7 @@ const ImageSearchComponent: FunctionComponent<ImageModalBodySrcProps> = ({ asset
   );
 
   const prevDisabled = loading || page === 1;
-  const nextDisabled = loading || (page * TOTAL_IMAGES_PER_PAGE >= list.length && !isString(Marker));
+  const nextDisabled = loading || (page * TOTAL_IMAGES_PER_PAGE >= list.length && !isString(token));
 
   return (
     <>

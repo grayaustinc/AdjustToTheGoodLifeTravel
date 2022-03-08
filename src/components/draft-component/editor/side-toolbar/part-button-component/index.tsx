@@ -3,7 +3,7 @@ import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FunctionComponent, useContext, useState } from "react";
 import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
-import Immutable from "immutable";
+import { Map } from "immutable";
 
 import context from "src/components/draft-component/shared/context";
 
@@ -17,7 +17,7 @@ const PartButtonComponent: FunctionComponent = () => {
       key: genKey(),
       type: "atomic",
       text: "",
-      data: Immutable.Map({ type: "PART" }),
+      data: Map({ type: "PART" }),
     });
 
     const contentStateModifier_0 = replaceBlockAtSelection(editorState, newBlock);

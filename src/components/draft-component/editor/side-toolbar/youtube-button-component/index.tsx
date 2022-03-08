@@ -3,7 +3,7 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FunctionComponent, useContext, useState } from "react";
 import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
-import Immutable from "immutable";
+import { Map } from "immutable";
 
 import { modalContext } from "src/components/draft-component/editor/modal-context";
 import { YoutubeDataType } from "src/components/draft-component/shared/validation/youtube";
@@ -21,7 +21,7 @@ const YoutubeButtonComponent: FunctionComponent = () => {
       key: genKey(),
       type: "atomic",
       text: "",
-      data: Immutable.Map({ type: "YOUTUBE", ...values }),
+      data: Map({ type: "YOUTUBE", ...values }),
     });
 
     const contentStateModifier_0 = replaceBlockAtSelection(editorState, newBlock);

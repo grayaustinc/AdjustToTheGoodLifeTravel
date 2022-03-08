@@ -1,7 +1,7 @@
 import { EditorState, Modifier, SelectionState } from "draft-js";
 import React, { FunctionComponent, useContext } from "react";
 import { Button, OverlayTrigger, Popover } from "react-bootstrap";
-import Immutable from "immutable";
+import { Map } from "immutable";
 
 import context from "src/components/draft-component/shared/context";
 import { modalContext } from "src/components/draft-component/editor/modal-context";
@@ -30,7 +30,7 @@ const ImageRenderComponent: FunctionComponent<RendererProps> = ({ contentState, 
 
   function onSubmit(values: ImageDataType) {
     const selection = SelectionState.createEmpty(block.getKey());
-    const blockData = Immutable.Map({ type: "IMAGE", ...values });
+    const blockData = Map({ type: "IMAGE", ...values });
     const contentStateModify_0 = Modifier.mergeBlockData(contentState, selection, blockData);
 
     const newEditorState = EditorState.push(editorState, contentStateModify_0, "change-block-data");
