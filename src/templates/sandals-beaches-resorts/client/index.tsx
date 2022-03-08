@@ -3,11 +3,11 @@ import React from "react";
 import { NextComponentType } from "next";
 import Link from "next/link";
 import NextImage from "next/image";
+import ReactGA from "react-ga4";
 import { Container, Row, Col } from "react-bootstrap";
 
-//components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
+//layout
+import SiteLayout from "src/layouts/site-layout";
 
 //components
 import ParallaxComponent from "src/components/parallax-component";
@@ -29,14 +29,17 @@ const referral_sizes = getBootstrapSizes(384, 640, 750, 1200, 1200, 1200);
 //styles
 import styles from "./styles/sandals.module.scss";
 
+function onReferralAnalytics() {
+  ReactGA.event({ action: "sandals_referral", category: "clicked" });
+}
+
 //TODO fix up everything
 //TODO example https://rjttravels.com/sandals-travel-agency/
 
 const SandalsPage: NextComponentType<any, any, any> = (p) => {
   return (
-    <>
+    <SiteLayout>
       <MetaComponent />
-      <HeaderComponent />
       <ParallaxComponent bgImage={parallax} bgImageAlt="Sandals Resort" strength={-200} quality={80} priority>
         <ParallaxHeaderComponent>Sandals and Beaches Resorts</ParallaxHeaderComponent>
       </ParallaxComponent>
@@ -58,7 +61,7 @@ const SandalsPage: NextComponentType<any, any, any> = (p) => {
         <Row className="g-0">
           <Col className={styles["referral"]}>
             <Link href="http://www.sandals.com/?referral=104018&agentid=STGR2506" passHref>
-              <a rel="noopener nofollow" target="_blank">
+              <a rel="noopener nofollow" target="_blank" onClick={onReferralAnalytics}>
                 <NextImage src={sandals_referral} alt="Sandals Referral" placeholder="blur" sizes={referral_sizes} quality={80} />
               </a>
             </Link>
@@ -66,8 +69,7 @@ const SandalsPage: NextComponentType<any, any, any> = (p) => {
         </Row>
       </Container>
       <div className="m-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

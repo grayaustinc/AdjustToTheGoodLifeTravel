@@ -3,9 +3,10 @@ import React from "react";
 import { NextComponentType } from "next";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 
+//layout
+import SiteLayout from "src/layouts/site-layout";
+
 //components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
 import ParallaxComponent from "src/components/parallax-component";
 import ParallaxHeaderComponent from "src/components/parallax-header-component";
 
@@ -23,9 +24,8 @@ import styles from "./f.module.scss";
 
 const ServicesPage: NextComponentType<any, any, any> = () => {
   return (
-    <>
+    <SiteLayout>
       <MetaComponent />
-      <HeaderComponent />
       <ParallaxComponent bgImage={parallax1} bgImageAlt="Parallax Image" strength={-200} priority>
         <ParallaxHeaderComponent size="sm">Services We Provide</ParallaxHeaderComponent>
       </ParallaxComponent>
@@ -39,9 +39,7 @@ const ServicesPage: NextComponentType<any, any, any> = () => {
           ))}
         </ListGroup>
       </Container>
-      <div className="my-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

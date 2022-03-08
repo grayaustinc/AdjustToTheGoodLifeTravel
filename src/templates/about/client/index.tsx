@@ -11,9 +11,10 @@ import type { PageProps } from "../types";
 //libs
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 
+//layout
+import SiteLayout from "src/layouts/site-layout";
+
 //components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
 import ParallaxComponent from "src/components/parallax-component";
 import ParallaxHeaderComponent from "src/components/parallax-header-component";
 
@@ -38,9 +39,8 @@ const sizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
 
 const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
   return (
-    <>
+    <SiteLayout>
       <MetaComponent />
-      <HeaderComponent />
       <ParallaxComponent bgImage={parallax1} bgImageAlt="Parallax Background Image" quality={60} strength={-250} priority>
         <ParallaxHeaderComponent>Learn About Us!</ParallaxHeaderComponent>
       </ParallaxComponent>
@@ -100,8 +100,7 @@ const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
       </Container>
       <LocationsCarouselComponent locations={locations} />
       <div className="m-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

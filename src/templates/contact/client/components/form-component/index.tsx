@@ -5,6 +5,7 @@ import { Form, FloatingLabel, Row, Col, Card } from "react-bootstrap";
 import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
+import ReactGA from "react-ga4";
 import { phone } from "phone";
 
 //alerts
@@ -38,6 +39,7 @@ const FormComponent: FunctionComponent = () => {
     try {
       const response = await createContact(values);
       if (response.ok) {
+        ReactGA.event({ action: "contact", category: "submit" });
         router.push("/contact/complete/");
       } else {
         setSubmitting(false);

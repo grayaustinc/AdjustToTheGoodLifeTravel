@@ -17,7 +17,7 @@ import useWebsiteUrl from "src/hooks/useWebsiteUrl";
 //images
 import STATIC_IMAGE from "src/images/4e0142fbb8e66f2290524c0bf6f225a1.png";
 
-const title = "Services - Adjust to the Good Life Travel";
+const title = "Services we Provide - Adjust to the Good Life Travel";
 const description = "A list of services that our Travel Agents can help with!";
 
 const MetaComponent: FunctionComponent = () => {

@@ -6,9 +6,8 @@ import { Container, Row } from "react-bootstrap";
 //pages
 import { PageProps } from "../types";
 
-//components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
+//layout
+import SiteLayout from "src/layouts/site-layout";
 
 //locals
 import TestimonialComponent from "./components/testimonial-component";
@@ -17,9 +16,8 @@ import MetaComponent from "./meta";
 
 const AboutTestimonialsPage: NextComponentType<any, any, PageProps> = ({ testimonials, page, total }) => {
   return (
-    <>
+    <SiteLayout>
       <MetaComponent />
-      <HeaderComponent />
       <Container>
         <h1 className="text-center my-5">TESTIMONIALS</h1>
         <Row className="justify-content-center">
@@ -29,9 +27,7 @@ const AboutTestimonialsPage: NextComponentType<any, any, PageProps> = ({ testimo
         </Row>
         <PagingComponent page={page} total={total} />
       </Container>
-      <div className="my-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

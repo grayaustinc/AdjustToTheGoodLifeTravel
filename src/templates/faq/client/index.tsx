@@ -3,9 +3,8 @@ import React from "react";
 import { NextComponentType } from "next";
 import { Container, Accordion } from "react-bootstrap";
 
-//components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
+//layout
+import SiteLayout from "src/layouts/site-layout";
 
 //locals
 import MetaComponent from "./meta";
@@ -18,9 +17,8 @@ import style from "./f.module.scss";
 
 const FaqPage: NextComponentType<any, any, any> = () => {
   return (
-    <>
+    <SiteLayout>
       <MetaComponent />
-      <HeaderComponent />
       <Container className="my-5">
         <h1 className="text-center mb-4">Frequently Asked Questions</h1>
         <Accordion>
@@ -38,9 +36,7 @@ const FaqPage: NextComponentType<any, any, any> = () => {
           ))}
         </Accordion>
       </Container>
-      <div className="my-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

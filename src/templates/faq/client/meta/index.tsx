@@ -18,7 +18,7 @@ import useWebsiteUrl from "src/hooks/useWebsiteUrl";
 import STATIC_IMAGE from "src/images/0986c3524f41762acb4081d207cd6a2d.png";
 
 const title = "Frequently Asked Questions - Adjust to the Good Life Travel";
-const description = "Questions frequently asked by previous travelers!";
+const description = "Questions frequently asked by previous customers!";
 
 const MetaComponent: FunctionComponent = () => {
   const url = useWebsiteUrl();

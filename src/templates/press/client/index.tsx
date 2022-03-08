@@ -6,9 +6,8 @@ import { Container, Row } from "react-bootstrap";
 //import pages
 import { PageProps } from "../types";
 
-//components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
+//layout
+import SiteLayout from "src/layouts/site-layout";
 
 //locals
 import MetaComponent from "./meta";
@@ -19,9 +18,8 @@ import style from "./styles/press.module.scss";
 
 const PressPage: NextComponentType<any, any, PageProps> = ({ mentions }) => {
   return (
-    <>
+    <SiteLayout>
       <MetaComponent />
-      <HeaderComponent />
       <Container className="my-5">
         <h1 className={style["header"]}>Mentions in the Press</h1>
         <div className={style["subheader"]}>Who's mentioned Us? Here is a list of our mentions online!</div>
@@ -31,9 +29,7 @@ const PressPage: NextComponentType<any, any, PageProps> = ({ mentions }) => {
           ))}
         </Row>
       </Container>
-      <div className="my-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

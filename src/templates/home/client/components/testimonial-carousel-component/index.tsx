@@ -27,8 +27,8 @@ const TestimonialCarouselComponent: FunctionComponent<TestimonialCarouselProps> 
         {testimonials.map((testimonial, i) => (
           <Carousel.Item key={i} className="text-center">
             <div className={style["item"]}>
-              <h2 className="h3 mt-3">{testimonial.title}</h2>
-              <h3 className="h5">{testimonial.locations}</h3>
+              <p className="h3 mt-3">{testimonial.title}</p>
+              <p className="h5">{testimonial.locations}</p>
               <StarRatingComponent rating={testimonial.rating} />
               <p>{testimonial.description}</p>
               <p>{`— ${testimonial.reviewer}`}</p>

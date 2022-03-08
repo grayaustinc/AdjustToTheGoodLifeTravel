@@ -7,9 +7,10 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 //types
 import type { PageProps } from "../types";
 
+//layout
+import SiteLayout from "src/layouts/site-layout";
+
 //src components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
 import ParallaxComponent from "src/components/parallax-component";
 import ParallaxHeaderComponent from "src/components/parallax-header-component";
 
@@ -31,9 +32,8 @@ import styles from "./styles/home.module.scss";
 //TODO short bio
 const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
   return (
-    <>
+    <SiteLayout>
       <MetaComponent />
-      <HeaderComponent />
       <ParallaxComponent bgImage={parallax1} bgImageAlt="Mountains" strength={-300} priority>
         <ParallaxHeaderComponent>Welcome to Adjust to the Good Life Travel, where we specialize in turning your travel dreams into memorable vacations!</ParallaxHeaderComponent>
       </ParallaxComponent>
@@ -77,8 +77,7 @@ const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
       <TestimonialCarouselComponent testimonials={testimonials} />
       <PartnersAffiliatesComponent />
       <div className="m-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

@@ -113,6 +113,11 @@ const defaultConfig = {
   async redirects() {
     return [
       {
+        source: "/home/",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/blog/",
         destination: "/blogs/",
         permanent: true,

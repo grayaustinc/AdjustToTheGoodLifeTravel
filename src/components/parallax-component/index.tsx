@@ -1,5 +1,6 @@
 //node_modules
 import React, { FunctionComponent, useCallback, useEffect, useRef } from "react";
+import { useFirstMountState } from "react-use";
 import NextImage from "next/image";
 
 //utils
@@ -20,6 +21,7 @@ interface ParallaxProps {
 }
 
 const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageAlt, strength, children, priority, quality }) => {
+  const firstMount = useFirstMountState();
   const image = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
 
@@ -46,6 +48,10 @@ const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageA
       document.removeEventListener("scroll", update);
     };
   }, [update]);
+
+  if (firstMount) {
+    update();
+  }
 
   return (
     <div ref={content} className={styles["content"]}>

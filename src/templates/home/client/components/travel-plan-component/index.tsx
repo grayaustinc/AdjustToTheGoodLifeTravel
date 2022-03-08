@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import NextImage from "next/image";
 import Link from "next/link";
+import ReactGA from "react-ga4";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
@@ -41,6 +42,10 @@ const data = [
   },
 ];
 
+function bookingClicked() {
+  ReactGA.event({ action: "booking_consultation", category: "click" });
+}
+
 //TODO change up text inside container
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
@@ -76,7 +81,7 @@ const TravelPlanComponent: FunctionComponent = () => {
         </p>
         <div className="text-center">
           <Link href="https://10to8.com/book/tjfpqu-free/" passHref>
-            <Button target="_blank" size="lg">
+            <Button rel="nofollow noindex" target="_blank" size="lg" onClick={bookingClicked}>
               <FontAwesomeIcon icon={faCalendarAlt} />
               <span className="ms-2">BOOK YOUR FREE CONSULTATION</span>
             </Button>

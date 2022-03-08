@@ -8,9 +8,8 @@ import format from "date-fns/format";
 
 import type { PageProps } from "../types";
 
-//import components
-import HeaderComponent from "src/components/header-component";
-import FooterComponent from "src/components/footer-component";
+//layout
+import SiteLayout from "src/layouts/site-layout";
 
 //meta
 import MetaComponent from "./meta";
@@ -28,9 +27,8 @@ const BlogPage: NextComponentType<any, any, PageProps> = ({ blog, recommendation
   const editorState = useMemo(() => createReadonlyState(convertFromRaw(blog.content)), [blog.content]);
 
   return (
-    <>
+    <SiteLayout>
       <MetaComponent title={blog.title} description={blog.description} image={blog.image} published_time={blog.published_time} modified_time={blog.modified_time} />
-      <HeaderComponent />
       <BlogContainerComponent>
         <div className="h4">
           <span>By </span>
@@ -50,9 +48,7 @@ const BlogPage: NextComponentType<any, any, PageProps> = ({ blog, recommendation
       </BlogContainerComponent>
       <ShareLinksComponent title={blog.title} description={blog.description} slug={blog.slug} image={blog.image} />
       <RecommendationBlogsComponent recommendations={recommendations} />
-      <div className="my-auto" />
-      <FooterComponent />
-    </>
+    </SiteLayout>
   );
 };
 

@@ -17,7 +17,7 @@ import useWebsiteUrl from "src/hooks/useWebsiteUrl";
 //images
 import STATIC_IMAGE from "src/images/b3725d12761ef87064fdc5e61abeb072.png";
 
-const title = "About Us - Adjust to the Good Life Travel";
+const title = "Meet the Gray's - Adjust to the Good Life Travel";
 const description = "I am a Raleigh, North Carolina based travel agent who specializes in helping families and couples find and experience the most amazing dream vacations.";
 
 const MetaComponent: FunctionComponent = () => {
