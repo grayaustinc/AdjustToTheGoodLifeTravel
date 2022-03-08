@@ -2,6 +2,7 @@
 import { AppProps, NextWebVitalsMetric } from "next/app";
 import { useEffectOnce } from "react-use";
 import { SSRProvider } from "@react-aria/ssr";
+import ReactGA from "react-ga4";
 import Head from "next/head";
 
 //components
@@ -22,6 +23,20 @@ config.autoAddCss = false;
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffectOnce(secretFunction);
 
+  //TODO remove after final production build
+  useEffectOnce(() => {
+    navigator.serviceWorker
+      .getRegistrations()
+      .then(function (registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      })
+      .catch(function (err) {
+        console.log("Service Worker registration failed: ", err);
+      });
+  });
+
   return (
     <SSRProvider>
       <Head>
@@ -40,7 +55,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 };
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
-  console.log(metric);
+  ReactGA.event({ action: "web-vitals", category: metric.name, label: metric.label, value: metric.value, nonInteraction: true });
 }
 
 export default MyApp;

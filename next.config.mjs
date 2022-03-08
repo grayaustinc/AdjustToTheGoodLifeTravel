@@ -2,7 +2,6 @@
 import { patchWebpackConfig } from "next-global-css";
 import { LicenseWebpackPlugin } from "license-webpack-plugin";
 import bundleAnalyzer from "@next/bundle-analyzer";
-import withPWA from "next-pwa";
 import envalid from "envalid";
 
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
@@ -125,17 +124,6 @@ const defaultConfig = {
     ];
   },
 
-  //next-pwa configuration
-  pwa: {
-    dest: "public",
-    register: true,
-    disable: !IS_PRODUCTION,
-    dynamicStartUrl: false,
-    cacheOnFrontEndNav: true,
-    buildExcludes: [/media\/.*$/],
-    mode: "production",
-  },
-
   compress: false,
   swcMinify: true,
   optimizeCss: true,
@@ -166,7 +154,5 @@ if (CAN_ANALYZE) {
   const withBundleAnalyzer = bundleAnalyzer({ enabled: true });
   nextConfig = withBundleAnalyzer(nextConfig);
 }
-
-nextConfig = withPWA(nextConfig);
 
 export default nextConfig;

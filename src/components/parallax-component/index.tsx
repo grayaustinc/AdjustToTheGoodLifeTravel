@@ -1,6 +1,5 @@
 //node_modules
-import React, { FunctionComponent, useCallback, useEffect, useRef } from "react";
-import { useFirstMountState } from "react-use";
+import React, { CSSProperties, FunctionComponent, useCallback, useEffect, useRef } from "react";
 import NextImage from "next/image";
 
 //utils
@@ -21,9 +20,13 @@ interface ParallaxProps {
 }
 
 const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageAlt, strength, children, priority, quality }) => {
-  const firstMount = useFirstMountState();
   const image = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
+
+  const initialStyle: CSSProperties = {
+    transform: `translate(0, ${(strength < 0 ? strength : 0) - strength * 0.5}px)`,
+    height: `${getImageHeight(strength, bgImage.height)}px`,
+  };
 
   const update = useCallback(() => {
     if (!content.current) return;
@@ -49,13 +52,9 @@ const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageA
     };
   }, [update]);
 
-  if (firstMount) {
-    update();
-  }
-
   return (
     <div ref={content} className={styles["content"]}>
-      <div ref={image} className={styles["wrapper"]}>
+      <div ref={image} className={styles["wrapper"]} style={initialStyle}>
         <NextImage className={styles["image"]} src={bgImage} alt={bgImageAlt} quality={quality || 80} sizes="2048px" objectFit="cover" layout="responsive" priority={priority} />
       </div>
       <ParallaxChildren>{children}</ParallaxChildren>
