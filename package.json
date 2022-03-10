@@ -14,7 +14,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "docker-build": "build.cmd"
+    "docker-build": "build.cmd",
+    "docker-push": "docker push reconnite/adjust-to-the-good-life-travel:latest"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

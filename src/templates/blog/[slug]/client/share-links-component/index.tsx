@@ -26,7 +26,7 @@ interface ShareLinksProps {
 }
 
 function shareAnalytics(method: string, slug: string) {
-  ReactGA.event("share", { method: method, content_type: "blog", item_id: slug });
+  ReactGA.event("blog_share_link", { method: method, content_type: "blog", item_id: slug });
 }
 
 const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, description, slug, image }) => {

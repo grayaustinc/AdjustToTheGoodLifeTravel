@@ -7,16 +7,20 @@ import style from "./footer.module.scss";
 
 const linkData = [
   {
-    href: "/blogs",
+    href: "/blogs/",
     text: "Blog",
   },
   {
-    href: "/testimonials",
+    href: "/faq/",
+    text: "FAQ",
+  },
+  {
+    href: "/testimonials/",
     text: "Testimonials",
   },
   {
-    href: "/faq",
-    text: "FAQ",
+    href: "/privacy/",
+    text: "Privacy Notice",
   },
 ];
 
@@ -45,7 +49,7 @@ const contactData = [
     text: "Email Travel Agent",
   },
   {
-    href: "/contact",
+    href: "/contact/",
     text: "Contact Page",
   },
 ];

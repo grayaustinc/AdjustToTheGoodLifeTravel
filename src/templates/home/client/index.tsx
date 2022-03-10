@@ -76,7 +76,6 @@ const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
       </ParallaxComponent>
       <TestimonialCarouselComponent testimonials={testimonials} />
       <PartnersAffiliatesComponent />
-      <div className="m-auto" />
     </SiteLayout>
   );
 };

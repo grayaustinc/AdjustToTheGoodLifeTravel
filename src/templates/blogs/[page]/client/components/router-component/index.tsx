@@ -13,6 +13,9 @@ interface RouterProps {
 }
 
 function generateHref(page: number) {
+  if (page <= 1) {
+    return "/blogs/";
+  }
   return `/blogs/${page}`;
 }
 

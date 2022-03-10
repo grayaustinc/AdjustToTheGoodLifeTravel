@@ -39,7 +39,7 @@ const FormComponent: FunctionComponent = () => {
     try {
       const response = await createContact(values);
       if (response.ok) {
-        ReactGA.event({ action: "contact", category: "submit" });
+        ReactGA.event({ action: "contact_us", category: "submit" });
         router.push("/contact/complete/");
       } else {
         setSubmitting(false);

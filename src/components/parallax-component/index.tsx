@@ -1,5 +1,6 @@
 //node_modules
 import React, { CSSProperties, FunctionComponent, useCallback, useEffect, useRef } from "react";
+import assign from "lodash/assign";
 import NextImage from "next/image";
 
 //utils
@@ -19,14 +20,21 @@ interface ParallaxProps {
   quality?: number;
 }
 
+function calculateStyle(strength: number, height: number, percentage: number) {
+  const inverse = strength < 0;
+  const pos = (inverse ? strength : 0) - strength * percentage;
+  const style: CSSProperties = {
+    transform: `translate(0, ${pos}px)`,
+    height: `${getImageHeight(strength, height)}px`,
+  };
+  return style;
+}
+
 const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageAlt, strength, children, priority, quality }) => {
   const image = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
 
-  const initialStyle: CSSProperties = {
-    transform: `translate(0, ${(strength < 0 ? strength : 0) - strength * 0.5}px)`,
-    height: `${getImageHeight(strength, bgImage.height)}px`,
-  };
+  const initialStyle = calculateStyle(strength, bgImage.height, 0.5);
 
   const update = useCallback(() => {
     if (!content.current) return;
@@ -35,11 +43,9 @@ const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageA
     const percentage = getRelativePosition(content.current);
     const { height } = content.current.getBoundingClientRect();
 
-    const inverse = strength < 0;
-    const pos = (inverse ? strength : 0) - strength * percentage;
     if (!image.current) return;
-    image.current.style.transform = `translate(0, ${pos}px)`;
-    image.current.style.height = `${getImageHeight(strength, height)}px`;
+    const style = calculateStyle(strength, height, percentage);
+    assign(image.current.style, style);
   }, [image, content, strength]);
 
   useEffect(() => {
