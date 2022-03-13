@@ -1,11 +1,15 @@
+//node_modules
 import React, { FunctionComponent } from "react";
 import NextImage from "next/image";
 import Link from "next/link";
-import ReactGA from "react-ga4";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 
+//libs
+import matomo from "libs/matomo";
+
+//images
 import image1 from "src/images/8df5c93fd190e56f46108d39ed8bbb51.png";
 import image2 from "src/images/489ed5fcc1a16101dbbc7757ad75b945.png";
 import image3 from "src/images/baa0727900308633b333db5ad820bc56.png";
@@ -43,7 +47,7 @@ const data = [
 ];
 
 function bookingClicked() {
-  ReactGA.event({ action: "booking_consultation", category: "click" });
+  matomo.trackEvent({ action: "booking_consultation", category: "click" });
 }
 
 //TODO change up text inside container

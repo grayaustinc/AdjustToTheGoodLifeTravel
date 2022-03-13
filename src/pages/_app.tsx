@@ -1,8 +1,7 @@
 //node_modules
-import { AppProps, NextWebVitalsMetric } from "next/app";
+import { AppProps } from "next/app";
 import { useEffectOnce } from "react-use";
 import { SSRProvider } from "@react-aria/ssr";
-import ReactGA from "react-ga4";
 import Head from "next/head";
 
 //components
@@ -53,9 +52,5 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     </SSRProvider>
   );
 };
-
-export function reportWebVitals(metric: NextWebVitalsMetric) {
-  ReactGA.event({ action: "web-vitals", category: metric.name, label: metric.label, value: metric.value, nonInteraction: true });
-}
 
 export default MyApp;

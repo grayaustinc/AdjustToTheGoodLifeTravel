@@ -1,6 +1,6 @@
 //node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 
 import type { PageProps } from "../types";
 
@@ -12,7 +12,7 @@ import BlogComponent from "./components/blog-component";
 import PagingComponent from "./components/router-component";
 import MetaComponent from "./meta";
 
-const BlogsListPage: NextComponentType<any, any, PageProps> = ({ page, total, blogs }) => {
+const BlogsListPage: NextPage<PageProps> = ({ page, total, blogs }) => {
   return (
     <SiteLayout>
       <MetaComponent />
@@ -22,4 +22,4 @@ const BlogsListPage: NextComponentType<any, any, PageProps> = ({ page, total, bl
   );
 };
 
-export default BlogsListPage;
+export default React.memo(BlogsListPage);

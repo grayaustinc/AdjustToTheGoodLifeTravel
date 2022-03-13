@@ -1,6 +1,6 @@
 //node_modules
-import React, { useEffect } from "react";
-import { NextComponentType } from "next";
+import React from "react";
+import { NextPage } from "next";
 import Link from "next/link";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
@@ -30,7 +30,7 @@ import styles from "./styles/home.module.scss";
 
 //TODO brand statement
 //TODO short bio
-const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
+const HomePage: NextPage<PageProps> = ({ testimonials }) => {
   return (
     <SiteLayout>
       <MetaComponent />
@@ -80,4 +80,4 @@ const HomePage: NextComponentType<any, any, PageProps> = ({ testimonials }) => {
   );
 };
 
-export default HomePage;
+export default React.memo(HomePage);

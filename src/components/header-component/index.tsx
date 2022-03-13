@@ -160,7 +160,7 @@ const HeaderComponent: FunctionComponent = () => {
               {/* <NavCanvasLinkComponent {...navigation.Press} /> */}
             </Row>
             <hr />
-            <Row>
+            <Row className="justify-content-center">
               <NavCanvasSocialComponent {...socials.Facebook} />
               <NavCanvasSocialComponent {...socials.Instagram} />
               {/* <NavCanvasSocialComponent {...socials.Pinterest} /> */}

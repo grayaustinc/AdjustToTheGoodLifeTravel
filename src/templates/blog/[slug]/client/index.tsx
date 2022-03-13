@@ -1,6 +1,6 @@
 //import node_modules
 import React, { useMemo } from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import readingTime from "reading-time";
 import { convertFromRaw } from "draft-js";
 import formatDistanceToNow from "date-fns/formatDistanceToNowStrict";
@@ -22,7 +22,7 @@ import BlogRenderComponent, { createReadonlyState } from "src/components/draft-c
 import ShareLinksComponent from "./share-links-component";
 import RecommendationBlogsComponent from "./recommendation-blogs-component";
 
-const BlogPage: NextComponentType<any, any, PageProps> = ({ blog, recommendations }) => {
+const BlogPage: NextPage<PageProps> = ({ blog, recommendations }) => {
   const reading = useMemo(() => readingTime(blog.content.blocks.reduce((text, block) => text + " " + block.text, "")), [blog.content]);
   const editorState = useMemo(() => createReadonlyState(convertFromRaw(blog.content)), [blog.content]);
 
@@ -52,4 +52,4 @@ const BlogPage: NextComponentType<any, any, PageProps> = ({ blog, recommendation
   );
 };
 
-export default BlogPage;
+export default React.memo(BlogPage);

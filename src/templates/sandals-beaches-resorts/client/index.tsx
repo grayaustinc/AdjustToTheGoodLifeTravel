@@ -1,10 +1,12 @@
 //node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import Link from "next/link";
 import NextImage from "next/image";
-import ReactGA from "react-ga4";
 import { Container, Row, Col } from "react-bootstrap";
+
+//libs
+import matomo from "libs/matomo";
 
 //layout
 import SiteLayout from "src/layouts/site-layout";
@@ -30,13 +32,13 @@ const referral_sizes = getBootstrapSizes(384, 640, 750, 1200, 1200, 1200);
 import styles from "./styles/sandals.module.scss";
 
 function onReferralAnalytics() {
-  ReactGA.event({ action: "sandals_referral", category: "clicked" });
+  matomo.trackEvent({ action: "sandals_referral", category: "clicked" });
 }
 
 //TODO fix up everything
 //TODO example https://rjttravels.com/sandals-travel-agency/
 
-const SandalsPage: NextComponentType<any, any, any> = (p) => {
+const SandalsPage: NextPage<any> = () => {
   return (
     <SiteLayout>
       <MetaComponent />
@@ -73,4 +75,4 @@ const SandalsPage: NextComponentType<any, any, any> = (p) => {
   );
 };
 
-export default SandalsPage;
+export default React.memo(SandalsPage);

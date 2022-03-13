@@ -1,22 +1,26 @@
+//node_modules
 import React, { FunctionComponent, useEffect } from "react";
-import ReactGA from "react-ga4";
 
+//libs
+import matomo from "libs/matomo";
+
+//src constants
 import HeaderComponent from "src/components/header-component";
 import FooterComponent from "src/components/footer-component";
 
 const SiteLayout: FunctionComponent = ({ children }) => {
   useEffect(() => {
-    ReactGA.initialize("G-75WT0B1EJB");
-    ReactGA.send("pageview");
+    matomo.trackPageView();
+    matomo.enableLinkTracking(true);
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       <HeaderComponent />
       {children}
       <div className="my-auto" />
       <FooterComponent />
-    </>
+    </React.Fragment>
   );
 };
 

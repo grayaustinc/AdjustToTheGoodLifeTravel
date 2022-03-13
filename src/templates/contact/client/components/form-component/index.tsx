@@ -5,8 +5,10 @@ import { Form, FloatingLabel, Row, Col, Card } from "react-bootstrap";
 import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
-import ReactGA from "react-ga4";
 import { phone } from "phone";
+
+//libs
+import matomo from "libs/matomo";
 
 //alerts
 import useMakeAlert from "src/contexts/error-alert/useMakeAlert";
@@ -39,7 +41,7 @@ const FormComponent: FunctionComponent = () => {
     try {
       const response = await createContact(values);
       if (response.ok) {
-        ReactGA.event({ action: "contact_us", category: "submit" });
+        matomo.trackEvent({ action: "contact_form", category: "submit_form" });
         router.push("/contact/complete/");
       } else {
         setSubmitting(false);

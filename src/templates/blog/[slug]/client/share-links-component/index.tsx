@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faLinkedin, faPinterest, faTwitter, faReddit, faTumblr } from "@fortawesome/free-brands-svg-icons";
 import urlJoin from "proper-url-join";
-import ReactGA from "react-ga4";
 import clipboardy from "clipboardy";
+
+//libs
+import matomo from "libs/matomo";
 
 //helpers
 import getWebsiteUrl from "libs/helper/get-website-url";
@@ -26,7 +28,7 @@ interface ShareLinksProps {
 }
 
 function shareAnalytics(method: string, slug: string) {
-  ReactGA.event("blog_share_link", { method: method, content_type: "blog", item_id: slug });
+  matomo.trackEvent({ action: "share_link", category: method, name: slug });
 }
 
 const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, description, slug, image }) => {
