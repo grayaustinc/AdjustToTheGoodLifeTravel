@@ -6,9 +6,6 @@ import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 
-//libs
-import matomo from "libs/matomo";
-
 //images
 import image1 from "src/images/8df5c93fd190e56f46108d39ed8bbb51.png";
 import image2 from "src/images/489ed5fcc1a16101dbbc7757ad75b945.png";
@@ -46,10 +43,6 @@ const data = [
   },
 ];
 
-function bookingClicked() {
-  matomo.trackEvent({ action: "booking_consultation", category: "click" });
-}
-
 //TODO change up text inside container
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
@@ -85,7 +78,7 @@ const TravelPlanComponent: FunctionComponent = () => {
         </p>
         <div className="text-center">
           <Link href="https://10to8.com/book/tjfpqu-free/" passHref>
-            <Button rel="nofollow noindex" target="_blank" size="lg" onClick={bookingClicked}>
+            <Button rel="nofollow noindex" target="_blank" size="lg">
               <FontAwesomeIcon icon={faCalendarAlt} />
               <span className="ms-2">BOOK YOUR FREE CONSULTATION</span>
             </Button>

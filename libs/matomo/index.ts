@@ -1,6 +1,12 @@
-import { createInstance } from "@datapunt/matomo-tracker-react";
+import MatomoTracker from "./tracker";
 
-const instance = createInstance({
+declare global {
+  interface Window {
+    _paq: [string, ...any[]][];
+  }
+}
+
+const instance = new MatomoTracker({
   urlBase: "https://matomo.adjusttothegoodlifetravel.com/",
   siteId: 1,
   disabled: false,

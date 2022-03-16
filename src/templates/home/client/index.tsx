@@ -35,7 +35,10 @@ const HomePage: NextPage<PageProps> = ({ testimonials }) => {
     <SiteLayout>
       <MetaComponent />
       <ParallaxComponent bgImage={parallax1} bgImageAlt="Mountains" strength={-300} priority>
-        <ParallaxHeaderComponent>Welcome to Adjust to the Good Life Travel, where we specialize in turning your travel dreams into memorable vacations!</ParallaxHeaderComponent>
+        {/* <ParallaxHeaderComponent>Welcome to Adjust to the Good Life Travel, where we specialize in turning your travel dreams into memorable vacations!</ParallaxHeaderComponent> */}
+        <ParallaxHeaderComponent>
+          Adjust to the Good Life Travel is a Raleigh based travel agency, where we specialize in turning your travel dreams into memorable vacations!
+        </ParallaxHeaderComponent>
       </ParallaxComponent>
       <TravelPlanComponent />
       <ParallaxComponent bgImage={parallax2} bgImageAlt="Oceans" strength={-300}>

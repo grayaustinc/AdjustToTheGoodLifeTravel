@@ -5,9 +5,6 @@ import Link from "next/link";
 import NextImage from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 
-//libs
-import matomo from "libs/matomo";
-
 //layout
 import SiteLayout from "src/layouts/site-layout";
 
@@ -30,10 +27,6 @@ const referral_sizes = getBootstrapSizes(384, 640, 750, 1200, 1200, 1200);
 
 //styles
 import styles from "./styles/sandals.module.scss";
-
-function onReferralAnalytics() {
-  matomo.trackEvent({ action: "sandals_referral", category: "clicked" });
-}
 
 //TODO fix up everything
 //TODO example https://rjttravels.com/sandals-travel-agency/
@@ -63,7 +56,7 @@ const SandalsPage: NextPage<any> = () => {
         <Row className="g-0">
           <Col className={styles["referral"]}>
             <Link href="http://www.sandals.com/?referral=104018&agentid=STGR2506" passHref>
-              <a rel="noopener nofollow" target="_blank" onClick={onReferralAnalytics}>
+              <a rel="noopener nofollow" target="_blank">
                 <NextImage src={sandals_referral} alt="Sandals Referral" placeholder="blur" sizes={referral_sizes} quality={80} />
               </a>
             </Link>

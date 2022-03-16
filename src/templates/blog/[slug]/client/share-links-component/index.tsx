@@ -7,9 +7,6 @@ import { faFacebook, faLinkedin, faPinterest, faTwitter, faReddit, faTumblr } fr
 import urlJoin from "proper-url-join";
 import clipboardy from "clipboardy";
 
-//libs
-import matomo from "libs/matomo";
-
 //helpers
 import getWebsiteUrl from "libs/helper/get-website-url";
 import getImageAbsoluteUrl from "libs/helper/get-image-absolute-url";
@@ -25,10 +22,6 @@ interface ShareLinksProps {
   description: string;
   slug: string;
   image?: ImageType | null;
-}
-
-function shareAnalytics(method: string, slug: string) {
-  matomo.trackEvent({ action: "share_link", category: method, name: slug });
 }
 
 const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, description, slug, image }) => {
@@ -72,37 +65,37 @@ const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, descri
           <Tooltip>Copied!</Tooltip>
         </Overlay>
         <Col xs="auto" sm={4} md={3} lg="auto">
-          <Nav.Link href={facebookHref} className="text-center" rel="noopener nofollow" target="_blank" onClick={() => shareAnalytics("Facebook", slug)}>
+          <Nav.Link href={facebookHref} className="text-center" rel="noopener nofollow" target="_blank">
             <FontAwesomeIcon icon={faFacebook} color="#4267B2" />
             <span className="mx-1 my-auto text-black">Facebook</span>
           </Nav.Link>
         </Col>
         <Col xs="auto" sm={4} md={3} lg="auto">
-          <Nav.Link href={twitterHref} className="text-center" rel="noopener nofollow" target="_blank" onClick={() => shareAnalytics("Twitter", slug)}>
+          <Nav.Link href={twitterHref} className="text-center" rel="noopener nofollow" target="_blank">
             <FontAwesomeIcon icon={faTwitter} color="#1DA1F2" />
             <span className="mx-1 my-auto text-black">Twitter</span>
           </Nav.Link>
         </Col>
         <Col xs="auto" sm={4} md={3} lg="auto">
-          <Nav.Link href={pinterestHref} className="text-center" rel="noopener nofollow" target="_blank" onClick={() => shareAnalytics("Pinterest", slug)}>
+          <Nav.Link href={pinterestHref} className="text-center" rel="noopener nofollow" target="_blank">
             <FontAwesomeIcon icon={faPinterest} color="#E60023" />
             <span className="mx-1 my-auto text-black">Pinterest</span>
           </Nav.Link>
         </Col>
         <Col xs="auto" sm={4} md={3} lg="auto">
-          <Nav.Link href={tumblrHref} className="text-center" rel="noopener nofollow" target="_blank" onClick={() => shareAnalytics("Tumblr", slug)}>
+          <Nav.Link href={tumblrHref} className="text-center" rel="noopener nofollow" target="_blank">
             <FontAwesomeIcon icon={faTumblr} color="#000000" />
             <span className="mx-1 my-auto text-black">Tumblr</span>
           </Nav.Link>
         </Col>
         <Col xs="auto" sm={4} md={3} lg="auto">
-          <Nav.Link href={linkedinHref} className="text-center" rel="noopener nofollow" target="_blank" onClick={() => shareAnalytics("LinkedIn", slug)}>
+          <Nav.Link href={linkedinHref} className="text-center" rel="noopener nofollow" target="_blank">
             <FontAwesomeIcon icon={faLinkedin} color="#0072b1" />
             <span className="mx-1 my-auto text-black">LinkedIn</span>
           </Nav.Link>
         </Col>
         <Col xs="auto" sm={4} md={3} lg="auto">
-          <Nav.Link href={redditHref} className="text-center" rel="noopener nofollow" target="_blank" onClick={() => shareAnalytics("Reddit", slug)}>
+          <Nav.Link href={redditHref} className="text-center" rel="noopener nofollow" target="_blank">
             <FontAwesomeIcon icon={faReddit} color="#FF4500" />
             <span className="mx-1 my-auto text-black">Reddit</span>
           </Nav.Link>

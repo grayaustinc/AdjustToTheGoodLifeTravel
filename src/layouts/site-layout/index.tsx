@@ -1,5 +1,6 @@
 //node_modules
 import React, { FunctionComponent, useEffect } from "react";
+import Script from "next/script";
 
 //libs
 import matomo from "libs/matomo";
@@ -12,10 +13,14 @@ const SiteLayout: FunctionComponent = ({ children }) => {
   useEffect(() => {
     matomo.trackPageView();
     matomo.enableLinkTracking(true);
+    return () => {
+      matomo.enableLinkTracking(false);
+    };
   }, []);
 
   return (
     <React.Fragment>
+      <Script key="matomo-analytics-script" src={matomo.getScriptSrc()} defer />
       <HeaderComponent />
       {children}
       <div className="my-auto" />
