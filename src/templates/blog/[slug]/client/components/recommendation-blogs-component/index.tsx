@@ -10,7 +10,7 @@ import type { RecommendationBlogDocumentData } from "src/templates/blog/[slug]/t
 import BlogPreviewComponent from "./blog-preview-component";
 
 //styles
-import style from "../blog.module.scss";
+import style from "src/templates/blog/[slug]/client/blog.module.scss";
 
 interface RecommendationBlogsProps {
   recommendations: RecommendationBlogDocumentData[];

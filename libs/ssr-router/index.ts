@@ -1,7 +1,11 @@
+//node_modules
 import type { GetServerSidePropsContext, GetServerSidePropsResult, Redirect } from "next";
 import isString from "lodash/isString";
 import isFunction from "lodash/isFunction";
 import urlJoin from "proper-url-join";
+
+//types
+import type { UserDocumentData } from "libs/arangodb/collections/users";
 
 function getSlug(context: GetServerSidePropsContext) {
   const slug = context.params?.slug;
@@ -18,19 +22,31 @@ function getLocation(slug: string[]) {
   return urlJoin(slug.join("/"), { trailingSlash: true });
 }
 
+interface DefaultProps<PropsType> {
+  user: UserDocumentData;
+  location: string;
+  props: PropsType;
+  notFound?: boolean;
+}
+
+export type InferType<P> = DefaultProps<P>;
+
 class Context<PropsType = any> {
   public context: GetServerSidePropsContext;
   public path: string[];
+  public user: UserDocumentData;
   private location: string;
-  constructor(context: GetServerSidePropsContext) {
+  constructor(context: GetServerSidePropsContext, user: UserDocumentData) {
     this.context = context;
+    this.user = user;
     this.path = getSlug(context);
     this.location = getLocation(this.path);
   }
 
-  props(props: PropsType): GetServerSidePropsResult<{ location: string; props: PropsType }> {
+  props(props: PropsType): GetServerSidePropsResult<DefaultProps<PropsType>> {
     return {
       props: {
+        user: this.user,
         location: this.location,
         props: props,
       },
@@ -46,6 +62,7 @@ class Context<PropsType = any> {
   notFound(): GetServerSidePropsResult<any> {
     return {
       props: {
+        user: this.user,
         notFound: true,
       },
     };
@@ -68,8 +85,8 @@ async function pathfinder<PropsType>(path: Path, slug: string[], context: Contex
 }
 
 export default function router(path: Path) {
-  return (context: GetServerSidePropsContext): Promise<GetServerSidePropsResult<any>> => {
-    const target = new Context(context);
+  return (context: GetServerSidePropsContext, user: UserDocumentData): Promise<GetServerSidePropsResult<DefaultProps<any>>> => {
+    const target = new Context(context, user);
     return pathfinder(path, target.path, target);
   };
 }

@@ -1,6 +1,6 @@
 //node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import NextImage from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -16,7 +16,7 @@ import image from "src/images/97b9375cf75ade65090bccc8c8ef5884.png";
 //styles
 import style from "./login.module.scss";
 
-const AdminLoginPage: NextComponentType<any, any, any> = (p) => {
+const AdminLoginPage: NextPage<any> = () => {
   return (
     <div className={style["wrapper"]}>
       <NextImage src={image} alt="Login Background" layout="fill" objectFit="cover" quality={100} />

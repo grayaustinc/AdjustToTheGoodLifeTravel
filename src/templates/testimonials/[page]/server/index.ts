@@ -1,3 +1,5 @@
+import { GetStaticPaths } from "next";
+
 //libs
 import crateGetStaticHandler from "libs/get-static-props";
 import ErrorWrapperMiddleware from "libs/middleware/ssg/error-wrapper";
@@ -10,12 +12,12 @@ import getTotal from "./get-total";
 //types
 import type { PageProps } from "../types";
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
     fallback: "blocking",
   };
-}
+};
 
 const handler = crateGetStaticHandler<PageProps>();
 

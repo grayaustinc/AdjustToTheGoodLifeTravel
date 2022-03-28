@@ -15,7 +15,7 @@ import getImageAbsoluteUrl from "libs/helper/get-image-absolute-url";
 import type { ImageType } from "libs/arangodb/collections/blogs";
 
 //styles
-import style from "../blog.module.scss";
+import style from "src/templates/blog/[slug]/client/blog.module.scss";
 
 interface ShareLinksProps {
   title: string;

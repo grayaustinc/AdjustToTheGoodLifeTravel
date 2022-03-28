@@ -1,17 +1,31 @@
+//node_modules
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import omit from "lodash/omit";
+
 //libs
-import createServerSideHandler from "libs/get-server-side-props";
-import LoginRedirectMiddleware from "libs/middleware/ssr/login-redirect";
+import getSession from "libs/session";
 
 //router
-import router from "libs/ssr-router";
+import router, { InferType } from "libs/ssr-router";
 
 //paths
 import paths from "./paths";
 
-const handler = createServerSideHandler<any>();
+const handler = router(paths);
 
-handler.use(LoginRedirectMiddleware);
+export type PropsType = InferType<any>;
 
-export const getServerSideProps = handler.run(router(paths));
-
-export default getServerSideProps;
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx.req, ctx.res);
+  if (session.user) {
+    const user: any = omit(session.user, ["password"]);
+    return handler(ctx, user);
+  } else {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/admin/login/",
+      },
+    };
+  }
+};

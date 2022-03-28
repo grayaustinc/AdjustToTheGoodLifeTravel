@@ -20,7 +20,7 @@ const SiteLayout: FunctionComponent = ({ children }) => {
 
   return (
     <React.Fragment>
-      <Script key="matomo-analytics-script" src={matomo.getScriptSrc()} defer />
+      <Script key="matomo-analytics-script" src={matomo.getScriptSrc()} strategy="afterInteractive" defer />
       <HeaderComponent />
       {children}
       <div className="my-auto" />

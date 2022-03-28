@@ -14,7 +14,7 @@ import type { RecommendationBlogDocumentData } from "src/templates/blog/[slug]/t
 import PreviewImageData from "./preview.png";
 
 //styles
-import style from "../../blog.module.scss";
+import style from "src/templates/blog/[slug]/client/blog.module.scss";
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 const sizes = getBootstrapSizes(384, 384, 256, 256, 256, 384);

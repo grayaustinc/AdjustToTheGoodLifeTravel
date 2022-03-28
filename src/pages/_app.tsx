@@ -22,20 +22,6 @@ config.autoAddCss = false;
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffectOnce(secretFunction);
 
-  //TODO remove after final production build
-  useEffectOnce(() => {
-    navigator.serviceWorker
-      .getRegistrations()
-      .then(function (registrations) {
-        for (let registration of registrations) {
-          registration.unregister();
-        }
-      })
-      .catch(function (err) {
-        console.log("Service Worker registration failed: ", err);
-      });
-  });
-
   return (
     <SSRProvider>
       <Head>

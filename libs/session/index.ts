@@ -10,9 +10,8 @@ import logger from "libs/logger";
 //store
 import ArangoStore from "./store";
 
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
-const { SESSION_COOKIE_NAME, SESSION_SECRET } = serverRuntimeConfig;
-const { NEXT_PUBLIC_WEBSITE_DOMAIN } = publicRuntimeConfig;
+const { serverRuntimeConfig } = getConfig();
+const { SESSION_COOKIE_NAME, SESSION_SECRET, SESSION_SECURE } = serverRuntimeConfig;
 
 function decode(enc: string) {
   try {
@@ -34,7 +33,7 @@ const middleware = nextSession({
   decode: decode,
   encode: encode,
   cookie: {
-    secure: NEXT_PUBLIC_WEBSITE_DOMAIN.startsWith("https"),
+    secure: SESSION_SECURE,
     httpOnly: true,
     path: "/",
     sameSite: "strict",

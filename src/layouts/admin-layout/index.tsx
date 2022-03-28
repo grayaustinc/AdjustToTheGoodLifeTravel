@@ -1,23 +1,33 @@
-import React, { FunctionComponent, useState } from "react";
+//node_modules
+import React, { FunctionComponent, useCallback, useEffect, useState } from "react";
+import { Router } from "next/router";
 
 //components
-import AdminHeaderComponent from "./components/header-component";
+import AdminOffCanvasComponent from "./components/pro-sidebar-component";
 import AdminMainComponent from "./components/main-component";
 
 //styles
-import styles from "src/styles/admin-layout/index.module.scss";
 import "src/styles/global/pro-sidebar/index.scss";
 
 const AdminLayout: FunctionComponent = ({ children }) => {
   const [toggle, setToggle] = useState<boolean>(false);
 
+  const closeAside = useCallback(() => setToggle(false), [setToggle]);
+
+  useEffect(() => {
+    Router.events.on("routeChangeComplete", closeAside);
+    return () => {
+      Router.events.off("routeChangeComplete", closeAside);
+    };
+  }, [closeAside]);
+
   return (
-    <div className={styles.app}>
-      <AdminHeaderComponent toggle={toggle} onToggle={setToggle} />
+    <React.Fragment>
+      <AdminOffCanvasComponent toggle={toggle} onToggle={setToggle} />
       <AdminMainComponent toggle={toggle} onToggle={setToggle}>
         {children}
       </AdminMainComponent>
-    </div>
+    </React.Fragment>
   );
 };
 

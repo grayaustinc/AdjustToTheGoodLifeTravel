@@ -1,3 +1,6 @@
+//node_modules
+import getConfig from "next/config";
+
 import MatomoTracker from "./tracker";
 
 declare global {
@@ -6,10 +9,13 @@ declare global {
   }
 }
 
+const { publicRuntimeConfig } = getConfig();
+const { ANALYTICS_DISABLED } = publicRuntimeConfig;
+
 const instance = new MatomoTracker({
   urlBase: "https://matomo.adjusttothegoodlifetravel.com/",
   siteId: 1,
-  disabled: false,
+  disabled: ANALYTICS_DISABLED,
   heartBeat: {
     active: true,
     seconds: 15,

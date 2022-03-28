@@ -2,7 +2,7 @@ const data = [
   {
     title: "How Much Does Your Service Cost?",
     text: [
-      "In the majority of cases, my service doesn't cost my clients a dime. I get paid a commission from hotels, resorts, cruise lines and rental cars for booking your travel.But Doesn't That Mean I'll End Up Paying More to Use You?",
+      "In the majority of cases, my service doesn't cost my clients a dime. I get paid a commission from hotels, resorts, cruise lines and rental cars for booking your travel. But Doesn't That Mean I'll End Up Paying More to Use You?",
       "Not at all! The prices I quote you will never be inflated because of my commission. In fact, you will often save money.",
     ],
   },

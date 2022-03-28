@@ -1,11 +1,11 @@
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import { ErrorProps } from "next/error";
 
 //layout
 import SiteLayout from "src/layouts/site-layout";
 
 //TODO make this better?
-const NotFoundPage: NextComponentType<any, any, ErrorProps> = (p) => {
+const NotFoundPage: NextPage<ErrorProps> = (p) => {
   return (
     <SiteLayout>
       <div className="my-auto">

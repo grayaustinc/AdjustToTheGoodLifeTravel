@@ -1,10 +1,10 @@
+//node_modules
+import { GetServerSideProps } from "next";
+
 //libs
 import getSession from "libs/session";
-import createServerSideHandler from "libs/get-server-side-props";
 
-const handler = createServerSideHandler();
-
-handler.use(async (context, next) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context.req, context.res);
   if (session.user) {
     return {
@@ -14,13 +14,7 @@ handler.use(async (context, next) => {
       },
     };
   }
-  return next();
-});
-
-export const getServerSideProps = handler.run(async (context) => {
-  return {
-    props: {},
-  };
-});
+  return { props: {} };
+};
 
 export default getServerSideProps;

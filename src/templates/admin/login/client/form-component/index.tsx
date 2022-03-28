@@ -2,7 +2,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { Card, Form, FloatingLabel } from "react-bootstrap";
 import { useFormik } from "formik";
-import { useRouter } from "next/router";
+import Router from "next/router";
 
 //alert
 import AlertComponent from "src/contexts/error-alert/alert-component";
@@ -16,7 +16,6 @@ import loginFetch from "src/templates/api/admin/login/client";
 import loginSchema from "src/templates/api/admin/login/validation";
 
 const AdminLoginPage: FunctionComponent = () => {
-  const router = useRouter();
   const makeAlert = useMakeAlert();
   const [submitting, setSubmitting] = useState(false);
 
@@ -31,7 +30,7 @@ const AdminLoginPage: FunctionComponent = () => {
       try {
         const data = await loginFetch(values);
         if (data.ok) {
-          router.push("/admin/dashboard/");
+          Router.push("/admin/dashboard/");
         } else {
           setSubmitting(false);
           makeAlert(data.message);

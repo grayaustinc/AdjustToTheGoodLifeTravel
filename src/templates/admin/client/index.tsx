@@ -5,12 +5,17 @@ import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
+//context
+import { AuthProvider } from "src/contexts/user";
+
 //layout
 import AdminLayout from "src/layouts/admin-layout";
 
 //helpers
 import LoadingComponent from "./helpers/loading-component";
-import RedirectComponent from "./helpers/redirect-component";
+
+//types
+import type { PropsType } from "src/templates/admin/server";
 
 //dashboard
 const DashboardPage = dynamic(() => import("./pages/dashboard"), { loading: LoadingComponent });
@@ -41,9 +46,9 @@ const UsersViewPage = dynamic(() => import("./pages/users/view"), { loading: Loa
 //404
 const NotFoundPage = dynamic(() => import("./pages/404"), { loading: LoadingComponent });
 
-const AdminPage: NextPage<{ location: string; notFound: boolean; props: any }> = ({ location, notFound, props }) => {
+const AdminPage: NextPage<PropsType> = ({ location, user, notFound, props }) => {
   return (
-    <>
+    <AuthProvider value={user}>
       <Head>
         <title key="admin-title">Admin Page</title>
       </Head>
@@ -98,7 +103,7 @@ const AdminPage: NextPage<{ location: string; notFound: boolean; props: any }> =
           </Routes>
         </StaticRouter>
       </AdminLayout>
-    </>
+    </AuthProvider>
   );
 };
 

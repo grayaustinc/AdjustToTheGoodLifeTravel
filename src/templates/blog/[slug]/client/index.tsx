@@ -1,10 +1,9 @@
 //import node_modules
 import React, { useMemo } from "react";
 import { NextPage } from "next";
+import dynamic from "next/dynamic";
 import readingTime from "reading-time";
 import { convertFromRaw } from "draft-js";
-import formatDistanceToNow from "date-fns/formatDistanceToNowStrict";
-import format from "date-fns/format";
 
 import type { PageProps } from "../types";
 
@@ -19,11 +18,14 @@ import BlogContainerComponent from "src/components/blog-container-component";
 import BlogRenderComponent, { createReadonlyState } from "src/components/draft-component/readonly";
 
 //locals
-import ShareLinksComponent from "./share-links-component";
-import RecommendationBlogsComponent from "./recommendation-blogs-component";
+import ShareLinksComponent from "./components/share-links-component";
+import RecommendationBlogsComponent from "./components/recommendation-blogs-component";
+
+//locals dynamic
+const PublishedComponent = dynamic(() => import("./components/published-component"), { ssr: false });
 
 const BlogPage: NextPage<PageProps> = ({ blog, recommendations }) => {
-  const reading = useMemo(() => readingTime(blog.content.blocks.reduce((text, block) => text + " " + block.text, "")), [blog.content]);
+  const read_time = useMemo(() => readingTime(blog.content.blocks.reduce((text, block) => text + " " + block.text, "")), [blog.content]);
   const editorState = useMemo(() => createReadonlyState(convertFromRaw(blog.content)), [blog.content]);
 
   return (
@@ -34,16 +36,7 @@ const BlogPage: NextPage<PageProps> = ({ blog, recommendations }) => {
           <span>By </span>
           <span>{blog.authors.join(", ")}</span>
         </div>
-        <div>
-          <small>
-            <span>Published </span>
-            <span>
-              {format(blog.published_time, "PPP")} ({formatDistanceToNow(blog.published_time, { addSuffix: true })})
-            </span>
-            <span> • </span>
-            <span>{reading.text}</span>
-          </small>
-        </div>
+        <PublishedComponent published_time={blog.published_time} read_time={read_time} />
         <BlogRenderComponent editorState={editorState} setEditorState={() => {}} />
       </BlogContainerComponent>
       <ShareLinksComponent title={blog.title} description={blog.description} slug={blog.slug} image={blog.image} />

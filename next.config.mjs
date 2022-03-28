@@ -28,18 +28,19 @@ const env = envalid.cleanEnv(process.env, {
   EMAIL_USERNAME: envalid.str(),
   EMAIL_PASSWORD: envalid.str(),
 
-  S3_ENDPOINT: envalid.host(),
+  S3_ENDPOINT: envalid.url(),
   S3_BUCKET: envalid.str(),
   S3_ACCESS_KEY_ID: envalid.str(),
   S3_SECRET_ACCESS_KEY: envalid.str(),
-  S3_STATIC_DOMAIN: envalid.host(),
+  S3_STATIC_URL: envalid.url(),
 
   SESSION_COOKIE_NAME: envalid.str(),
   SESSION_SECRET: envalid.str(),
-  // SESSION_SECURE: envalid.bool({devDefault: false, default: true}),
+  SESSION_SECURE: envalid.bool({ devDefault: false, default: true }),
 
-  NEXT_PUBLIC_WEBSITE_DOMAIN: envalid.url(),
-  NEXT_PUBLIC_STATIC_DOMAIN: envalid.url(),
+  ANALYTICS_DISABLED: envalid.bool({ devDefault: true, default: false }),
+
+  WEBSITE_DOMAIN: envalid.url(),
 });
 
 /**
@@ -63,18 +64,20 @@ const serverRuntimeConfig = {
   S3_BUCKET: env.S3_BUCKET,
   S3_ACCESS_KEY_ID: env.S3_ACCESS_KEY_ID,
   S3_SECRET_ACCESS_KEY: env.S3_SECRET_ACCESS_KEY,
-  S3_STATIC_DOMAIN: env.S3_STATIC_DOMAIN,
+  S3_STATIC_URL: env.S3_STATIC_URL,
 
   SESSION_COOKIE_NAME: env.SESSION_COOKIE_NAME,
   SESSION_SECRET: env.SESSION_SECRET,
+  SESSION_SECURE: env.SESSION_SECURE,
 };
 
 /**
  * @type {import('./runtime-config').PublicRuntimeConfig}
  */
 const publicRuntimeConfig = {
-  NEXT_PUBLIC_WEBSITE_DOMAIN: env.NEXT_PUBLIC_WEBSITE_DOMAIN,
-  NEXT_PUBLIC_STATIC_DOMAIN: env.NEXT_PUBLIC_STATIC_DOMAIN,
+  ANALYTICS_DISABLED: env.ANALYTICS_DISABLED,
+
+  WEBSITE_DOMAIN: env.WEBSITE_DOMAIN,
 };
 
 /**
@@ -96,44 +99,33 @@ const defaultConfig = {
   async rewrites() {
     return [
       {
-        //favicon
         source: "/favicon.ico",
         destination: "/favicon/favicon.ico",
       },
       {
-        //rss
         source: "/.rss",
         destination: "/rss/",
       },
       {
-        //sitemap
         source: "/sitemap.xml",
         destination: "/sitemap/",
       },
       {
-        //home
         source: "/",
         destination: "/home/",
       },
       {
-        //blogs
         source: "/blogs/",
         destination: "/blogs/1/",
       },
       {
-        //testimonials
         source: "/testimonials/",
         destination: "/testimonials/1/",
       },
       {
-        //admin
-        source: "/admin/",
-        destination: "/admin/dashboard/",
-      },
-      {
-        //static rewrite
+        //static image rewrite
         source: "/static/:slug*",
-        destination: urlJoin(publicRuntimeConfig.NEXT_PUBLIC_STATIC_DOMAIN, ":slug*"),
+        destination: urlJoin(env.S3_STATIC_URL, ":slug*"),
       },
     ];
   },
@@ -158,6 +150,11 @@ const defaultConfig = {
       {
         source: "/blog/",
         destination: "/blogs/",
+        permanent: true,
+      },
+      {
+        source: "/admin/",
+        destination: "/admin/dashboard/",
         permanent: true,
       },
     ];

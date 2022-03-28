@@ -1,7 +1,7 @@
 //node_modules
 import React from "react";
 import { NextComponentType } from "next";
-import { Container, Accordion } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 //layout
 import SiteLayout from "src/layouts/site-layout";
@@ -21,20 +21,18 @@ const FaqPage: NextComponentType<any, any, any> = () => {
       <MetaComponent />
       <Container className="my-5">
         <h1 className="text-center mb-4">Frequently Asked Questions</h1>
-        <Accordion>
-          {data.map((item, i) => (
-            <Accordion.Item key={i} eventKey={String(i)}>
-              <Accordion.Header>
-                <span className={style["h"]}>{item.title}</span>
-              </Accordion.Header>
-              <Accordion.Body className={style["b"]}>
-                {item.text.map((text, j) => (
-                  <p key={j}>{text}</p>
-                ))}
-              </Accordion.Body>
-            </Accordion.Item>
-          ))}
-        </Accordion>
+        {data.map((item, i) => (
+          <section key={i} className="py-3">
+            <header>
+              <h2 className={style["h"]}>{item.title}</h2>
+            </header>
+            <span className={style["b"]}>
+              {item.text.map((text, j) => (
+                <p key={j}>{text}</p>
+              ))}
+            </span>
+          </section>
+        ))}
       </Container>
     </SiteLayout>
   );
