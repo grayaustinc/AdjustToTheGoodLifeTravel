@@ -32,7 +32,6 @@ const env = envalid.cleanEnv(process.env, {
   S3_BUCKET: envalid.str(),
   S3_ACCESS_KEY_ID: envalid.str(),
   S3_SECRET_ACCESS_KEY: envalid.str(),
-  S3_STATIC_URL: envalid.url(),
 
   SESSION_COOKIE_NAME: envalid.str(),
   SESSION_SECRET: envalid.str(),
@@ -41,6 +40,10 @@ const env = envalid.cleanEnv(process.env, {
   ANALYTICS_DISABLED: envalid.bool({ devDefault: true, default: false }),
 
   WEBSITE_DOMAIN: envalid.url(),
+  WEBSITE_EMAIL_DOMAIN: envalid.url(),
+  WEBSITE_ANALYTICS_DOMAIN: envalid.url(),
+  WEBSITE_S3_DOMAIN: envalid.url(),
+  WEBSITE_DATABASE_DOMAIN: envalid.url(),
 });
 
 /**
@@ -64,7 +67,6 @@ const serverRuntimeConfig = {
   S3_BUCKET: env.S3_BUCKET,
   S3_ACCESS_KEY_ID: env.S3_ACCESS_KEY_ID,
   S3_SECRET_ACCESS_KEY: env.S3_SECRET_ACCESS_KEY,
-  S3_STATIC_URL: env.S3_STATIC_URL,
 
   SESSION_COOKIE_NAME: env.SESSION_COOKIE_NAME,
   SESSION_SECRET: env.SESSION_SECRET,
@@ -78,6 +80,10 @@ const publicRuntimeConfig = {
   ANALYTICS_DISABLED: env.ANALYTICS_DISABLED,
 
   WEBSITE_DOMAIN: env.WEBSITE_DOMAIN,
+  WEBSITE_EMAIL_DOMAIN: env.WEBSITE_EMAIL_DOMAIN,
+  WEBSITE_ANALYTICS_DOMAIN: env.WEBSITE_ANALYTICS_DOMAIN,
+  WEBSITE_S3_DOMAIN: env.WEBSITE_S3_DOMAIN,
+  WEBSITE_DATABASE_DOMAIN: env.WEBSITE_DATABASE_DOMAIN,
 };
 
 /**
@@ -125,7 +131,7 @@ const defaultConfig = {
       {
         //static image rewrite
         source: "/static/:slug*",
-        destination: urlJoin(env.S3_STATIC_URL, ":slug*"),
+        destination: urlJoin(env.S3_ENDPOINT, ":slug*"),
       },
     ];
   },

@@ -46,7 +46,7 @@ const contactData = [
   },
   {
     href: "mailto:stacygray@adjusttothegoodlifetravel.com",
-    text: "Email Travel Agent",
+    text: "Email Us",
   },
   {
     href: "/contact/",

@@ -31,7 +31,7 @@ const AdminBlogsPage: NextComponentType<any, any, PageProps> = (props) => {
 
   const onDelete = useCallback(
     async (target: BlogDocumentData) => {
-      if (window.confirm(`Are you sure you want to delete Blog: ${target.title}?`)) {
+      if (window.confirm(`Are you sure you want to delete Blog: "${target.title}"?`) && window.confirm(`Are you ABSOLUTELY sure you want to delete Blog: "${target.title}"?`)) {
         const response = await deleteBlog(target);
         if (response.ok) {
           setBlogs((data) => data.filter((value) => value._key !== target._key));

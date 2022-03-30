@@ -25,8 +25,8 @@ const ContactPage: NextComponentType<any, any, any> = (p) => {
       <MetaComponent />
       <div className="mt-3 mb-auto">
         <Container className="my-3">
-          <h1 className="text-center my-3 text-uppercase" /*//TODO change text here as it is copied */>tell us what you envision for your travel experience</h1>
-          <p className={`text-center mb-5 ${styles["p"]}`}>The more information we have, the better we can match you with the right advisor and ensure a successful experience.</p>
+          <h1 className="text-center my-3 text-uppercase">tell us what you envision for your travel journey</h1>
+          <p className={`text-center mb-5 ${styles["p"]}`}>The more information we have, the better we can prepare your trip and ensure a successful experience!</p>
           <Row className="text-center g-0">
             <Col md={6} className="d-grid gap-2 border border-1 p-0">
               <Button variant="light" href="tel:+1-919-810-3743">

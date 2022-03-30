@@ -4,6 +4,7 @@ import React, { FunctionComponent, ChangeEvent, useState, useCallback } from "re
 import { Form, FloatingLabel, Row, Col, Card } from "react-bootstrap";
 import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import capitalize from "lodash/capitalize";
 import { useRouter } from "next/router";
 import { phone } from "phone";
 
@@ -135,7 +136,7 @@ const FormComponent: FunctionComponent = () => {
                   {contacts.map((contact) => {
                     return (
                       <option key={contact} value={contact}>
-                        {contact.charAt(0).toUpperCase() + contact.slice(1)}
+                        {capitalize(contact)}
                       </option>
                     );
                   })}
@@ -159,7 +160,7 @@ const FormComponent: FunctionComponent = () => {
         </Card.Body>
         <div className="d-grid g-2">
           <SubmitButton className="mb-2 mx-3" variant="success" size="lg" submitting={submitting}>
-            Submit
+            Send
           </SubmitButton>
         </div>
       </Card>

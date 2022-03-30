@@ -8,6 +8,6 @@ ac.grant("blogger").readAny("blog");
 
 ac.grant("manager").readAny("testimonial").readAny("blog").readAny("location").readAny("mention");
 
-ac.grant("admin").readAny("user").extend("manager");
+ac.grant("admin").extend("manager").readAny("user");
 
 export default ac.lock();

@@ -9,7 +9,6 @@ export interface ServerRuntimeConfig {
   S3_BUCKET: string;
   S3_ACCESS_KEY_ID: string;
   S3_SECRET_ACCESS_KEY: string;
-  S3_STATIC_URL: string;
 
   EMAIL_HOST: string;
   EMAIL_PORT: number;
@@ -27,4 +26,8 @@ export interface PublicRuntimeConfig {
   ANALYTICS_DISABLED: boolean;
 
   WEBSITE_DOMAIN: string;
+  WEBSITE_EMAIL_DOMAIN: string;
+  WEBSITE_ANALYTICS_DOMAIN: string;
+  WEBSITE_S3_DOMAIN: string;
+  WEBSITE_DATABASE_DOMAIN: string;
 }

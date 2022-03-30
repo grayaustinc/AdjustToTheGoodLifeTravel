@@ -15,7 +15,7 @@ import image4 from "src/images/d9aa28303e629eb1d172dc829b68caff.png";
 const data = [
   {
     title: "Let's chat!",
-    description: "Set up a free, no-obligation consultation with us via email or phone.",
+    description: "Set up a free consultation with us through email or phone.",
     src: image1,
     alt: "Picture of family",
     quality: 30,

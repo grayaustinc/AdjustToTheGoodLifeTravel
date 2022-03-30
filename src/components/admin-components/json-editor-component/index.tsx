@@ -1,5 +1,5 @@
 //node_modules
-import React, { FunctionComponent, useState, useCallback } from "react";
+import React, { FunctionComponent } from "react";
 import Link from "next/link";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import dynamic from "next/dynamic";
@@ -17,7 +17,19 @@ interface JsonEditorProps {
 const JsonEditorComponent: FunctionComponent<JsonEditorProps> = ({ name, json, href, onDelete }) => {
   return (
     <Card.Body>
-      <ReactJsonComponent name={name} src={json} collapsed={1} collapseStringsAfterLength={96} />
+      <ReactJsonComponent
+        name={name}
+        src={json}
+        style={{ wordBreak: "break-all" }}
+        sortKeys={true}
+        collapsed={1}
+        quotesOnKeys={false}
+        enableClipboard={false}
+        displayObjectSize={false}
+        displayDataTypes={false}
+        collapseStringsAfterLength={false}
+      />
+      {/* <JsonComponent json={json} /> */}
       <ButtonGroup className="d-flex justify-content-center justify-content-lg-start mt-3">
         <Link href={href} passHref>
           <Button className="flex-grow-0 px-4" variant="warning">
