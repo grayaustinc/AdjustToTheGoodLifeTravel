@@ -14,7 +14,7 @@ import styles from "./style.module.scss";
 
 const website_name = "Adjust to the Good Life Travel";
 const website_url = "https://www.adjusttothegoodlifetravel.com/";
-const contact_email = "stacygray@adjusttothegoodlifetravel.com";
+const contact_email = "privacy@adjusttothegoodlifetravel.com";
 
 const PrivacyPage: NextPage = () => {
   return (

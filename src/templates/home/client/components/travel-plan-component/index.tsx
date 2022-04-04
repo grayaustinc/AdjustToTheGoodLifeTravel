@@ -22,7 +22,7 @@ const data = [
   },
   {
     title: "Make a plan!",
-    description: "we put together the best options that meet your needs",
+    description: "We will put together the best options that meet your needs",
     src: image2,
     alt: "Picture of a seal",
     quality: 10,
@@ -56,14 +56,14 @@ const TravelPlanComponent: FunctionComponent = () => {
       <Row>
         {data.map((info) => {
           return (
-            <Col key={info.title} sm={12} md={6} xl={3} className="align-self-end">
+            <Col key={info.title} sm={12} md={6} xl={3} className="d-flex flex-column">
               <Card.Body className="text-center">
                 <Card.Title as="h2" className="h4">
                   {info.title}
                 </Card.Title>
                 <Card.Text>{info.description}</Card.Text>
               </Card.Body>
-              <Card.Body>
+              <Card.Body className="d-flex flex-column justify-content-end">
                 <NextImage src={info.src} alt={info.alt} placeholder="blur" width="100%" height="100%" sizes={sizes} quality={info.quality} layout="responsive" />
               </Card.Body>
             </Col>

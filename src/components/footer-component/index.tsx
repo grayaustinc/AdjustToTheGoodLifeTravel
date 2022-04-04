@@ -42,10 +42,10 @@ const socialData = [
 const contactData = [
   {
     href: "tel:+1-919-810-3743",
-    text: "1(919) 810-3743",
+    text: "(919) 810-3743",
   },
   {
-    href: "mailto:stacygray@adjusttothegoodlifetravel.com",
+    href: "mailto:contact@adjusttothegoodlifetravel.com",
     text: "Email Us",
   },
   {

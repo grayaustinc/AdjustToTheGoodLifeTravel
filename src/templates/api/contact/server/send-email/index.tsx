@@ -12,7 +12,7 @@ import { ServerError } from "libs/errors";
 import { ContactSchemaType } from "src/templates/api/contact/validation";
 
 function getText({ fullname, email, phone, contact, message }: ContactSchemaType) {
-  return `New Travel Customer\n${fullname}\nEmail: ${email}\nPhone: ${phone}\nPrefers to be contacted by ${contact}\n\n${message}`;
+  return `New Contact: \n${fullname}\nEmail: ${email}\nPhone: ${phone}\nPrefers to be contacted by ${contact}\n\n${message}`;
 }
 
 import EmailComponent from "./email-component";
@@ -36,9 +36,12 @@ const transporter = nodemailer.createTransport({
 async function sendEmail(data: ContactSchemaType) {
   try {
     const info = await transporter.sendMail({
-      from: `"✈ Adjust Travel Bot" <${EMAIL_USERNAME}>`,
+      from: {
+        name: "✈ Adjust Travel Bot",
+        address: EMAIL_USERNAME,
+      },
       to: EMAIL_TO,
-      subject: `New Travel Customer - ${data.fullname}`,
+      subject: `New Contact - ${data.fullname}`,
       text: getText(data),
       html: renderToStaticMarkup(<EmailComponent {...data} />),
     });

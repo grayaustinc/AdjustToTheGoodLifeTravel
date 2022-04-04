@@ -12,8 +12,6 @@ interface PublishedProps {
 }
 
 const PublishedComponent: FunctionComponent<PublishedProps> = ({ published_time, read_time }) => {
-  //TODO remove
-  console.log(read_time);
   return (
     <div>
       <small>

@@ -57,7 +57,7 @@ const EmailComponent: FunctionComponent<ContactSchemaType> = ({ fullname, phone,
                     <table role="presentation" cellPadding={0} cellSpacing={0} style={tableStyle}>
                       <tr>
                         <td align="left" style={tdTextStyle}>
-                          <div style={{ fontSize: "40px", fontWeight: "bold", ...displayStyle }}>New Travel Customer</div>
+                          <div style={{ fontSize: "40px", fontWeight: "bold", ...displayStyle }}>New Contact</div>
                         </td>
                       </tr>
                     </table>

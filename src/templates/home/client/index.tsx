@@ -15,13 +15,13 @@ import ParallaxComponent from "src/components/parallax-component";
 import ParallaxHeaderComponent from "src/components/parallax-header-component";
 
 //components
+import StatementComponent from "./components/statement-component";
 import TravelPlanComponent from "./components/travel-plan-component";
 import TestimonialCarouselComponent from "./components/testimonial-carousel-component";
 import PartnersAffiliatesComponent from "./components/partners-affiliates-component";
 import MetaComponent from "./meta";
 
 //images
-//TODO fix
 import parallax1 from "src/images/5f7cbe2dc628e35784b204b6d16dba89.png";
 import parallax2 from "src/images/f8f8e0309fcf757da2220e09081f9e54.png";
 
@@ -37,9 +37,10 @@ const HomePage: NextPage<PageProps> = ({ testimonials }) => {
       <ParallaxComponent bgImage={parallax1} bgImageAlt="Mountains" strength={-300} priority>
         {/* <ParallaxHeaderComponent>Welcome to Adjust to the Good Life Travel, where we specialize in turning your travel dreams into memorable vacations!</ParallaxHeaderComponent> */}
         <ParallaxHeaderComponent>
-          Adjust to the Good Life Travel is a Raleigh based travel agency, where we specialize in turning your travel dreams into memorable vacations!
+          Adjust to the Good Life Travel is a Raleigh, North Carolina based travel agency, where we specialize in turning your travel dreams into memorable vacations!
         </ParallaxHeaderComponent>
       </ParallaxComponent>
+      <StatementComponent />
       <TravelPlanComponent />
       <ParallaxComponent bgImage={parallax2} bgImageAlt="Oceans" strength={-300}>
         <Container className="my-5">

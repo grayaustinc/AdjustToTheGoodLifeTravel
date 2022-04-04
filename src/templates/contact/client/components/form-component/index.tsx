@@ -5,7 +5,6 @@ import { Form, FloatingLabel, Row, Col, Card } from "react-bootstrap";
 import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import capitalize from "lodash/capitalize";
-import { useRouter } from "next/router";
 import { phone } from "phone";
 
 //libs
@@ -31,8 +30,11 @@ const initialValues: ContactSchemaType = {
   message: "",
 };
 
-const FormComponent: FunctionComponent = () => {
-  const router = useRouter();
+interface PropsType {
+  setSubmitted: (value: boolean) => void;
+}
+
+const FormComponent: FunctionComponent<PropsType> = ({ setSubmitted }) => {
   const makeAlert = useMakeAlert();
   const [submitting, setSubmitting] = useState(false);
   const [code, setCode] = useState("USA");
@@ -42,9 +44,8 @@ const FormComponent: FunctionComponent = () => {
     try {
       const response = await createContact(values);
       if (response.ok) {
-        //TODO response with some tracking id
         matomo.trackEvent({ action: "contact_form", category: "submit_form" });
-        router.push("/contact/complete/");
+        setSubmitted(true);
       } else {
         setSubmitting(false);
         makeAlert(`Failed to submit: ${response.message}`);
@@ -159,8 +160,8 @@ const FormComponent: FunctionComponent = () => {
           </Row>
         </Card.Body>
         <div className="d-grid g-2">
-          <SubmitButton className="mb-2 mx-3" variant="success" size="lg" submitting={submitting}>
-            Send
+          <SubmitButton className="mb-2 mx-3" variant="primary" size="lg" submitting={submitting}>
+            Submit Form
           </SubmitButton>
         </div>
       </Card>

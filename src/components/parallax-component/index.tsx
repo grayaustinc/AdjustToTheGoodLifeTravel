@@ -1,6 +1,7 @@
 //node_modules
 import React, { CSSProperties, FunctionComponent, useCallback, useEffect, useRef } from "react";
 import assign from "lodash/assign";
+import { useMedia } from "react-use";
 import NextImage from "next/image";
 
 //utils
@@ -31,6 +32,8 @@ function calculateStyle(strength: number, height: number, percentage: number) {
 }
 
 const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageAlt, strength, children, priority, quality }) => {
+  const motion = useMedia("(prefers-reduced-motion)", false);
+
   const image = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
 
@@ -49,14 +52,16 @@ const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageA
   }, [image, content, strength]);
 
   useEffect(() => {
-    document.addEventListener("resize", update);
-    document.addEventListener("scroll", update);
-    update();
-    return () => {
-      document.removeEventListener("resize", update);
-      document.removeEventListener("scroll", update);
-    };
-  }, [update]);
+    if (motion === false) {
+      update();
+      document.addEventListener("resize", update);
+      document.addEventListener("scroll", update);
+      return () => {
+        document.removeEventListener("resize", update);
+        document.removeEventListener("scroll", update);
+      };
+    }
+  }, [motion, update]);
 
   return (
     <div ref={content} className={styles["content"]}>

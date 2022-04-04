@@ -15,7 +15,7 @@ const data = [
   {
     title: "Do I Have to be Worried About You Going Out of Business After you Booked my Vacation?",
     text: [
-      "Because all payments are made directly to the suppliers, be it a hotel, resort, cruise line or airline, you never need to worry about losing your money should something unfortunate happen to me.",
+      "Because all payments are made directly to the suppliers, be it a hotel, resort, cruise line or airline, you never need to worry about losing your money should something unfortunate happen to us.",
     ],
   },
   {

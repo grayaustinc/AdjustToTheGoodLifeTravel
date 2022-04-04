@@ -11,7 +11,7 @@ const handler = crateGetStaticHandler<PageProps>();
 handler.use(ErrorWrapperMiddleware);
 
 export const getStaticProps = handler.run(async (context) => {
-  const testimonials = await getTestimonials(4);
+  const testimonials = await getTestimonials(8);
   return {
     props: {
       testimonials: testimonials,
