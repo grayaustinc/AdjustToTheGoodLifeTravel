@@ -49,7 +49,7 @@ const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
       <div className={style["bg"]}>
         <Container className="my-2">
           <Row className="my-5">
-            <Col md={4} className="my-auto text-center">
+            <Col md={4} className="mt-5 mb-auto text-center">
               <Card.Body className={style["image-container"]}>
                 <NextImage src={stacy} sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
               </Card.Body>
@@ -106,7 +106,7 @@ const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
             </Col>
           </Row>
           <Row className="my-5">
-            <Col md={{ span: 4, order: "last" }} className="my-auto text-center">
+            <Col md={{ span: 4, order: "last" }} className="mt-5 mb-auto text-center">
               <Card.Body className={style["image-container"]}>
                 <NextImage src={haley} sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
               </Card.Body>

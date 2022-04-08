@@ -3,11 +3,12 @@ import React, { useCallback, useState } from "react";
 import { NextComponentType } from "next";
 import { useUpdateEffect } from "react-use";
 
-//modifier
-import createModifierComponent from "src/components/admin-components/modifier-component";
-
 //components
-import PagingComponent from "./router-component";
+import PreviewComponent from "src/components/admin-components/preview-component";
+import PagingComponent from "src/components/paging-component";
+
+//libs
+import { TOTAL_DOCUMENTS_PER_PAGE } from "src/templates/admin/server/paths/blogs/view/constant";
 
 //api
 import deleteBlog from "src/templates/api/admin/db/blog/delete/client";
@@ -16,14 +17,16 @@ import deleteBlog from "src/templates/api/admin/db/blog/delete/client";
 import type { PageProps } from "src/templates/admin/server/paths/blogs/view";
 import { BlogDocumentData } from "libs/arangodb/collections/blogs";
 
-const ModifierComponent = createModifierComponent<BlogDocumentData>();
-
 function getHref(blog: BlogDocumentData) {
   return `/admin/blogs/create/${blog._key}/`;
 }
 
+function generateHref(page: number) {
+  return `/admin/blogs/view/${page}`;
+}
+
 function getHeader(blog: BlogDocumentData) {
-  return `${blog._key} - ${blog.title}`;
+  return blog.title;
 }
 
 const AdminBlogsPage: NextComponentType<any, any, PageProps> = (props) => {
@@ -49,7 +52,7 @@ const AdminBlogsPage: NextComponentType<any, any, PageProps> = (props) => {
 
   return (
     <>
-      <ModifierComponent
+      <PreviewComponent
         name="blog"
         title="List of all Blogs"
         subtitle="You can use this menu in order to modify/delete Blogs"
@@ -59,7 +62,7 @@ const AdminBlogsPage: NextComponentType<any, any, PageProps> = (props) => {
         onDelete={onDelete}
       />
       <div className="my-auto" />
-      <PagingComponent page={props.page} total={props.total} />
+      <PagingComponent page={props.page} totalPerPage={TOTAL_DOCUMENTS_PER_PAGE} total={props.total} maxButtons={5} generateHref={generateHref} />
     </>
   );
 };

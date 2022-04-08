@@ -2,11 +2,12 @@
 import React, { FunctionComponent, useCallback, useState } from "react";
 import { useUpdateEffect } from "react-use";
 
-//modifier
-import createModifierComponent from "src/components/admin-components/modifier-component";
-
 //components
-import PagingComponent from "./router-component";
+import PreviewComponent from "src/components/admin-components/preview-component";
+import PagingComponent from "src/components/paging-component";
+
+//libs
+import { TOTAL_DOCUMENTS_PER_PAGE } from "src/templates/admin/server/paths/locations/view/constant";
 
 //api
 import deleteLocation from "src/templates/api/admin/db/location/delete/client";
@@ -15,10 +16,12 @@ import deleteLocation from "src/templates/api/admin/db/location/delete/client";
 import type { PageProps } from "src/templates/admin/server/paths/locations/view";
 import type { LocationDocumentData } from "libs/arangodb/collections/locations";
 
-const ModifierComponent = createModifierComponent<LocationDocumentData>();
-
 function getHref(location: LocationDocumentData) {
   return `/admin/locations/create/${location._key}/`;
+}
+
+function generateHref(page: number) {
+  return `/admin/locations/view/${page}`;
 }
 
 function getHeader(location: LocationDocumentData) {
@@ -48,7 +51,7 @@ const AdminLocationsPage: FunctionComponent<PageProps> = (props) => {
 
   return (
     <>
-      <ModifierComponent
+      <PreviewComponent
         name="location"
         title="List of all Locations"
         subtitle="You can use this menu in order to modify/delete Locations"
@@ -58,7 +61,7 @@ const AdminLocationsPage: FunctionComponent<PageProps> = (props) => {
         onDelete={onDelete}
       />
       <div className="my-auto" />
-      <PagingComponent page={props.page} total={props.total} />
+      <PagingComponent page={props.page} totalPerPage={TOTAL_DOCUMENTS_PER_PAGE} total={props.total} maxButtons={5} generateHref={generateHref} />
     </>
   );
 };

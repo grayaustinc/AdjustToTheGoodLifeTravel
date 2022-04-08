@@ -2,7 +2,7 @@
 import React, { CSSProperties, FunctionComponent, useCallback, useEffect, useRef } from "react";
 import assign from "lodash/assign";
 import { useMedia } from "react-use";
-import NextImage from "next/image";
+import NextImage, { StaticImageData } from "next/image";
 
 //utils
 import { isScrolledIntoView, getRelativePosition, getImageHeight } from "./utils";

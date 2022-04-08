@@ -1,1 +1,1 @@
-export const TOTAL_DOCUMENTS_PER_PAGE = 10;
+export const TOTAL_DOCUMENTS_PER_PAGE = 12;

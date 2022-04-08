@@ -2,28 +2,27 @@
 import React, { FunctionComponent, useState, useCallback } from "react";
 import { useUpdateEffect } from "react-use";
 
-//modifier
-import createModifierComponent from "src/components/admin-components/modifier-component";
-
 //components
-import PagingComponent from "./router-component";
+import PreviewComponent from "src/components/admin-components/preview-component";
+import PagingComponent from "src/components/paging-component";
 
-//api
-//TODO disable delete?
-// import deleteUser from "src/templates/api/admin/db/user/delete/client";
+//libs
+import { TOTAL_DOCUMENTS_PER_PAGE } from "src/templates/admin/server/paths/users/view/constant";
 
 //types
 import type { PageProps } from "src/templates/admin/server/paths/users/view";
 import type { UserDocumentData } from "libs/arangodb/collections/users";
 
-const ModifierComponent = createModifierComponent<UserDocumentData>();
-
 function getHref(location: UserDocumentData) {
   return `/admin/users/create/${location._key}/`;
 }
 
+function generateHref(page: number) {
+  return `/admin/users/view/${page}`;
+}
+
 function getHeader(location: UserDocumentData) {
-  return `${location._key} - ${location.username}`;
+  return location.username;
 }
 
 const AdminLocationsPage: FunctionComponent<PageProps> = (props) => {
@@ -49,7 +48,7 @@ const AdminLocationsPage: FunctionComponent<PageProps> = (props) => {
 
   return (
     <>
-      <ModifierComponent
+      <PreviewComponent
         name="user"
         title="List of all Users"
         subtitle="You can use this menu in order to modify/delete Users"
@@ -59,7 +58,7 @@ const AdminLocationsPage: FunctionComponent<PageProps> = (props) => {
         /*onDelete={onDelete}*/
       />
       <div className="my-auto" />
-      <PagingComponent page={props.page} total={props.total} />
+      <PagingComponent page={props.page} totalPerPage={TOTAL_DOCUMENTS_PER_PAGE} total={props.total} maxButtons={5} generateHref={generateHref} />
     </>
   );
 };

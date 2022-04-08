@@ -2,11 +2,12 @@
 import React, { FunctionComponent, useCallback, useState } from "react";
 import { useUpdateEffect } from "react-use";
 
-//modifier
-import createModifierComponent from "src/components/admin-components/modifier-component";
-
 //components
-import PagingComponent from "./router-component";
+import PreviewComponent from "src/components/admin-components/preview-component";
+import PagingComponent from "src/components/paging-component";
+
+//libs
+import { TOTAL_DOCUMENTS_PER_PAGE } from "src/templates/admin/server/paths/testimonials/view/constant";
 
 //api
 import saveTestimonial from "src/templates/api/admin/db/testimonial/upsert/client";
@@ -16,14 +17,16 @@ import deleteTestimonial from "src/templates/api/admin/db/testimonial/delete/cli
 import type { PageProps } from "src/templates/admin/server/paths/testimonials/view";
 import type { TestimonialDocumentData } from "libs/arangodb/collections/testimonials";
 
-const ModifierComponent = createModifierComponent<TestimonialDocumentData>();
-
 function getHref(testimonial: TestimonialDocumentData) {
   return `/admin/testimonials/create/${testimonial._key}/`;
 }
 
+function generateHref(page: number) {
+  return `/admin/testimonials/view/${page}`;
+}
+
 function getHeader(testimonial: TestimonialDocumentData) {
-  return `${testimonial._key} - ${testimonial.title}`;
+  return testimonial.title;
 }
 
 const AdminTestimonialsPage: FunctionComponent<PageProps> = (props) => {
@@ -49,7 +52,7 @@ const AdminTestimonialsPage: FunctionComponent<PageProps> = (props) => {
 
   return (
     <>
-      <ModifierComponent
+      <PreviewComponent
         name="testimonial"
         title="List of all Testimonials"
         subtitle="You can use this menu in order to modify/delete Testimonials"
@@ -59,7 +62,7 @@ const AdminTestimonialsPage: FunctionComponent<PageProps> = (props) => {
         onDelete={onDelete}
       />
       <div className="my-auto" />
-      <PagingComponent page={props.page} total={props.total} />
+      <PagingComponent page={props.page} totalPerPage={TOTAL_DOCUMENTS_PER_PAGE} total={props.total} maxButtons={5} generateHref={generateHref} />
     </>
   );
 };

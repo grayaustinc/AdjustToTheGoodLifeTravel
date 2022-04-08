@@ -56,16 +56,17 @@ const TravelPlanComponent: FunctionComponent = () => {
       <Row>
         {data.map((info) => {
           return (
-            <Col key={info.title} sm={12} md={6} xl={3} className="d-flex flex-column">
-              <Card.Body className="text-center">
-                <Card.Title as="h2" className="h4">
-                  {info.title}
-                </Card.Title>
-                <Card.Text>{info.description}</Card.Text>
-              </Card.Body>
-              <Card.Body className="d-flex flex-column justify-content-end">
-                <NextImage src={info.src} alt={info.alt} placeholder="blur" width="100%" height="100%" sizes={sizes} quality={info.quality} layout="responsive" />
-              </Card.Body>
+            <Col key={info.title} sm={12} md={6} xl={3}>
+              <Card className="h-100 border-0">
+                <Card.Body className="d-flex flex-column text-center">
+                  <Card.Title as="h2" className="h4">
+                    {info.title}
+                  </Card.Title>
+                  <Card.Text>{info.description}</Card.Text>
+                  <div className="py-2 my-auto" />
+                  <NextImage src={info.src} alt={info.alt} placeholder="blur" width="100%" height="100%" sizes={sizes} quality={info.quality} layout="responsive" />
+                </Card.Body>
+              </Card>
             </Col>
           );
         })}

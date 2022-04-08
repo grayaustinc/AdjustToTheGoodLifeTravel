@@ -14,6 +14,7 @@ function createLicenseWebpackPlugin() {
 
 const env = envalid.cleanEnv(process.env, {
   ANALYZE: envalid.bool({ default: false }),
+  BUILD_ID: envalid.str({ default: "AdjustToTheGoodLifeTravel" }),
 
   ARANGO_URL: envalid.url(),
   ARANGO_USERNAME: envalid.str(),
@@ -91,7 +92,7 @@ const publicRuntimeConfig = {
  **/
 const defaultConfig = {
   async generateBuildId() {
-    return "AdjustToTheGoodLife";
+    return env.BUILD_ID;
   },
 
   eslint: {

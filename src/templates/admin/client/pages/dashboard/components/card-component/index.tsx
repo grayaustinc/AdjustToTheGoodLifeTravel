@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Col, Card } from "react-bootstrap";
-import NextImage from "next/image";
+import NextImage, { StaticImageData } from "next/image";
 import NextLink from "next/link";
 
 //helpers
