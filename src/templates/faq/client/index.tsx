@@ -14,13 +14,14 @@ import data from "./faq";
 
 //style
 import style from "./f.module.scss";
+import { headClassName } from "src/styles/modules/head";
 
 const FaqPage: NextComponentType<any, any, any> = () => {
   return (
     <SiteLayout>
       <MetaComponent />
       <Container className="my-5">
-        <h1 className="text-center mb-4">Frequently Asked Questions</h1>
+        <h1 className={`${headClassName} text-center mb-4`}>Frequently Asked Questions</h1>
         {data.map((item, i) => (
           <section key={i} className="py-3">
             <header>

@@ -10,6 +10,7 @@ import ImageComponent from "./image-component";
 import InformationComponent from "./information-component";
 
 //styles
+import { headClassName } from "src/styles/modules/head";
 import style from "./blog.module.scss";
 
 interface BlogsProps {
@@ -19,7 +20,7 @@ interface BlogsProps {
 const BlogsComponent: FunctionComponent<BlogsProps> = ({ blogs }) => {
   return (
     <Container className="my-3">
-      <h1 className={style["header"]}>Adjust To The Good Life Travel Blog</h1>
+      <h1 className={`${headClassName} ${style["header"]}`}>Adjust To The Good Life Travel Blog</h1>
       <hr className="my-4" />
       {blogs.map((blog, i) => (
         <Row key={blog.slug} className={`${style["post"]} justify-content-center g-0`}>

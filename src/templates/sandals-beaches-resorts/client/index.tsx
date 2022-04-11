@@ -1,7 +1,6 @@
 //node_modules
 import React from "react";
 import { NextPage } from "next";
-import Link from "next/link";
 import NextImage from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -11,25 +10,22 @@ import SiteLayout from "src/layouts/site-layout";
 //components
 import ParallaxComponent from "src/components/parallax-component";
 import ParallaxHeaderComponent from "src/components/parallax-header-component";
+import ReferralComponent from "./components/referral-component";
 
 //meta
 import MetaComponent from "./meta";
 
 //images
 import sandals_certificate from "src/images/ae7c61ef659259bdf678cdbc10d147df.png";
-import parallax from "src/images/3a09d58794098791c474322bf5cca573.png";
-import sandals_referral from "src/images/82b569f71239953e188d6ab0ec75c846.png";
+import parallax from "src/images/9f6e0b8e55a228caf31233ec5280b1e4.png";
 
 //sizes
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 const certificate_sizes = getBootstrapSizes(384, 384, 384, 384, 256, 256);
-const referral_sizes = getBootstrapSizes(384, 640, 750, 1200, 1200, 1200);
 
 //styles
 import styles from "./styles/sandals.module.scss";
-
-//TODO fix up everything
-//TODO example https://rjttravels.com/sandals-travel-agency/
+import { headClassName } from "src/styles/modules/head";
 
 const SandalsPage: NextPage<any> = () => {
   return (
@@ -39,27 +35,68 @@ const SandalsPage: NextPage<any> = () => {
         <ParallaxHeaderComponent>Sandals and Beaches Resorts</ParallaxHeaderComponent>
       </ParallaxComponent>
       <Container>
-        <h1 className="text-center my-5">Preferred Agency for Sandals and Beaches Resorts</h1>
+        <h1 className={`${headClassName} text-center my-5`}>Preferred Agency for Sandals and Beaches Resorts</h1>
         <Row className="g-0">
           <Col lg={3} className={styles["image"]}>
             <NextImage src={sandals_certificate} alt="Sandals Certified Specialist" placeholder="blur" sizes={certificate_sizes} quality={75} />
           </Col>
-          <Col lg={9}>
-            <p className={styles["p"]}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <Col lg={9} className={styles["p"]}>
+            <p>
+              Adjust to the Good Travel is a Preferred Sandals and Beaches Travel Agency and Certified Sandals Specialists. Having traveled and experienced first hand most of all
+              of the Sandals and Beaches resorts, we are uniquely trained in customizing which resort experience is perfect for your vacation. We can't wait to see where you'll go!
+            </p>
+            <p>
+              Every Sandals resort sits directly on white sand beaches surrounded by turquoise waters, in the most gorgeous tropical destinations in the Caribbean islands like
+              Grenada, Antigua, St. Lucia, Barbados, Curacao, Jamaica, and the Bahamas.
             </p>
           </Col>
         </Row>
-        <h1 className="text-center mt-5 mb-2">Sandals Referral</h1>
         <Row className="g-0">
-          <Col className={styles["referral"]}>
-            <Link href="http://www.sandals.com/?referral=104018&agentid=STGR2506" passHref>
-              <a rel="noopener nofollow" target="_blank">
-                <NextImage src={sandals_referral} alt="Sandals Referral" placeholder="blur" sizes={referral_sizes} quality={80} />
-              </a>
-            </Link>
+          <Col className={styles["p"]}>
+            <p>
+              The Sandals brand is truly one of the world's best luxury all inclusive resorts that was created for couples in love and they offer the most comprehensive all
+              inclusive experience. They feature 5 star Global Gourmet dining, unlimited premium liquors, exciting water sports, with the most luxurious accommodations. From over
+              water bungalows in St. Lucia, and Jamaica, to beachfront bungalows and swim up pool suites you are sure to find a perfect suite for your getaway!
+            </p>
+            <p>
+              Limitless gourmet dining options at each Sandals resort includes up to 16 restaurants and is one of the most impressive highlights of your luxury all-inclusive
+              vacation. Boasting a 5 star global gourmet program that will take you on a culinary experience that gives guests a new international cuisine every night. From over
+              water restaurants to bare foot dining with unforgettable views you can pick where you want to dine each night. Internationally trained chefs prepare locally sourced
+              food with the freshest quality ingredients to provide the most authentic culinary experience.
+            </p>
+            <p>
+              Each Sandals resort has as many as 11 bars with some located right on the beach and directly over the ocean serving unlimited premium liquors, beer, and wine to give
+              you an authentic island experience. All of the rooms are stocked daily with beer, wine and suites include premium liquors. Every Sandals property has a bar for every
+              mood including sky bars, piano lounges, swim up pool bars and unique over-the-water bars.
+            </p>
+            <p>
+              There are endless ways to have fun day and night with themed parties, events and entertainment that includes live shows, steel drum bands, fire eaters, island
+              performers, bonfire parties, and extravagant beach parties.
+            </p>
+            <p>
+              At Sandals, guests can enjoy dozens of complimentary activities that include a full range of motorized and non -motorized water sports. From snorkeling to sailing
+              with paddle boards, aqua trikes, glass bottom boats and kayaks. There are land sports including beach volleyball, basketball, shuffleboards, billiards, bowling,
+              tennis, and table tennis. You can do as much or as little as you like while you're here - after all, it's your vacation!
+            </p>
+            <p>
+              Sandals resorts include diving with the best in equipment, and staff at incredible dive sites! Even if you've never dived before, their Padi Discover Scuba Diving
+              Program will give you a whole new underwater world to explore with all the instruction and equipment you need.
+            </p>
+            <p>
+              Some of the Sandals resorts have championship golf courses in Jamaica, St. Lucia, and the Bahamas that guests can enjoy complimentary green fees perfect for any skill
+              level. Best of all, free round-trip transfers are included from all our nearby Sandals Resorts.
+            </p>
+            <p>
+              Offshore island adventures await you at two of the Sandals resorts for a truly tropical experience. At Sandals Royal Bahamian, and Sandals Royal Caribbean you can
+              escape to their private offshore island just minutes from the main resorts.
+            </p>
+            <p>
+              Connect with us to help you pick the best Sandals resort based on your preferences! Our attention to detail and first hand experience will help you find a perfect
+              destination for your honeymoon, anniversary or couples getaway.
+            </p>
+            <p>We don't just book vacations we book experiences!</p>
+            <p>Looking for a family resort then we can also suggest the Beaches brand also owned by Sandals.</p>
+            <ReferralComponent />
           </Col>
         </Row>
       </Container>

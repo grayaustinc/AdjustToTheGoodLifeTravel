@@ -37,8 +37,6 @@ import parallax1 from "src/images/d40aaf23ea6975f9fd137914e53aeaef.png";
 
 const sizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
 
-//TODO modify bio of both
-
 const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
   return (
     <SiteLayout>
@@ -74,10 +72,10 @@ const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
                   business and is now also a travel consultant with our travel agency.
                 </Card.Text>
                 <Card.Text className={`${style["b"]} mt-4`}>
-                  Our family has cruised over 25 different sailings to almost all of the Caribbean islands, Europe, Tahiti, Galapagos and other exotic destinations. We have
-                  explored over 33 countries, and traveled to almost all of the states within the U.S. We also love exploring the U.S National parks and taking expeditions. As an
-                  experienced travel partner, I have the personal knowledge to help your family too! Having the personal knowledge of these destinations has enabled me to see first
-                  hand what my clients will experience.
+                  Our family has cruised over 25 different sailings to almost all of the Caribbean islands, Hawaii, Alaska, Europe, Tahiti, Galapagos and other exotic destinations.
+                  We have explored over 33 countries, and traveled to almost all of the states within the U.S. We also love exploring the U.S National parks and taking expeditions.
+                  As an experienced travel partner, I have the personal knowledge to help your family too! Having the personal knowledge of these destinations has enabled me to see
+                  first hand what my clients will experience.
                 </Card.Text>
                 <Card.Text className={`${style["b"]} mt-4`}>
                   I hold one of the highest levels of certification within the cruise industry, as a Master Cruise Counselor designated through CLIA (Cruise Lines International

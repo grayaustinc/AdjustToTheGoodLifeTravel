@@ -15,16 +15,6 @@ interface BlogPreviewProps {
   order: number;
 }
 
-function getVariant(order: number) {
-  switch (order) {
-    default:
-    case 1:
-      return "outline-primary";
-    case 2:
-      return "outline-success";
-  }
-}
-
 const InformationComponent: FunctionComponent<BlogPreviewProps> = ({ blog, order }) => {
   return (
     <Col className={style["block"]} xs={{ order: 2, span: 12 }} lg={{ order: order, span: 4 }}>
@@ -39,7 +29,7 @@ const InformationComponent: FunctionComponent<BlogPreviewProps> = ({ blog, order
         <div className="my-auto" />
         <div>
           <Link href={`/blog/${blog.slug}`} passHref>
-            <Button variant={getVariant(order)} size="lg">
+            <Button variant="outline-primary" size="lg">
               READ THE POST
             </Button>
           </Link>

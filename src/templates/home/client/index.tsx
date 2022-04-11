@@ -27,15 +27,13 @@ import parallax2 from "src/images/f8f8e0309fcf757da2220e09081f9e54.png";
 
 //styles
 import styles from "./styles/home.module.scss";
+import { headClassName } from "src/styles/modules/head";
 
-//TODO brand statement
-//TODO short bio
 const HomePage: NextPage<PageProps> = ({ testimonials }) => {
   return (
     <SiteLayout>
       <MetaComponent />
       <ParallaxComponent bgImage={parallax1} bgImageAlt="Mountains" strength={-300} priority>
-        {/* <ParallaxHeaderComponent>Welcome to Adjust to the Good Life Travel, where we specialize in turning your travel dreams into memorable vacations!</ParallaxHeaderComponent> */}
         <ParallaxHeaderComponent>
           Adjust to the Good Life Travel is a Raleigh, North Carolina based travel agency, where we specialize in turning your travel dreams into memorable vacations!
         </ParallaxHeaderComponent>
@@ -48,7 +46,7 @@ const HomePage: NextPage<PageProps> = ({ testimonials }) => {
             <Col md={6} className="my-auto d-flex">
               <Card className={`mx-auto ${styles["card"]} border-dark`}>
                 <Card.Body>
-                  <Card.Title>Ready to get started?</Card.Title>
+                  <Card.Title className={headClassName}>Ready to get started?</Card.Title>
                   <Card.Text>
                     Let my travel experience help to plan <b>your vacation!</b>
                   </Card.Text>
@@ -63,13 +61,13 @@ const HomePage: NextPage<PageProps> = ({ testimonials }) => {
             <Col md={6} className="my-auto d-flex">
               <Card className={`mx-auto ${styles["card"]} border-dark`}>
                 <Card.Body>
-                  <Card.Title>Sandals Resorts</Card.Title>
+                  <Card.Title className={headClassName}>Sandals Resorts</Card.Title>
                   <Card.Text>
                     <b>More quality inclusions</b> than any other resorts on the planet
                   </Card.Text>
                   <Row className="g-0">
                     <Link href="/sandals-beaches-resorts" passHref>
-                      <Button variant="outline-success">LOOK CLOSER</Button>
+                      <Button variant="outline-primary">LOOK CLOSER</Button>
                     </Link>
                   </Row>
                 </Card.Body>

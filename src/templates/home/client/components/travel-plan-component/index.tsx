@@ -8,42 +8,45 @@ import { Card, Container, Row, Col, Button } from "react-bootstrap";
 
 //images
 import image1 from "src/images/8df5c93fd190e56f46108d39ed8bbb51.png";
-import image2 from "src/images/489ed5fcc1a16101dbbc7757ad75b945.png";
-import image3 from "src/images/baa0727900308633b333db5ad820bc56.png";
+import image2 from "src/images/3310862be57917f6970e00c2086ab4cb.png";
+import image3 from "src/images/d5b944c1b1af0e7f461be0448084c5a8.png";
 import image4 from "src/images/d9aa28303e629eb1d172dc829b68caff.png";
+
+//styles
+import styles from "../../styles/home.module.scss";
+import { headClassName } from "src/styles/modules/head";
 
 const data = [
   {
-    title: "Let's chat!",
-    description: "Set up a free consultation with us through email or phone.",
+    title: "Creating It",
+    description:
+      "Set up a complimentary consultation with us through email or phone. We will gather all the details, and then get creative and piece together the perfect itinerary.",
     src: image1,
     alt: "Picture of family",
-    quality: 30,
+    quality: 50,
   },
   {
-    title: "Make a plan!",
-    description: "We will put together the best options that meet your needs",
+    title: "Perfecting It",
+    description: "Working together, we can then fine tune all the details and tailor the experiences to your desires until it is perfect.",
     src: image2,
-    alt: "Picture of a seal",
-    quality: 10,
+    alt: "Picture of a sailboats",
+    quality: 50,
   },
   {
-    title: "Booked!",
-    description: "Book your trip! Make the payment and reserve the trip you have always wanted to experience!",
+    title: "Payment",
+    description: "Once you are happy, you will make a deposit to secure the trip you have always dreamed of and wanted to experience!",
     src: image3,
     alt: "Picture of birds",
     quality: 50,
   },
   {
     title: "Enjoy!",
-    description: "Look forward to sharing amazing, memorable experiences with your friends and family!",
+    description: "While you are away on your amazing unforgettable vacation, we will be available to help with any questions that may arise.",
     src: image4,
     alt: "Vase full of flowers",
     quality: 50,
   },
 ];
-
-//TODO change up text inside container
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 
@@ -52,17 +55,17 @@ const sizes = getBootstrapSizes(384, 384, 384, 384, 256, 256);
 const TravelPlanComponent: FunctionComponent = () => {
   return (
     <Container className="my-5">
-      <h1 className="text-center">TRAVEL PLANNING</h1>
+      <h1 className={`${headClassName} text-uppercase text-center`}>Ready to get Started?</h1>
       <Row>
         {data.map((info) => {
           return (
             <Col key={info.title} sm={12} md={6} xl={3}>
               <Card className="h-100 border-0">
                 <Card.Body className="d-flex flex-column text-center">
-                  <Card.Title as="h2" className="h4">
+                  <Card.Title as="h2" className="h3">
                     {info.title}
                   </Card.Title>
-                  <Card.Text>{info.description}</Card.Text>
+                  <Card.Text className={styles["modified-text"]}>{info.description}</Card.Text>
                   <div className="py-2 my-auto" />
                   <NextImage src={info.src} alt={info.alt} placeholder="blur" width="100%" height="100%" sizes={sizes} quality={info.quality} layout="responsive" />
                 </Card.Body>
@@ -73,7 +76,7 @@ const TravelPlanComponent: FunctionComponent = () => {
       </Row>
       <Row className="mt-5">
         <h2 className="text-center">Dream Vacation Planning Session</h2>
-        <p className="text-center">
+        <p className={`${styles["modified-text"]} text-center`}>
           Let’s schedule your FREE 15-minute travel consultation and speak by phone. I can answer your travel questions and collect information I need to turn your travel dreams
           into a memorable vacation!
         </p>

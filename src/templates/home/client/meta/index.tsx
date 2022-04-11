@@ -18,9 +18,7 @@ import useWebsiteUrl from "src/hooks/useWebsiteUrl";
 import STATIC_IMAGE from "src/images/5f7cbe2dc628e35784b204b6d16dba89.png";
 
 const title = "Adjust to the Good Life Travel | Raleigh Based Travel Agency";
-//TODO too long 160 (should probably use the short bio version as part of description)
-const description =
-  "I am a Raleigh, NC based travel agency with years of experience planning family vacations specializing in cruises, all inclusive, Hawaii, Alaska, Europe, Disney and the Caribbean. Visit my site to see how I can turn your travel dreams into memorable vacations!";
+const description = "I am a Raleigh, NC based travel agent who specializes in helping families and couples find and experience the most amazing dream vacations.";
 
 const MetaComponent: FunctionComponent = () => {
   const url = useWebsiteUrl();

@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import Link from "next/link";
 import NextImage from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -14,6 +13,7 @@ import cruise_accredited_logo from "src/images/0597b34887628d1444daa1efe54b8b5a.
 
 //style
 import style from "../../styles/home.module.scss";
+import { headClassName } from "src/styles/modules/head";
 
 const images = [
   { alt: "International Airlines Travel Agent Network Logo", src: airlines_logo, quality: 50 },
@@ -32,10 +32,12 @@ const sizes = getBootstrapSizes(96, 96, 96, 96, 96, 96);
 const TravelPlanComponent: FunctionComponent = () => {
   return (
     <div className={`${style["bg-alt"]} border-top border-dark`}>
-      <h1 className="text-center my-5">
-        <span className="d-block">Proud member of IATAN, CLIA, and Travel Leaders Network</span>
-        <span className="d-block">and a few of our Credentials</span>
-      </h1>
+      <Container>
+        <h1 className={`${headClassName} text-center my-5`}>
+          <span className="d-block">Proud member of IATAN, CLIA, and Travel Leaders Network</span>
+          <span className="d-block">and a few of our Credentials</span>
+        </h1>
+      </Container>
       <div className="my-5 mx-3">
         <Row className="g-0 justify-content-center" sm={2}>
           {images.map((info, i) => {
