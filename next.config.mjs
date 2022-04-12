@@ -164,6 +164,24 @@ const defaultConfig = {
         destination: "/admin/dashboard/",
         permanent: true,
       },
+      {
+        //Secrets of the Magic Kingdom and 10 Real Insider Tips to do more and pay less from a Disney Guru!
+        source: "/blog/2017/07/03/secrets-of-the-magic-kingdom-and-10-real-insider-tips-to-do-more-and-pay-less-from-a-disney-guru/",
+        destination: "/blog/secrets-of-the-magic-kingdom-and-10-real-insider-tips-xl6t4yoony25/",
+        permanent: true,
+      },
+      {
+        //Do I Need a Passport and How Do I Get One?
+        source: "/blog/2017/06/18/do-i-need-a-passport-and-how-do-i-get-one/",
+        destination: "/blog/do-i-need-a-passport-and-how-do-i-get-one-v7bihobn9qct/",
+        permanent: true,
+      },
+      {
+        //Welcome to my new Blog…
+        source: "/blog/2017/05/30/hello-world/",
+        destination: "/blog/welcome-to-my-new-blog-cbsdlshpx3na/",
+        permanent: true,
+      },
     ];
   },
 

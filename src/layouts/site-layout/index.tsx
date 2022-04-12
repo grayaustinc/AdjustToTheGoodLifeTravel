@@ -12,15 +12,11 @@ import FooterComponent from "src/components/footer-component";
 const SiteLayout: FunctionComponent = ({ children }) => {
   useEffect(() => {
     matomo.trackPageView();
-    matomo.enableLinkTracking(true);
-    return () => {
-      matomo.enableLinkTracking(false);
-    };
   }, []);
 
   return (
     <React.Fragment>
-      <Script key="matomo-analytics-script" src={matomo.getScriptSrc()} strategy="afterInteractive" defer />
+      {matomo.enabled() && <Script key="matomo-analytics-script" src={matomo.getScriptSrc()} strategy="afterInteractive" defer />}
       <HeaderComponent />
       {children}
       <div className="my-auto" />

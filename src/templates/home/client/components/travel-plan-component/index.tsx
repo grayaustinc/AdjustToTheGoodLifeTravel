@@ -67,7 +67,9 @@ const TravelPlanComponent: FunctionComponent = () => {
                   </Card.Title>
                   <Card.Text className={styles["modified-text"]}>{info.description}</Card.Text>
                   <div className="py-2 my-auto" />
-                  <NextImage src={info.src} alt={info.alt} placeholder="blur" width="100%" height="100%" sizes={sizes} quality={info.quality} layout="responsive" />
+                  <div>
+                    <NextImage src={info.src} alt={info.alt} placeholder="blur" width="100%" height="100%" sizes={sizes} quality={info.quality} layout="responsive" />
+                  </div>
                 </Card.Body>
               </Card>
             </Col>

@@ -6,6 +6,11 @@
   text-shadow: 2px 2px black;
 }
 
+.wrapper {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
 .container {
   margin: 64px 16px 512px 16px;
 }

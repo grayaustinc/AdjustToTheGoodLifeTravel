@@ -1,7 +1,7 @@
 //node_modules
 import { AppProps } from "next/app";
 import { useEffectOnce } from "react-use";
-import { SSRProvider } from "@react-aria/ssr";
+import { SSRProvider } from "react-bootstrap";
 import Head from "next/head";
 
 //components

@@ -15,21 +15,18 @@ import {
 import urlJoin from "proper-url-join";
 
 class MatomoTracker {
-  private mutationObserver?: MutationObserver;
-  private srcUrl?: string;
-  private urlBase: string;
+  private options: UserOptions;
 
-  constructor(userOptions: UserOptions) {
-    if (!userOptions.urlBase) {
+  constructor(options: UserOptions) {
+    this.options = options;
+    if (!options.urlBase) {
       throw new Error("Matomo urlBase is required.");
     }
-    if (!userOptions.siteId) {
+    if (!options.siteId) {
       throw new Error("Matomo siteId is required.");
     }
-    this.srcUrl = userOptions.srcUrl;
-    this.urlBase = userOptions.urlBase;
 
-    this.initialize(userOptions);
+    this.initialize(options);
   }
 
   private initialize({ urlBase, siteId, userId, trackerUrl, disabled, heartBeat, linkTracking = true, configurations = {} }: UserOptions) {
@@ -40,10 +37,6 @@ class MatomoTracker {
     window._paq = window._paq || [];
 
     if (window._paq.length !== 0) {
-      return;
-    }
-
-    if (disabled) {
       return;
     }
 
@@ -74,22 +67,20 @@ class MatomoTracker {
     this.enableLinkTracking(linkTracking);
   }
 
-  getScriptSrc(): string {
-    return this.srcUrl || urlJoin(this.urlBase, "matomo.js");
+  public enabled() {
+    return !this.options.disabled;
   }
 
-  enableHeartBeatTimer(seconds: number): void {
+  public getScriptSrc(): string {
+    return this.options.srcUrl || urlJoin(this.options.urlBase, "matomo.js");
+  }
+
+  public enableHeartBeatTimer(seconds: number): void {
     this.pushInstruction("enableHeartBeatTimer", seconds);
   }
 
-  enableLinkTracking(active: boolean): void {
+  public enableLinkTracking(active: boolean): void {
     this.pushInstruction("enableLinkTracking", active);
-  }
-
-  stopObserving(): void {
-    if (this.mutationObserver) {
-      this.mutationObserver.disconnect();
-    }
   }
 
   // Tracks events
@@ -189,26 +180,8 @@ class MatomoTracker {
     }
   }
 
-  /**
-   * Pushes an instruction to Matomo for execution, this is equivalent to pushing entries into the `_paq` array.
-   *
-   * For example:
-   *
-   * ```ts
-   * pushInstruction('setDocumentTitle', document.title)
-   * ```
-   * Is the equivalent of:
-   *
-   * ```ts
-   * _paq.push(['setDocumentTitle', document.title]);
-   * ```
-   *
-   * @param name The name of the instruction to be executed.
-   * @param args The arguments to pass along with the instruction.
-   */
   private pushInstruction(name: string, ...args: any[]): MatomoTracker {
     if (typeof window !== "undefined") {
-      // eslint-disable-next-line
       window._paq.push([name, ...args]);
     }
 

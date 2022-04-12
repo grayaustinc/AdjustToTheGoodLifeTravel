@@ -53,7 +53,7 @@ const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, descri
 
   return (
     <Container className={style["share"]}>
-      <div className={style["header"]}>Share Links</div>
+      <div className={style["header"]}>Please Share This Blog Post!</div>
       <Nav className="justify-content-center">
         <Col xs="auto" sm={4} md={3} lg="auto">
           <Nav.Link ref={target} className="text-center" onClick={copyToClipboard}>
