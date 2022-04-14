@@ -43,6 +43,10 @@ async function generateFields() {
       changefreq: "yearly",
     },
     {
+      loc: getWebsiteUrl("/privacy/"),
+      changefreq: "monthly",
+    },
+    {
       loc: getWebsiteUrl("/blogs/"),
       changefreq: "weekly",
     },

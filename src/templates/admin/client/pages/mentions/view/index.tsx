@@ -52,7 +52,6 @@ const AdminTestimonialsPage: FunctionComponent<PageProps> = (props) => {
   return (
     <>
       <PreviewComponent
-        name="mention"
         title="List of all Mentions"
         subtitle="You can use this menu in order to modify/delete Mentions"
         values={mention}

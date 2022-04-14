@@ -1,6 +1,6 @@
 //node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import Link from "next/link";
 import NextImage from "next/image";
 import dynamic from "next/dynamic";
@@ -37,7 +37,7 @@ import parallax1 from "src/images/d40aaf23ea6975f9fd137914e53aeaef.png";
 
 const sizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
 
-const AboutPage: NextComponentType<any, any, PageProps> = ({ locations }) => {
+const AboutPage: NextPage<PageProps> = ({ locations }) => {
   return (
     <SiteLayout>
       <MetaComponent />

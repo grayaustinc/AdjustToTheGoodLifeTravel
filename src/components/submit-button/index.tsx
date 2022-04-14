@@ -1,8 +1,8 @@
 //node_modules
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, PropsWithChildren } from "react";
 import { Button, Spinner } from "react-bootstrap";
 
-interface SubmitButtonProps {
+interface Props {
   submitting: boolean;
   className?: string;
   size?: "sm" | "lg";
@@ -10,7 +10,7 @@ interface SubmitButtonProps {
   onClick?: () => void;
 }
 
-const SubmitButton: FunctionComponent<SubmitButtonProps> = ({ submitting, className, variant, size, onClick, children }) => {
+const SubmitButton: FunctionComponent<PropsWithChildren<Props>> = ({ submitting, className, variant, size, onClick, children }) => {
   if (submitting) {
     return (
       <Button size={size} className={className} variant={variant} disabled>

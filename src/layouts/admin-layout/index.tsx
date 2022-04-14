@@ -1,5 +1,5 @@
 //node_modules
-import React, { FunctionComponent, useCallback, useEffect, useState } from "react";
+import React, { FunctionComponent, PropsWithChildren, useCallback, useEffect, useState } from "react";
 import { Router } from "next/router";
 
 //components
@@ -9,7 +9,7 @@ import AdminMainComponent from "./components/main-component";
 //styles
 import "src/styles/global/pro-sidebar/index.scss";
 
-const AdminLayout: FunctionComponent = ({ children }) => {
+const AdminLayout: FunctionComponent<PropsWithChildren<{}>> = ({ children }) => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   const closeAside = useCallback(() => setToggle(false), [setToggle]);

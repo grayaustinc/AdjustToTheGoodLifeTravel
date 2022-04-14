@@ -1,6 +1,6 @@
 //node_modules
 import React, { useCallback, useState } from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import { useUpdateEffect } from "react-use";
 
 //components
@@ -29,7 +29,7 @@ function getHeader(blog: BlogDocumentData) {
   return blog.title;
 }
 
-const AdminBlogsPage: NextComponentType<any, any, PageProps> = (props) => {
+const AdminBlogsPage: NextPage<PageProps> = (props) => {
   const [blogs, setBlogs] = useState(props.blogs);
 
   const onDelete = useCallback(
@@ -53,7 +53,6 @@ const AdminBlogsPage: NextComponentType<any, any, PageProps> = (props) => {
   return (
     <>
       <PreviewComponent
-        name="blog"
         title="List of all Blogs"
         subtitle="You can use this menu in order to modify/delete Blogs"
         values={blogs}

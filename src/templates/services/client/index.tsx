@@ -1,6 +1,6 @@
 //node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 
 //layout
@@ -22,7 +22,7 @@ import data from "./data";
 //style
 import styles from "./f.module.scss";
 
-const ServicesPage: NextComponentType<any, any, any> = () => {
+const ServicesPage: NextPage<any> = () => {
   return (
     <SiteLayout>
       <MetaComponent />

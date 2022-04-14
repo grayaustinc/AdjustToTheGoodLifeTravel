@@ -53,7 +53,6 @@ const AdminTestimonialsPage: FunctionComponent<PageProps> = (props) => {
   return (
     <>
       <PreviewComponent
-        name="testimonial"
         title="List of all Testimonials"
         subtitle="You can use this menu in order to modify/delete Testimonials"
         values={testimonial}

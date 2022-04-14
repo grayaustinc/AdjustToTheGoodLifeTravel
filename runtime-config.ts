@@ -24,6 +24,7 @@ export interface ServerRuntimeConfig {
 
 export interface PublicRuntimeConfig {
   ANALYTICS_DISABLED: boolean;
+  ANALYTICS_SITE_ID: number;
 
   WEBSITE_DOMAIN: string;
   WEBSITE_EMAIL_DOMAIN: string;

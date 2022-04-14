@@ -1,7 +1,7 @@
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { EditorState, DraftDecorator, Modifier } from "draft-js";
-import React, { FunctionComponent, useContext } from "react";
+import { EditorState, Modifier } from "draft-js";
+import React, { FunctionComponent, PropsWithChildren, useContext } from "react";
 import { Button, OverlayTrigger, Popover } from "react-bootstrap";
 import { DecoratorProps } from "src/components/draft-component/shared/decorators";
 
@@ -13,7 +13,7 @@ import LinkComponent from "src/components/draft-component/shared/components/link
 
 import { createEntitySelection, isCurrentInsideTarget } from "../../helper";
 
-const LinkDecoratorComponent: FunctionComponent<DecoratorProps> = ({ entityKey, blockKey, start, end, children }) => {
+const LinkDecoratorComponent: FunctionComponent<PropsWithChildren<DecoratorProps>> = ({ entityKey, blockKey, start, end, children }) => {
   const { modalIsShowing, linkDispatch } = useContext(modalContext);
   const { editorState, setEditorState } = useContext(context);
 

@@ -1,6 +1,6 @@
 //node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import { Container } from "react-bootstrap";
 
 //layout
@@ -16,7 +16,7 @@ import data from "./faq";
 import style from "./f.module.scss";
 import { headClassName } from "src/styles/modules/head";
 
-const FaqPage: NextComponentType<any, any, any> = () => {
+const FaqPage: NextPage<any> = () => {
   return (
     <SiteLayout>
       <MetaComponent />

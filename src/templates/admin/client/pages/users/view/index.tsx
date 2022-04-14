@@ -49,7 +49,6 @@ const AdminLocationsPage: FunctionComponent<PageProps> = (props) => {
   return (
     <>
       <PreviewComponent
-        name="user"
         title="List of all Users"
         subtitle="You can use this menu in order to modify/delete Users"
         values={users}

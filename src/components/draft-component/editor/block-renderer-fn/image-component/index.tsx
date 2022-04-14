@@ -1,5 +1,5 @@
 import { EditorState, Modifier, SelectionState } from "draft-js";
-import React, { FunctionComponent, useContext } from "react";
+import React, { FunctionComponent, PropsWithChildren, useContext } from "react";
 import { Button, OverlayTrigger, Popover } from "react-bootstrap";
 import { Map } from "immutable";
 
@@ -13,7 +13,7 @@ import NextImageComponent from "src/components/next-image-component";
 
 import selectStyle from "src/components/draft-component/editor/styles/selector.module.scss";
 
-const ImageRenderComponent: FunctionComponent<RendererProps> = ({ contentState, block, children }) => {
+const ImageRenderComponent: FunctionComponent<PropsWithChildren<RendererProps>> = ({ contentState, block, children }) => {
   const { modalIsShowing, imageDispatch } = useContext(modalContext);
   const { editorState, setEditorState } = useContext(context);
 

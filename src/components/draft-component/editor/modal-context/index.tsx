@@ -1,4 +1,4 @@
-import React, { createContext, FunctionComponent, useMemo } from "react";
+import React, { createContext, FunctionComponent, PropsWithChildren, useMemo } from "react";
 
 import useImageHook, { ImageModalAsset, ImageModalDispatch } from "src/modals/image/hook";
 import ImageModalComponent from "src/modals/image/modal";
@@ -28,7 +28,7 @@ function checkShowing(assets: ModalAsset<any>[]) {
   return useMemo(() => assets.some((asset) => asset.show), [assets]);
 }
 
-const ModalProviderComponent: FunctionComponent = ({ children }) => {
+const ModalProviderComponent: FunctionComponent<PropsWithChildren<{}>> = ({ children }) => {
   const [youtubeAsset, youtubeDispatch] = useYoutubeHook();
   const [imageAsset, imageDispatch] = useImageHook();
   const [linkAsset, linkDispatch] = useLinkHook();

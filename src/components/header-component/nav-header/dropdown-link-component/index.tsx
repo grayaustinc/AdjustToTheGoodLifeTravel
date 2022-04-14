@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, PropsWithChildren } from "react";
 import { NavDropdown } from "react-bootstrap";
 
-interface NavHeaderDropdownLinkProps {
+interface Props {
   title: string;
 }
 
-const NavHeaderDropdownLinkComponent: FunctionComponent<NavHeaderDropdownLinkProps> = ({ title, children }) => {
+const NavHeaderDropdownLinkComponent: FunctionComponent<PropsWithChildren<Props>> = ({ title, children }) => {
   return <NavDropdown title={title}>{children}</NavDropdown>;
 };
 

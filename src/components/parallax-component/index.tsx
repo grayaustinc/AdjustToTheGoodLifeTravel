@@ -1,5 +1,5 @@
 //node_modules
-import React, { CSSProperties, FunctionComponent, useCallback, useEffect, useRef } from "react";
+import React, { CSSProperties, FunctionComponent, PropsWithChildren, useCallback, useEffect, useRef } from "react";
 import assign from "lodash/assign";
 import { useMedia } from "react-use";
 import NextImage, { StaticImageData } from "next/image";
@@ -31,7 +31,7 @@ function calculateStyle(strength: number, height: number, percentage: number) {
   return style;
 }
 
-const ParallaxComponent: FunctionComponent<ParallaxProps> = ({ bgImage, bgImageAlt, strength, children, priority, quality }) => {
+const ParallaxComponent: FunctionComponent<PropsWithChildren<ParallaxProps>> = ({ bgImage, bgImageAlt, strength, children, priority, quality }) => {
   const motion = useMedia("(prefers-reduced-motion)", false);
 
   const image = useRef<HTMLDivElement>(null);

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, PropsWithChildren } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import styles from "./container.module.scss";
@@ -19,7 +19,7 @@ interface PropsType {
   size?: SizeType;
 }
 
-const ParallaxHeaderComponent: FunctionComponent<PropsType> = ({ size, children }) => {
+const ParallaxHeaderComponent: FunctionComponent<PropsWithChildren<PropsType>> = ({ size, children }) => {
   return (
     <Container className="my-5">
       <Row className={`g-0 justify-content-center ${getRowClass(size)}`}>

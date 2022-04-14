@@ -1,5 +1,5 @@
 //node_modules
-import React, { useCallback, FunctionComponent } from "react";
+import React, { useCallback, FunctionComponent, PropsWithChildren } from "react";
 import Link from "next/link";
 import { Button, Navbar } from "react-bootstrap";
 import { faBars, faHome } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +13,7 @@ interface AdminMainProps {
   onToggle: (value: boolean) => void;
 }
 
-const AdminMainComponent: FunctionComponent<AdminMainProps> = ({ toggle, onToggle, children }) => {
+const AdminMainComponent: FunctionComponent<PropsWithChildren<AdminMainProps>> = ({ toggle, onToggle, children }) => {
   const setToggle = useCallback(() => onToggle(!toggle), [toggle, onToggle]);
 
   return (

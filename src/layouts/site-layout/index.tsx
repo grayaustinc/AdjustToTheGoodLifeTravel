@@ -1,5 +1,5 @@
 //node_modules
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent, PropsWithChildren, useEffect } from "react";
 import Script from "next/script";
 
 //libs
@@ -9,7 +9,7 @@ import matomo from "libs/matomo";
 import HeaderComponent from "src/components/header-component";
 import FooterComponent from "src/components/footer-component";
 
-const SiteLayout: FunctionComponent = ({ children }) => {
+const SiteLayout: FunctionComponent<PropsWithChildren<{}>> = ({ children }) => {
   useEffect(() => {
     matomo.trackPageView();
   }, []);

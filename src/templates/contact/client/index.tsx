@@ -63,7 +63,7 @@ const ContactPage: NextPage<any> = (props) => {
       <MetaComponent />
       <div className="mt-3 mb-auto">
         <Container className="my-3">
-          <h1 className={`${headClassName} text-center my-3 text-uppercase`}>tell us what you envision for your travel journey</h1>
+          <h1 className={`${headClassName} text-center my-3 text-uppercase`}>What do you envision for your travel journey?</h1>
           <p className={`text-center mb-5 ${styles["p"]}`}>The more information we have, the better we can prepare your trip and ensure a successful experience!</p>
           <Row className="text-center g-0">
             <Col md={6} className="d-grid gap-2 border border-1 p-0">

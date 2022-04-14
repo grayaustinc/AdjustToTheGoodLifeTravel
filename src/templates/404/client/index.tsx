@@ -1,4 +1,4 @@
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import { ErrorProps } from "next/error";
 
 //layout
@@ -8,7 +8,7 @@ import SiteLayout from "src/layouts/site-layout";
 import MetaComponent from "./meta";
 
 //TODO make this better?
-const NotFoundPage: NextComponentType<any, any, ErrorProps> = (p) => {
+const NotFoundPage: NextPage<ErrorProps> = (p) => {
   return (
     <SiteLayout>
       <MetaComponent />

@@ -1,6 +1,6 @@
 //node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import { Container, Row } from "react-bootstrap";
 
 //pages
@@ -17,7 +17,7 @@ import MetaComponent from "./meta";
 //styles
 import { headClassName } from "src/styles/modules/head";
 
-const AboutTestimonialsPage: NextComponentType<any, any, PageProps> = ({ testimonials, page, total }) => {
+const AboutTestimonialsPage: NextPage<PageProps> = ({ testimonials, page, total }) => {
   return (
     <SiteLayout>
       <MetaComponent />

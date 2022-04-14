@@ -1,6 +1,6 @@
 //import node_modules
 import React from "react";
-import { NextComponentType } from "next";
+import { NextPage } from "next";
 import { Container, Row } from "react-bootstrap";
 
 //import pages
@@ -16,7 +16,7 @@ import MentionComponent from "./components/mention-component";
 //styles
 import style from "./styles/press.module.scss";
 
-const PressPage: NextComponentType<any, any, PageProps> = ({ mentions }) => {
+const PressPage: NextPage<PageProps> = ({ mentions }) => {
   return (
     <SiteLayout>
       <MetaComponent />

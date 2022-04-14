@@ -1,11 +1,9 @@
 //import node_modules
-import React, { FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
-import { Tooltip, Nav, Overlay, Container, Col, Row } from "react-bootstrap";
+import React, { FunctionComponent } from "react";
+import { Nav, Container, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faLinkedin, faPinterest, faTwitter, faReddit, faTumblr } from "@fortawesome/free-brands-svg-icons";
 import urlJoin from "proper-url-join";
-import clipboardy from "clipboardy";
 
 //helpers
 import getWebsiteUrl from "libs/helper/get-website-url";
@@ -15,7 +13,8 @@ import getImageAbsoluteUrl from "libs/helper/get-image-absolute-url";
 import type { ImageType } from "libs/arangodb/collections/blogs";
 
 //styles
-import style from "src/templates/blog/[slug]/client/blog.module.scss";
+import shareHeader from "../../shared.module.scss";
+import style from "./share.module.scss";
 
 interface ShareLinksProps {
   title: string;
@@ -25,9 +24,6 @@ interface ShareLinksProps {
 }
 
 const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, description, slug, image }) => {
-  const [show, setShow] = useState(false);
-  const target = useRef<HTMLAnchorElement>(null);
-
   const src = getImageAbsoluteUrl(image, 1200);
   const url = getWebsiteUrl(`/blog/${slug}/`);
 
@@ -38,32 +34,10 @@ const ShareLinksComponent: FunctionComponent<ShareLinksProps> = ({ title, descri
   const linkedinHref = urlJoin("https://www.linkedin.com/sharing/share-offsite/", { query: { url: url } });
   const tumblrHref = urlJoin("https://www.tumblr.com/widgets/share/tool", { query: { canonicalUrl: url, title: title, caption: description } });
 
-  const copyToClipboard = useCallback(() => {
-    clipboardy.write(url).then(() => {
-      setShow(true);
-    });
-  }, [setShow]);
-
-  useEffect(() => {
-    if (show) {
-      const timeout = setTimeout(() => setShow(false), 500);
-      return () => clearTimeout(timeout);
-    }
-  }, [show]);
-
   return (
     <Container className={style["share"]}>
-      <div className={style["header"]}>Please Share This Blog Post!</div>
+      <div className={shareHeader["header"]}>Please Share This Blog Post!</div>
       <Nav className="justify-content-center">
-        <Col xs="auto" sm={4} md={3} lg="auto">
-          <Nav.Link ref={target} className="text-center" onClick={copyToClipboard}>
-            <FontAwesomeIcon icon={faLink} color="#000000" />
-            <span className="mx-1 my-auto text-black">Link</span>
-          </Nav.Link>
-        </Col>
-        <Overlay target={target} show={show} placement="bottom">
-          <Tooltip>Copied!</Tooltip>
-        </Overlay>
         <Col xs="auto" sm={4} md={3} lg="auto">
           <Nav.Link href={facebookHref} className="text-center" rel="noopener nofollow" target="_blank">
             <FontAwesomeIcon icon={faFacebook} color="#4267B2" />

@@ -1,8 +1,7 @@
 //node_modules
 import React, { FunctionComponent, useCallback, useReducer } from "react";
 import { EditorState } from "draft-js";
-import { NextComponentType } from "next";
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { useUpdateEffect } from "react-use";
 
 //editable

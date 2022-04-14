@@ -1,4 +1,4 @@
-import React, { createContext, FunctionComponent } from "react";
+import React, { createContext, FunctionComponent, PropsWithChildren } from "react";
 
 import type { ImageModalAsset, ImageModalDispatch } from "../hook";
 import ImageModalComponent from "../modal";
@@ -12,7 +12,7 @@ export const context = createContext<ContextType>({} as any);
 
 const ModalImageProvider = context.Provider;
 
-const ModalImageProviderComponent: FunctionComponent<ContextType> = ({ imageAsset, imageDispatch, children }) => {
+const ModalImageProviderComponent: FunctionComponent<PropsWithChildren<ContextType>> = ({ imageAsset, imageDispatch, children }) => {
   return (
     <ModalImageProvider value={{ imageAsset, imageDispatch }}>
       <ImageModalComponent asset={imageAsset} dispatch={imageDispatch} />

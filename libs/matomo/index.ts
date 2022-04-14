@@ -10,11 +10,11 @@ declare global {
 }
 
 const { publicRuntimeConfig } = getConfig();
-const { ANALYTICS_DISABLED, WEBSITE_ANALYTICS_DOMAIN } = publicRuntimeConfig;
+const { ANALYTICS_DISABLED, ANALYTICS_SITE_ID, WEBSITE_ANALYTICS_DOMAIN } = publicRuntimeConfig;
 
 const instance = new MatomoTracker({
   urlBase: WEBSITE_ANALYTICS_DOMAIN,
-  siteId: 1,
+  siteId: ANALYTICS_SITE_ID,
   disabled: ANALYTICS_DISABLED,
   heartBeat: {
     active: true,
