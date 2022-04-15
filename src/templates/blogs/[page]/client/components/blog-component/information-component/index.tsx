@@ -21,7 +21,7 @@ const InformationComponent: FunctionComponent<BlogPreviewProps> = ({ blog, order
       <div className={style["container"]}>
         <Link href={`/blog/${blog.slug}`} passHref>
           <a className={style["clickable"]}>
-            <h2 className="mb-3">{blog.title}</h2>
+            <p className="h2 mb-3">{blog.title}</p>
           </a>
         </Link>
         <div className="h5">{format(blog.published_time, "PPP")}</div>

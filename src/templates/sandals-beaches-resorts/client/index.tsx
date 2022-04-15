@@ -34,8 +34,8 @@ const SandalsPage: NextPage<any> = () => {
       <ParallaxComponent bgImage={parallax} bgImageAlt="Sandals Resort" strength={-200} quality={80} priority>
         <ParallaxHeaderComponent>Sandals and Beaches Resorts</ParallaxHeaderComponent>
       </ParallaxComponent>
-      <Container>
-        <h1 className={`${headClassName} text-center my-5`}>Preferred Agency for Sandals and Beaches Resorts</h1>
+      <Container className="my-5">
+        <h2 className={`${headClassName} text-center`}>Preferred Agency for Sandals and Beaches Resorts</h2>
         <Row className="g-0">
           <Col lg={3} className={styles["image"]}>
             <NextImage src={sandals_certificate} alt="Sandals Certified Specialist" placeholder="blur" sizes={certificate_sizes} quality={75} />
@@ -47,28 +47,31 @@ const SandalsPage: NextPage<any> = () => {
             </p>
             <p>
               Every Sandals resort sits directly on white sand beaches surrounded by turquoise waters, in the most gorgeous tropical destinations in the Caribbean islands like
-              Grenada, Antigua, St. Lucia, Barbados, Curacao, Jamaica, and the Bahamas.
+              Grenada, Antigua, St. Lucia, Barbados, Curacao, Jamaica, and the Bahamas. Featuring 5 star Global Gourmet dining, unlimited premium liquors, exciting water sports,
+              and the most luxurious accommodations.
             </p>
           </Col>
         </Row>
         <Row className="g-0">
           <Col className={styles["p"]}>
             <p>
-              The Sandals brand is truly one of the world's best luxury all inclusive resorts that was created for couples in love and they offer the most comprehensive all
-              inclusive experience. They feature 5 star Global Gourmet dining, unlimited premium liquors, exciting water sports, with the most luxurious accommodations. From over
-              water bungalows in St. Lucia, and Jamaica, to beachfront bungalows and swim up pool suites you are sure to find a perfect suite for your getaway!
+              From over water bungalows in St. Lucia, and Jamaica, to beachfront bungalows and swim up pool suites you are sure to find a perfect suite for your getaway! The
+              Sandals brand is truly one of the world's best luxury all inclusive resorts that was created for couples in love and they offer the most comprehensive all inclusive
+              experience. All Sandals resorts are adults-only, and all tips, taxes, gratuities, roundtrip airport transfers and free WiFi are also included.
             </p>
+            <h2 className={`${headClassName} text-center my-3`}>Eat and Drink</h2>
             <p>
               Limitless gourmet dining options at each Sandals resort includes up to 16 restaurants and is one of the most impressive highlights of your luxury all-inclusive
               vacation. Boasting a 5 star global gourmet program that will take you on a culinary experience that gives guests a new international cuisine every night. From over
               water restaurants to bare foot dining with unforgettable views you can pick where you want to dine each night. Internationally trained chefs prepare locally sourced
-              food with the freshest quality ingredients to provide the most authentic culinary experience.
+              food with the freshest quality ingredients to provide the most authentic culinary experience.{" "}
             </p>
             <p>
               Each Sandals resort has as many as 11 bars with some located right on the beach and directly over the ocean serving unlimited premium liquors, beer, and wine to give
               you an authentic island experience. All of the rooms are stocked daily with beer, wine and suites include premium liquors. Every Sandals property has a bar for every
               mood including sky bars, piano lounges, swim up pool bars and unique over-the-water bars.
             </p>
+            <h2 className={`${headClassName} text-center my-3`}>Entertainment</h2>
             <p>
               There are endless ways to have fun day and night with themed parties, events and entertainment that includes live shows, steel drum bands, fire eaters, island
               performers, bonfire parties, and extravagant beach parties.
@@ -82,10 +85,13 @@ const SandalsPage: NextPage<any> = () => {
               Sandals resorts include diving with the best in equipment, and staff at incredible dive sites! Even if you've never dived before, their Padi Discover Scuba Diving
               Program will give you a whole new underwater world to explore with all the instruction and equipment you need.
             </p>
+            <h2 className={`${headClassName} text-center my-3`}>Championship Golf Courses</h2>
             <p>
               Some of the Sandals resorts have championship golf courses in Jamaica, St. Lucia, and the Bahamas that guests can enjoy complimentary green fees perfect for any skill
-              level. Best of all, free round-trip transfers are included from all our nearby Sandals Resorts.
+              level.
             </p>
+            <p>Best of all, free round-trip transfers are included from all our nearby Sandals Resorts.</p>
+            <h2 className={`${headClassName} text-center my-3`}>Offshore Private Islands</h2>
             <p>
               Offshore island adventures await you at two of the Sandals resorts for a truly tropical experience. At Sandals Royal Bahamian, and Sandals Royal Caribbean you can
               escape to their private offshore island just minutes from the main resorts.
@@ -95,7 +101,7 @@ const SandalsPage: NextPage<any> = () => {
               destination for your honeymoon, anniversary or couples getaway.
             </p>
             <p>We don't just book vacations we book experiences!</p>
-            <p>Looking for a family resort then we can also suggest the Beaches brand also owned by Sandals.</p>
+            <p>Looking for a family resort then we can also suggest the Beaches brand also owned by Sandals. </p>
             <ReferralComponent />
           </Col>
         </Row>

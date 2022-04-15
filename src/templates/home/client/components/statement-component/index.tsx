@@ -10,7 +10,7 @@ import { headClassName } from "src/styles/modules/head";
 const StatementComponent: FunctionComponent = () => {
   return (
     <Container className="my-5">
-      <h1 className={`${headClassName} text-uppercase text-center`}>Travel with Us</h1>
+      <h2 className={`${headClassName} text-center`}>Travel with Us</h2>
       <div className={`${styles["modified-text"]} text-center mt-3`}>
         <p>
           Stacy Gray's extensive personal knowledge and experience has established her as Raleigh, N.C. best travel agency. Adjust to the Good Life Travel is a family owned travel

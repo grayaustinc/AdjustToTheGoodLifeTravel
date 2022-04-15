@@ -19,8 +19,8 @@ interface BlogsProps {
 
 const BlogsComponent: FunctionComponent<BlogsProps> = ({ blogs }) => {
   return (
-    <Container className="my-3">
-      <h1 className={`${headClassName} ${style["header"]}`}>Adjust To The Good Life Travel Blog</h1>
+    <Container className="my-5">
+      <h1 className={`${headClassName} text-center`}>Adjust To The Good Life Travel Blog</h1>
       <hr className="my-4" />
       {blogs.map((blog, i) => (
         <Row key={blog.slug} className={`${style["post"]} justify-content-center g-0`}>

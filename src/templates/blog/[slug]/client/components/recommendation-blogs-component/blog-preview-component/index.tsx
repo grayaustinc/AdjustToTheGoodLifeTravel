@@ -56,10 +56,10 @@ const BlogPreviewComponent: FunctionComponent<BlogPreviewProps> = ({ recommendat
       </Link>
       <Link href={href} passHref>
         <a className={style["clickable"]}>
-          <h1 className="h2">{recommendation.title}</h1>
+          <p className="h2">{recommendation.title}</p>
         </a>
       </Link>
-      <h2 className="h4">{recommendation.description}</h2>
+      <p className="h4">{recommendation.description}</p>
     </div>
   );
 };

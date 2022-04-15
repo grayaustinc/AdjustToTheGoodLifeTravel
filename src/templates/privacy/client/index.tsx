@@ -11,6 +11,7 @@ import MetaComponent from "./meta";
 
 //styles
 import styles from "./style.module.scss";
+import { headClassName } from "src/styles/modules/head";
 
 const website_name = "Adjust to the Good Life Travel";
 const website_url = "https://www.adjusttothegoodlifetravel.com/";
@@ -21,11 +22,7 @@ const PrivacyPage: NextPage = () => {
     <SiteLayout>
       <MetaComponent />
       <Container className={`${styles["modified"]} my-5`}>
-        <h1 className="text-center mb-3">Privacy Notice</h1>
-        <hr />
-        <p>
-          <i>Last Updated: March 15, 2022</i>
-        </p>
+        <h1 className={`${headClassName} text-center mb-3`}>Privacy Notice</h1>
         <p>
           At {website_name}, accessible at{" "}
           <a className="text-break" href={website_url}>
@@ -40,29 +37,25 @@ const PrivacyPage: NextPage = () => {
             {contact_email}
           </a>
         </p>
-        <h2>Information Collection and Use</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Information Collection and Use</h2>
         <p>
           For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your
           name, phone number, and email address. The information that we collect will be used to contact or identify you.
         </p>
-        <h2>Log Files</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Log Files</h2>
         <p>
           {website_name} follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting
           services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp,
           referring/exit pages, and possibly the number of clicks. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the
           website, and gathering demographic information.
         </p>
-        <h2>Website interactions</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Website Interactions</h2>
         <p>
           When you browse our website, your browser automatically shares certain information such as which operating system and browser version you are using. We track that
           information, along with the pages you are visiting, page load timing, and which website referred you for statistical purposes like conversion rates and to test new
           designs. We sometimes track specific link clicks to help inform some design decisions. These web analytics data are tied to your IP address.
         </p>
-        <h2>Third Party Information</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Third Party Information</h2>
         <div className="ms-2 mb-5">
           <h3>Third Party Privacy Notices</h3>
           <p>
@@ -80,8 +73,7 @@ const PrivacyPage: NextPage = () => {
             notices, or practices of any third-party sites or services.
           </p>
         </div>
-        <h2>Children's Information</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Children's Information</h2>
         <p>
           Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and
           guide their online activity.
@@ -90,21 +82,21 @@ const PrivacyPage: NextPage = () => {
           {website_name} does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of
           information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
         </p>
-        <h2>Online Privacy Only</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Online Privacy Only</h2>
         <p>
           This privacy notice applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in{" "}
           {website_name}. This notice is not applicable to any information collected offline or via channels other than this website.
         </p>
-        <h2>Privacy Notice Changes</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Privacy Notice Changes</h2>
         <p>
           We may update our Privacy Notice from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the
           new Privacy Notice on this page. These changes are effective immediately, after they are posted on this page.
         </p>
-        <h2>Consent</h2>
-        <hr />
+        <h2 className={`${headClassName} text-center mb-3`}>Consent</h2>
         <p>By using our website, you hereby consent to our Privacy Notice and agree to its Terms and Conditions.</p>
+        <p>
+          <i>Last Updated: March 15, 2022</i>
+        </p>
       </Container>
     </SiteLayout>
   );

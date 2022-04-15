@@ -33,10 +33,10 @@ const TravelPlanComponent: FunctionComponent = () => {
   return (
     <div className={`${style["bg-alt"]} border-top border-dark`}>
       <Container>
-        <h1 className={`${headClassName} text-center my-5`}>
+        <h2 className={`${headClassName} text-center my-5`}>
           <span className="d-block">Proud member of IATAN, CLIA, and Travel Leaders Network</span>
           <span className="d-block">and a few of our Credentials</span>
-        </h1>
+        </h2>
       </Container>
       <div className="my-5 mx-3">
         <Row className="g-0 justify-content-center" sm={2}>

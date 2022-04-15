@@ -54,17 +54,15 @@ const sizes = getBootstrapSizes(384, 384, 384, 384, 256, 256);
 
 const TravelPlanComponent: FunctionComponent = () => {
   return (
-    <Container className="my-5">
-      <h1 className={`${headClassName} text-uppercase text-center`}>Ready to get Started?</h1>
+    <Container className="my-3">
+      <h2 className={`${headClassName} text-center`}>Ready to get Started?</h2>
       <Row>
         {data.map((info) => {
           return (
             <Col key={info.title} sm={12} md={6} xl={3}>
               <Card className="h-100 border-0">
                 <Card.Body className="d-flex flex-column text-center">
-                  <Card.Title as="h2" className="h3">
-                    {info.title}
-                  </Card.Title>
+                  <Card.Title as="h3">{info.title}</Card.Title>
                   <Card.Text className={styles["modified-text"]}>{info.description}</Card.Text>
                   <div className="py-2 my-auto" />
                   <div>
@@ -77,7 +75,7 @@ const TravelPlanComponent: FunctionComponent = () => {
         })}
       </Row>
       <Row className="mt-5">
-        <h2 className="text-center">Dream Vacation Planning Session</h2>
+        <h2 className={`${headClassName} text-center`}>Dream Vacation Planning Session</h2>
         <p className={`${styles["modified-text"]} text-center`}>
           Let’s schedule your FREE 15-minute travel consultation and speak by phone. I can answer your travel questions and collect information I need to turn your travel dreams
           into a memorable vacation!

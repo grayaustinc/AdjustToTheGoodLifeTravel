@@ -54,7 +54,7 @@ const AboutPage: NextPage<PageProps> = ({ locations }) => {
             </Col>
             <Col md={8}>
               <Card.Body>
-                <h1 className={style["h"]}>Stacy Gray</h1>
+                <h2 className={style["h"]}>Stacy Gray</h2>
                 <div className={style["phone"]}>
                   <Link href="tel:+1-919-810-3743" passHref>
                     <a>(919) 810-3743</a>
@@ -111,7 +111,7 @@ const AboutPage: NextPage<PageProps> = ({ locations }) => {
             </Col>
             <Col md={{ span: 8, order: "first" }}>
               <Card.Body>
-                <h1 className={style["h"]}>Haley Gray</h1>
+                <h2 className={style["h"]}>Haley Gray</h2>
                 <div className={style["phone"]}>
                   <Link href="tel:+1-919-710-2657" passHref>
                     <a>(919) 710-2657</a>

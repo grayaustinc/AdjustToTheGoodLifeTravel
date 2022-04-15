@@ -29,7 +29,7 @@ const TestimonialCarouselComponent: FunctionComponent<TestimonialCarouselProps> 
   return (
     <React.Fragment>
       <Container className="mt-5">
-        <h1 className={`${headClassName} text-center`}>TESTIMONIALS</h1>
+        <h2 className={`${headClassName} text-center`}>Our Customer Testimonials</h2>
       </Container>
       <div className="my-5">
         <Carousel ref={ref} slide={true} wrap={true} controls={false} indicators={false} interval={5000}>
