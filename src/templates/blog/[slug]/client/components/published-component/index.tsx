@@ -4,11 +4,11 @@ import formatDistanceToNow from "date-fns/formatDistanceToNowStrict";
 import format from "date-fns/format";
 
 //types
-import type { ReadTimeResults } from "reading-time";
+import type { readingTime } from "reading-time-estimator";
 
 interface PublishedProps {
   published_time: number;
-  read_time: ReadTimeResults;
+  read_time: ReturnType<typeof readingTime>;
 }
 
 const PublishedComponent: FunctionComponent<PublishedProps> = ({ published_time, read_time }) => {

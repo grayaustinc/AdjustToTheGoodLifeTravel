@@ -64,7 +64,7 @@
     "react-top-loading-bar": "^2.1.0",
     "react-use": "^17.3.1",
     "react-youtube": "^8.0.0",
-    "reading-time": "^1.5.0",
+    "reading-time-estimator": "^1.5.0",
     "rss": "^1.2.2",
     "sharp": "^0.30.0",
     "slugify": "^1.6.4",

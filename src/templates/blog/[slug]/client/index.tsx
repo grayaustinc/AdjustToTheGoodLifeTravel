@@ -2,7 +2,7 @@
 import React, { useMemo } from "react";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import readingTime from "reading-time";
+import { readingTime } from "reading-time-estimator";
 import { convertFromRaw } from "draft-js";
 
 import type { PageProps } from "../types";

@@ -198,7 +198,7 @@ const defaultConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   poweredByHeader: true,
-  productionBrowserSourceMaps: false,
+  productionBrowserSourceMaps: true,
   excludeDefaultMomentLocales: true,
 
   webpack(config, { dev, isServer }) {
