@@ -115,7 +115,7 @@ const FooterComponent: FunctionComponent = () => {
       </div>
       <div className={`${style["f-2"]} text-center`}>
         <span>
-          © 2013 Adjust to the Good Life Travel • Independent Agent of{" "}
+          © 2013 Adjust to the Good Life Travel • Independent Agents of{" "}
           <Link href="https://www.travelathome.com" passHref>
             <a className={style["special-link"]} rel="noopener nofollow" target="_blank">
               Dugan’s Travels

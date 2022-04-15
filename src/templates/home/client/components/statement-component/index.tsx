@@ -21,8 +21,7 @@ const StatementComponent: FunctionComponent = () => {
         <p>
           Our passion is to help you find and experience the most amazing dream vacations. We take the stress out of planning by taking care of all the details so you can relax and
           enjoy your escape vacation! We love creating tailor-made vacations and our valued clients get our first hand experience. Book your complimentary consultation today! We
-          have the experience to help you make your travel dreams come true! Book your complimentary consultation today! We have the experience to help you make your travel dreams
-          come true!
+          have the experience to help you make your travel dreams come true! Book your complimentary consultation today!
         </p>
       </div>
     </Container>

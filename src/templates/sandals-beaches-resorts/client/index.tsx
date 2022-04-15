@@ -64,7 +64,7 @@ const SandalsPage: NextPage<any> = () => {
               Limitless gourmet dining options at each Sandals resort includes up to 16 restaurants and is one of the most impressive highlights of your luxury all-inclusive
               vacation. Boasting a 5 star global gourmet program that will take you on a culinary experience that gives guests a new international cuisine every night. From over
               water restaurants to bare foot dining with unforgettable views you can pick where you want to dine each night. Internationally trained chefs prepare locally sourced
-              food with the freshest quality ingredients to provide the most authentic culinary experience.{" "}
+              food with the freshest quality ingredients to provide the most authentic culinary experience.
             </p>
             <p>
               Each Sandals resort has as many as 11 bars with some located right on the beach and directly over the ocean serving unlimited premium liquors, beer, and wine to give
@@ -82,13 +82,13 @@ const SandalsPage: NextPage<any> = () => {
               tennis, and table tennis. You can do as much or as little as you like while you're here - after all, it's your vacation!
             </p>
             <p>
-              Sandals resorts include diving with the best in equipment, and staff at incredible dive sites! Even if you've never dived before, their Padi Discover Scuba Diving
+              Sandals resorts include diving with the best in equipment, and staff at incredible dive sites! Even if you've never dived before, their PADI Discover Scuba Diving
               Program will give you a whole new underwater world to explore with all the instruction and equipment you need.
             </p>
             <h2 className={`${headClassName} text-center my-3`}>Championship Golf Courses</h2>
             <p>
-              Some of the Sandals resorts have championship golf courses in Jamaica, St. Lucia, and the Bahamas that guests can enjoy complimentary green fees perfect for any skill
-              level.
+              Some of the Sandals resorts have championship golf courses in Jamaica, St. Lucia, and the Bahamas that guests can enjoy with complimentary green fees perfect for any
+              skill level.
             </p>
             <p>Best of all, free round-trip transfers are included from all our nearby Sandals Resorts.</p>
             <h2 className={`${headClassName} text-center my-3`}>Offshore Private Islands</h2>

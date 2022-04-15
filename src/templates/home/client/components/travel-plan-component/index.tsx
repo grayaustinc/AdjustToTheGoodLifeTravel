@@ -77,8 +77,8 @@ const TravelPlanComponent: FunctionComponent = () => {
       <Row className="mt-5">
         <h2 className={`${headClassName} text-center`}>Dream Vacation Planning Session</h2>
         <p className={`${styles["modified-text"]} text-center`}>
-          Let’s schedule your FREE 15-minute travel consultation and speak by phone. I can answer your travel questions and collect information I need to turn your travel dreams
-          into a memorable vacation!
+          Let's schedule your FREE 15-minute travel consultation and speak by phone. I can answer your travel questions and collect the information I need to turn your travel
+          dreams into a memorable vacation!
         </p>
         <div className="text-center">
           <Link href="https://10to8.com/book/tjfpqu-free/" passHref>
