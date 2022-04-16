@@ -25,7 +25,6 @@ export interface ServerRuntimeConfig {
 export interface PublicRuntimeConfig {
   WEBSITE_DOMAIN: string;
   WEBSITE_EMAIL_DOMAIN: string;
-  WEBSITE_ANALYTICS_DOMAIN: string;
   WEBSITE_S3_DOMAIN: string;
   WEBSITE_DATABASE_DOMAIN: string;
 }

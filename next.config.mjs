@@ -40,7 +40,6 @@ const env = envalid.cleanEnv(process.env, {
 
   WEBSITE_DOMAIN: envalid.url(),
   WEBSITE_EMAIL_DOMAIN: envalid.url(),
-  WEBSITE_ANALYTICS_DOMAIN: envalid.url(),
   WEBSITE_S3_DOMAIN: envalid.url(),
   WEBSITE_DATABASE_DOMAIN: envalid.url(),
 });
@@ -78,7 +77,6 @@ const serverRuntimeConfig = {
 const publicRuntimeConfig = {
   WEBSITE_DOMAIN: env.WEBSITE_DOMAIN,
   WEBSITE_EMAIL_DOMAIN: env.WEBSITE_EMAIL_DOMAIN,
-  WEBSITE_ANALYTICS_DOMAIN: env.WEBSITE_ANALYTICS_DOMAIN,
   WEBSITE_S3_DOMAIN: env.WEBSITE_S3_DOMAIN,
   WEBSITE_DATABASE_DOMAIN: env.WEBSITE_DATABASE_DOMAIN,
 };
