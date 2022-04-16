@@ -38,9 +38,6 @@ const env = envalid.cleanEnv(process.env, {
   SESSION_SECRET: envalid.str(),
   SESSION_SECURE: envalid.bool({ devDefault: false, default: true }),
 
-  ANALYTICS_DISABLED: envalid.bool({ devDefault: true, default: false }),
-  ANALYTICS_SITE_ID: envalid.num(),
-
   WEBSITE_DOMAIN: envalid.url(),
   WEBSITE_EMAIL_DOMAIN: envalid.url(),
   WEBSITE_ANALYTICS_DOMAIN: envalid.url(),
@@ -79,9 +76,6 @@ const serverRuntimeConfig = {
  * @type {import('./runtime-config').PublicRuntimeConfig}
  */
 const publicRuntimeConfig = {
-  ANALYTICS_DISABLED: env.ANALYTICS_DISABLED,
-  ANALYTICS_SITE_ID: env.ANALYTICS_SITE_ID,
-
   WEBSITE_DOMAIN: env.WEBSITE_DOMAIN,
   WEBSITE_EMAIL_DOMAIN: env.WEBSITE_EMAIL_DOMAIN,
   WEBSITE_ANALYTICS_DOMAIN: env.WEBSITE_ANALYTICS_DOMAIN,

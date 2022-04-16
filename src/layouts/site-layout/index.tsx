@@ -1,22 +1,17 @@
 //node_modules
 import React, { FunctionComponent, PropsWithChildren, useEffect } from "react";
-import Script from "next/script";
-
-//libs
-import matomo from "libs/matomo";
+import getConfig from "next/config";
 
 //src constants
 import HeaderComponent from "src/components/header-component";
 import FooterComponent from "src/components/footer-component";
+import { useEffectOnce } from "react-use";
+
+const { publicRuntimeConfig } = getConfig();
 
 const SiteLayout: FunctionComponent<PropsWithChildren<{}>> = ({ children }) => {
-  useEffect(() => {
-    matomo.trackPageView();
-  }, []);
-
   return (
     <React.Fragment>
-      {matomo.enabled() && <Script key="matomo-analytics-script" src={matomo.getScriptSrc()} strategy="afterInteractive" defer />}
       <HeaderComponent />
       {children}
       <div className="my-auto" />

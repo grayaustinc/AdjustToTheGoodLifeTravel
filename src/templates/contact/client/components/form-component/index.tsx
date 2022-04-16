@@ -7,9 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import capitalize from "lodash/capitalize";
 import { phone } from "phone";
 
-//libs
-import matomo from "libs/matomo";
-
 //alerts
 import useMakeAlert from "src/contexts/error-alert/useMakeAlert";
 
@@ -44,7 +41,6 @@ const FormComponent: FunctionComponent<PropsType> = ({ setSubmitted }) => {
     try {
       const response = await createContact(values);
       if (response.ok) {
-        matomo.trackEvent({ action: "contact_form", category: "submit_form" });
         setSubmitted(true);
       } else {
         setSubmitting(false);
