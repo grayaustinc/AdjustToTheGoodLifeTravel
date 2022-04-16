@@ -17,12 +17,15 @@ export interface PageProps {
 
 const handler: PathHandler<PageProps> = async (slug, context) => {
   const page = getPageNumber(slug[0]);
-  const [locations, total] = await Promise.all([getLocations(page), getTotal()]);
-  return context.props({
-    locations: locations,
-    page: page,
-    total: total,
-  });
+  if (page > 0) {
+    const [locations, total] = await Promise.all([getLocations(page), getTotal()]);
+    return context.props({
+      locations: locations,
+      page: page,
+      total: total,
+    });
+  }
+  return context.notFound();
 };
 
 export default handler;

@@ -8,5 +8,5 @@ Disallow: /api
 Host: https://www.adjusttothegoodlifetravel.com
 
 # Sitemaps
-Sitemap: https://www.adjusttothegoodlifetravel.com/sitemap.xml
+Sitemap: https://www.adjusttothegoodlifetravel.com/sitemap/
 
