@@ -89,6 +89,10 @@ const defaultConfig = {
     return env.BUILD_ID;
   },
 
+  images: {
+    minimumCacheTTL: 60 * 60 * 4, //4 hour caching
+  },
+
   eslint: {
     ignoreDuringBuilds: true,
   },
