@@ -5,7 +5,6 @@ import NextImage from "next/image";
 import { Navbar, Nav, Row, Col, Container, Offcanvas } from "react-bootstrap";
 import { faFacebook, faInstagram, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { faHome, faUsers, faHotel, faIdCard, faConciergeBell, faQuestionCircle, faBlog, faNewspaper, IconDefinition, faPen } from "@fortawesome/free-solid-svg-icons";
-import { SocialProfileJsonLd } from "next-seo";
 
 //header components
 import NavHeaderLinkComponent from "./nav-header/link-component";
@@ -14,9 +13,6 @@ import NavHeaderSocialComponent from "./nav-header/social-component";
 //canvas components
 import NavCanvasLinkComponent from "./nav-canvas/link-component";
 import NavCanvasSocialComponent from "./nav-canvas/social-component";
-
-//libs
-import getWebsiteUrl from "libs/helper/get-website-url";
 
 //styles
 import style from "./header.module.scss";
@@ -103,13 +99,6 @@ const HeaderComponent: FunctionComponent = () => {
 
   return (
     <header>
-      <SocialProfileJsonLd
-        keyOverride="json-socials"
-        type="Organization"
-        name="Adjust to the Good Life Travel"
-        url={getWebsiteUrl("/")}
-        sameAs={[socials.Facebook.href, socials.Instagram.href]}
-      />
       <Container className={style["container"]} fluid>
         <Row className="g-0">
           <Col lg={3} className="text-center"></Col>

@@ -1,7 +1,7 @@
 .header {
   color: white;
   font-family: "Domine", sans-serif;
-  font-size: 3em;
+  font-size: 2.5rem;
   text-align: center;
   text-shadow: 2px 2px black;
 }
@@ -12,9 +12,27 @@
 }
 
 .container {
-  margin: 64px 16px 512px 16px;
+  margin: 16px 16px 256px 16px;
 }
 
 .button {
   box-shadow: 2px 2px black;
+}
+
+@media (min-width: 768px) {
+  .header {
+    font-size: 3rem;
+  }
+  .container {
+    margin: 16px 16px 394px 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header {
+    font-size: 3.5rem;
+  }
+  .container {
+    margin: 64px 16px 512px 16px;
+  }
 }

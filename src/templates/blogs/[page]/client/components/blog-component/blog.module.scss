@@ -17,9 +17,19 @@
 }
 
 .post {
-  padding-bottom: 3em;
+  padding-bottom: 1em;
 }
 
 .post + .post {
-  padding-top: 3em;
+  padding-top: 1em;
+}
+
+@media (min-width: 992px) {
+  .post {
+    padding-bottom: 3em;
+  }
+
+  .post + .post {
+    padding-top: 3em;
+  }
 }

@@ -16,7 +16,7 @@ const href = "http://www.sandals.com/?referral=104018&agentid=STGR2506";
 
 const SandalsPage: FunctionComponent<any> = () => {
   return (
-    <div className={`${styles["wrapper"]} my-5`}>
+    <div className={`${styles["wrapper"]} mt-5`}>
       <ParallaxComponent bgImage={bgImage} bgImageAlt="Sandals Resort" strength={0} quality={80}>
         <Container className="my-5">
           <div className={styles["container"]}>

@@ -13,6 +13,9 @@ import ParallaxChildren from "./components/parallax-children-component";
 //styles
 import styles from "./styles/parallax.module.scss";
 
+//sizes
+import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
+
 interface ParallaxProps {
   bgImage: StaticImageData;
   bgImageAlt: string;
@@ -20,6 +23,8 @@ interface ParallaxProps {
   priority?: boolean;
   quality?: number;
 }
+
+const sizes = getBootstrapSizes(1080, 1080, 1200, 1200, 1920, 1920);
 
 function calculateStyle(strength: number, height: number, percentage: number) {
   const inverse = strength < 0;
@@ -66,7 +71,7 @@ const ParallaxComponent: FunctionComponent<PropsWithChildren<ParallaxProps>> = (
   return (
     <div ref={content} className={styles["content"]}>
       <div ref={image} className={styles["wrapper"]} style={initialStyle}>
-        <NextImage className={styles["image"]} src={bgImage} alt={bgImageAlt} quality={quality || 80} sizes="2048px" objectFit="cover" layout="responsive" priority={priority} />
+        <NextImage className={styles["image"]} src={bgImage} alt={bgImageAlt} quality={quality || 80} sizes={sizes} objectFit="cover" layout="responsive" priority={priority} />
       </div>
       <ParallaxChildren>{children}</ParallaxChildren>
     </div>

@@ -31,7 +31,7 @@ const SandalsPage: NextPage<any> = () => {
   return (
     <SiteLayout>
       <MetaComponent />
-      <ParallaxComponent bgImage={parallax} bgImageAlt="Sandals Resort" strength={-200} quality={80} priority>
+      <ParallaxComponent bgImage={parallax} bgImageAlt="Sandals Resort" strength={-200} quality={50} priority>
         <ParallaxHeaderComponent>Sandals and Beaches Resorts</ParallaxHeaderComponent>
       </ParallaxComponent>
       <Container className="my-5">
