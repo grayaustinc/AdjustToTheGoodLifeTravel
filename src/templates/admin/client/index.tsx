@@ -2,7 +2,7 @@ import React from "react";
 import { StaticRouter } from "react-router-dom/server";
 import { Routes, Route } from "react-router-dom";
 import { NextPage } from "next";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 
 //context
@@ -49,9 +49,7 @@ const NotFoundPage = dynamic(() => import("./pages/404"), { loading: LoadingComp
 const AdminPage: NextPage<PropsType> = ({ location, user, notFound, props }) => {
   return (
     <AuthProvider value={user}>
-      <Head>
-        <title key="admin-title">Admin Page</title>
-      </Head>
+      <NextSeo title="Admin Console" description="This is the Admin Console" noindex={true} nofollow={true} />
       <AdminLayout>
         <StaticRouter location={notFound ? "/404" : location}>
           <Routes>

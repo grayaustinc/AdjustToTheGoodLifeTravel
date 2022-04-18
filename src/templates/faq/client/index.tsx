@@ -22,13 +22,13 @@ const FaqPage: NextPage<any> = () => {
       <MetaComponent />
       <Container className="my-5">
         <h1 className={`${headClassName} text-center mb-4`}>Frequently Asked Questions</h1>
-        {data.map((item, i) => (
+        {data.map((entity, i) => (
           <section key={i} className="py-3">
             <header>
-              <h2 className={style["h"]}>{item.title}</h2>
+              <h2 className={style["h"]}>{entity.question}</h2>
             </header>
             <span className={style["b"]}>
-              {item.text.map((text, j) => (
+              {entity.answer.map((text, j) => (
                 <p key={j}>{text}</p>
               ))}
             </span>

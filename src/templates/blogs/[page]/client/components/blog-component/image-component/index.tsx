@@ -27,7 +27,6 @@ interface BlogPreviewProps {
 }
 
 function getClassName(index: number, loading: boolean) {
-  if (index === 0) return undefined;
   if (loading) {
     return style["image-loading"];
   }

@@ -1,27 +1,17 @@
 //node_modules
 import React, { FunctionComponent } from "react";
-
-//meta components
-import DefaultMetaComponent from "src/components/meta/default-component";
-import GoogleMetaComponent from "src/components/meta/google-component";
-import BingMetaComponent from "src/components/meta/google-component";
+import { NextSeo } from "next-seo";
 
 //hooks
-import useWebsiteUrl from "src/hooks/useWebsiteUrl";
+import useCanonical from "src/hooks/useCanonical";
 
 const title = "Privacy Policy | Adjust to the Good Life Travel";
 const description = "This Privacy Notice describes how Adjust to the Good Life Travel processes and protects the privacy of your personal information.";
 
 const MetaComponent: FunctionComponent = () => {
-  const url = useWebsiteUrl();
+  const canonical = useCanonical();
 
-  return (
-    <>
-      <DefaultMetaComponent title={title} description={description} url={url} />
-      <GoogleMetaComponent />
-      <BingMetaComponent />
-    </>
-  );
+  return <NextSeo title={title} description={description} canonical={canonical} noindex={false} nofollow={false} />;
 };
 
 export default React.memo(MetaComponent);

@@ -30,7 +30,7 @@ const BlogPage: NextPage<PageProps> = ({ blog, recommendations }) => {
 
   return (
     <SiteLayout>
-      <MetaComponent title={blog.title} description={blog.description} image={blog.image} published_time={blog.published_time} modified_time={blog.modified_time} />
+      <MetaComponent blog={blog} />
       <BlogContainerComponent>
         <div className="h4">
           <span>By </span>

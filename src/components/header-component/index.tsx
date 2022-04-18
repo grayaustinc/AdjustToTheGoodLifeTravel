@@ -5,16 +5,18 @@ import NextImage from "next/image";
 import { Navbar, Nav, Row, Col, Container, Offcanvas } from "react-bootstrap";
 import { faFacebook, faInstagram, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { faHome, faUsers, faHotel, faIdCard, faConciergeBell, faQuestionCircle, faBlog, faNewspaper, IconDefinition, faPen } from "@fortawesome/free-solid-svg-icons";
+import { SocialProfileJsonLd } from "next-seo";
 
 //header components
 import NavHeaderLinkComponent from "./nav-header/link-component";
 import NavHeaderSocialComponent from "./nav-header/social-component";
-import NavHeaderDropdownLinkItemComponent from "./nav-header/dropdown-link-item-component";
-import NavHeaderDropdownLinkComponent from "./nav-header/dropdown-link-component";
 
 //canvas components
 import NavCanvasLinkComponent from "./nav-canvas/link-component";
 import NavCanvasSocialComponent from "./nav-canvas/social-component";
+
+//libs
+import getWebsiteUrl from "libs/helper/get-website-url";
 
 //styles
 import style from "./header.module.scss";
@@ -101,20 +103,22 @@ const HeaderComponent: FunctionComponent = () => {
 
   return (
     <header>
+      <SocialProfileJsonLd
+        keyOverride="json-socials"
+        type="Organization"
+        name="Adjust to the Good Life Travel"
+        url={getWebsiteUrl("/")}
+        sameAs={[socials.Facebook.href, socials.Instagram.href]}
+      />
       <Container className={style["container"]} fluid>
         <Row className="g-0">
-          <Col lg={3} className="text-center">
-            {/* <div className={`${style["est"]} h5`}>RALEIGH, NC • EST. 2013</div> */}
-            {/* <h5 className={style["ff-sans"]}>RALEIGH, NC • EST. 2013</h5> */}
-          </Col>
+          <Col lg={3} className="text-center"></Col>
           <Link href="/" passHref={true}>
             <Col as="a" lg={6} className={`m-2 text-center ${style["logo"]}`}>
               <NextImage src={logo} alt="Adjust to the Good Life Travel Logo" width="675.828125px" height="256px" priority={true} unoptimized={true} />
             </Col>
           </Link>
-          <Col lg={3} className="text-center">
-            {/* <div className={`${style["est"]} h5`}>RALEIGH, NC • EST. 2013</div> */}
-          </Col>
+          <Col lg={3} className="text-center"></Col>
         </Row>
       </Container>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -122,10 +126,6 @@ const HeaderComponent: FunctionComponent = () => {
         <Navbar.Collapse className="d-none d-lg-block">
           <Nav className={`${style["ff-lato"]} me-auto`}>
             <NavHeaderLinkComponent {...navigation.Home} />
-            {/* <NavHeaderDropdownLinkComponent title="About">
-              <NavHeaderDropdownLinkItemComponent {...navigation.AboutUs} />
-              <NavHeaderDropdownLinkItemComponent {...navigation.Testimonials} />
-            </NavHeaderDropdownLinkComponent> */}
             <NavHeaderLinkComponent {...navigation.AboutUs} />
             <NavHeaderLinkComponent {...navigation.Testimonials} />
             <NavHeaderLinkComponent {...navigation.Sandals} />
@@ -133,12 +133,10 @@ const HeaderComponent: FunctionComponent = () => {
             <NavHeaderLinkComponent {...navigation.Services} />
             <NavHeaderLinkComponent {...navigation.FAQ} />
             <NavHeaderLinkComponent {...navigation.Blog} />
-            {/* <NavHeaderLinkComponent {...navigation.Press} /> */}
           </Nav>
           <Nav className={`${style["ff-lato"]} ms-auto`}>
             <NavHeaderSocialComponent {...socials.Facebook} />
             <NavHeaderSocialComponent {...socials.Instagram} />
-            {/* <NavHeaderSocialComponent {...socials.Pinterest} /> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -157,13 +155,11 @@ const HeaderComponent: FunctionComponent = () => {
               <NavCanvasLinkComponent {...navigation.Services} />
               <NavCanvasLinkComponent {...navigation.FAQ} />
               <NavCanvasLinkComponent {...navigation.Blog} />
-              {/* <NavCanvasLinkComponent {...navigation.Press} /> */}
             </Row>
             <hr />
             <Row className="justify-content-center">
               <NavCanvasSocialComponent {...socials.Facebook} />
               <NavCanvasSocialComponent {...socials.Instagram} />
-              {/* <NavCanvasSocialComponent {...socials.Pinterest} /> */}
             </Row>
           </Container>
         </Offcanvas.Body>

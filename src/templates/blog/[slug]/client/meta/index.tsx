@@ -1,22 +1,19 @@
 //node_modules
 import React, { FunctionComponent } from "react";
+import { NextSeo, ArticleJsonLd } from "next-seo";
 
 //helpers
 import getImageAbsoluteUrl from "libs/helper/get-image-absolute-url";
 import getImageLoaderAbsoluteSrc from "libs/helper/get-image-loader-absolute-src";
 
-//meta components
-import DefaultMetaComponent from "src/components/meta/default-component";
-import GoogleMetaComponent from "src/components/meta/google-component";
-import BingMetaComponent from "src/components/meta/google-component";
-import OgArticleMetaComponent from "src/components/meta/og-article-component";
-import TwitterMetaComponent from "src/components/meta/twitter-component";
-
 //hooks
-import useWebsiteUrl from "src/hooks/useWebsiteUrl";
+import useCanonical from "src/hooks/useCanonical";
 
 //images
 import STATIC_IMAGE from "src/images/e3eb5953b1c0982710657979b7a22c1e.png";
+
+//types
+import type { ModifiedBlogDocumentData } from "src/templates/blog/[slug]/types";
 
 interface ImageType {
   src: string;
@@ -24,27 +21,56 @@ interface ImageType {
 }
 
 interface PropsType {
-  title: string;
-  description: string;
-  image?: ImageType | null;
-  published_time: number;
-  modified_time: number;
+  blog: ModifiedBlogDocumentData;
 }
 
-const MetaComponent: FunctionComponent<PropsType> = ({ title, description, image, published_time, modified_time }) => {
-  const url = useWebsiteUrl();
-  const src = getImageAbsoluteUrl(image, 1200) || getImageLoaderAbsoluteSrc(STATIC_IMAGE.src, 1200);
+const MetaComponent: FunctionComponent<PropsType> = ({ blog }) => {
+  const canonical = useCanonical();
+  const src = getImageAbsoluteUrl(blog.image, 1200) || getImageLoaderAbsoluteSrc(STATIC_IMAGE.src, 1200);
 
-  const published = new Date(published_time).toISOString();
-  const modified = new Date(modified_time).toISOString();
+  const published = new Date(blog.published_time).toISOString();
+  const modified = new Date(blog.modified_time).toISOString();
 
   return (
     <>
-      <DefaultMetaComponent title={title} description={description} url={url} />
-      <OgArticleMetaComponent title={title} description={description} url={url} image={src} published_time={published} modified_time={modified} />
-      <TwitterMetaComponent title={title} description={description} image={src} alt={title} />
-      <GoogleMetaComponent />
-      <BingMetaComponent />
+      <NextSeo
+        title={blog.title}
+        description={blog.description}
+        canonical={canonical}
+        noindex={false}
+        nofollow={false}
+        openGraph={{
+          type: "article",
+          site_name: "Adjust to the Good Life Travel",
+          url: canonical,
+          title: blog.title,
+          description: blog.description,
+          article: {
+            section: "Travel",
+            publishedTime: published,
+            modifiedTime: modified,
+          },
+          images: [
+            {
+              url: src,
+            },
+          ],
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+        }}
+      />
+      <ArticleJsonLd
+        keyOverride="json-article"
+        type="Blog"
+        url={canonical}
+        title={blog.title}
+        description={blog.description}
+        images={[src]}
+        datePublished={published}
+        dateModified={modified}
+        authorName={blog.authors}
+      />
     </>
   );
 };
