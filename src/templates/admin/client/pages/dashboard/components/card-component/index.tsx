@@ -5,7 +5,7 @@ import NextLink from "next/link";
 
 //helpers
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
-const defaultSizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
+const defaultSizes = getBootstrapSizes({ xs: 256 });
 
 //styles
 import { blackLinkClassName } from "src/styles/modules/link";

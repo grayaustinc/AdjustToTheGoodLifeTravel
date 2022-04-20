@@ -50,7 +50,7 @@ const data = [
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 
-const sizes = getBootstrapSizes(384, 384, 384, 384, 256, 256);
+const sizes = getBootstrapSizes({ xs: 384, xl: 256 });
 
 const TravelPlanComponent: FunctionComponent = () => {
   return (

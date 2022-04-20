@@ -1,4 +1,4 @@
-.image-container {
+.container {
   position: relative;
   width: 100%;
 
@@ -6,9 +6,11 @@
     position: relative !important;
   }
 
-  .image {
+  .base {
+    transition: filter 0.15s;
     width: 100% !important;
     position: relative !important;
     height: unset !important;
+    background-color: #e5e7eb;
   }
 }

@@ -9,7 +9,7 @@ import getImageLoaderAbsoluteSrc from "libs/helper/get-image-loader-absolute-src
 import useCanonical from "src/hooks/useCanonical";
 
 //images
-import STATIC_IMAGE from "src/images/4e0142fbb8e66f2290524c0bf6f225a1.png";
+import STATIC_IMAGE from "src/images/97b9375cf75ade65090bccc8c8ef5884.png";
 
 const title = "Services we Provide - Adjust to the Good Life Travel";
 const description = "A list of services that our Travel Agents can help with!";

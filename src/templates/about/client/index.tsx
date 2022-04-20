@@ -35,7 +35,7 @@ import stacy from "src/images/9e528c4d2bebc8f4e28a959be207953c.png";
 import haley from "src/images/f7091e063ae7ef9ef00e1d938eb4587a.png";
 import parallax1 from "src/images/d40aaf23ea6975f9fd137914e53aeaef.png";
 
-const sizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
+const sizes = getBootstrapSizes({ xs: 256 });
 
 const AboutPage: NextPage<PageProps> = ({ locations }) => {
   return (
@@ -49,7 +49,7 @@ const AboutPage: NextPage<PageProps> = ({ locations }) => {
           <Row className="my-5">
             <Col lg={4} className="mt-lg-5 mb-auto text-center">
               <Card.Body className={style["image-container"]}>
-                <NextImage src={stacy} sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
+                <NextImage src={stacy} alt="Image of Stacy Gray" sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
               </Card.Body>
             </Col>
             <Col lg={8}>
@@ -104,7 +104,7 @@ const AboutPage: NextPage<PageProps> = ({ locations }) => {
           <Row className="my-5">
             <Col lg={{ span: 4, order: "last" }} className="mt-lg-5 mb-auto text-center">
               <Card.Body className={style["image-container"]}>
-                <NextImage src={haley} sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
+                <NextImage src={haley} alt="Image of Haley Gray" sizes={sizes} quality={75} placeholder="blur" objectFit="contain" />
               </Card.Body>
             </Col>
             <Col lg={{ span: 8, order: "first" }}>

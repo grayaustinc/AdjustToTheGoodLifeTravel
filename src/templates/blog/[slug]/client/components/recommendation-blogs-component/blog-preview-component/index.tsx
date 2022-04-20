@@ -5,6 +5,7 @@ import NextImage from "next/image";
 
 //helpers
 import getImageSrcHelper from "libs/helper/get-image-src";
+import getImageLoaderSrc from "libs/helper/get-image-loader-absolute-src";
 import isUnoptimized from "libs/helper/get-is-unoptimized";
 
 //types
@@ -17,40 +18,33 @@ import preview from "src/images/62264e5b72ccfb0df23fc12c40abc3f6.png";
 import style from "./preview.module.scss";
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
-const sizes = getBootstrapSizes(384, 384, 256, 256, 256, 384);
+const sizes = getBootstrapSizes({ xs: 384, md: 256, xxl: 384 });
 
 interface BlogPreviewProps {
   recommendation: RecommendationBlogDocumentData;
 }
 
-function getClassName(loading: boolean) {
-  if (loading) {
-    return style["image-loading"];
-  }
-  return style["image-loading-complete"];
-}
-
 const BlogPreviewComponent: FunctionComponent<BlogPreviewProps> = ({ recommendation }) => {
   const src = getImageSrcHelper(recommendation.image);
   const href = `/blog/${recommendation.slug}`;
-  const [loading, setLoading] = useState(true);
 
   return (
     <div className={style["container"]}>
       <Link href={href} passHref>
-        <a className={style["image"]}>
+        <a className={style["wrapper"]}>
           <NextImage
             src={src || preview}
             alt={recommendation.title}
-            className={getClassName(loading)}
+            className={style["image"]}
             sizes={sizes}
             quality={30}
             loading="lazy"
             layout="fill"
             objectFit="cover"
+            blurDataURL={getImageLoaderSrc(src || preview.src, 64, 70)}
+            placeholder="blur"
             lazyBoundary="272px"
             unoptimized={isUnoptimized(recommendation.image)}
-            onLoadingComplete={() => setLoading(false)}
           />
         </a>
       </Link>

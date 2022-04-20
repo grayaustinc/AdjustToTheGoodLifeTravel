@@ -21,7 +21,7 @@ import parallax from "src/images/9f6e0b8e55a228caf31233ec5280b1e4.png";
 
 //sizes
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
-const certificate_sizes = getBootstrapSizes(384, 384, 384, 384, 256, 256);
+const certificate_sizes = getBootstrapSizes({ xs: 384, xl: 256 });
 
 //styles
 import styles from "./styles/sandals.module.scss";

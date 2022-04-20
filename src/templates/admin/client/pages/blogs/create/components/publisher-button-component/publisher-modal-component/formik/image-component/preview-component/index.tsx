@@ -8,7 +8,7 @@ import getImageSrc from "libs/helper/get-image-src";
 
 //libs
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
-const sizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
+const sizes = getBootstrapSizes({ xs: 256 });
 
 interface ImagePreviewProps {
   src: string;

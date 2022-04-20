@@ -6,8 +6,7 @@ import NextImage from "next/image";
 import getStaticUrl from "libs/helper/get-static-url";
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
-const sizes = getBootstrapSizes(256, 256, 256, 256, 256, 256);
-
+const sizes = getBootstrapSizes({ xs: 256 });
 interface ImageModalBodySrcProps {
   src: string;
   onClick: () => void;

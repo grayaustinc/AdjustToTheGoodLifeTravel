@@ -7,7 +7,7 @@ import Link from "next/link";
 import NextImageComponent from "src/components/next-image-component";
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
-const sizes = getBootstrapSizes(640, 640, 640, 256, 384, 384);
+const sizes = getBootstrapSizes({ xs: 640, lg: 384 });
 
 //styles
 import style from "../../styles/press.module.scss";

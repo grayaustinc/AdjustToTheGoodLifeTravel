@@ -1,13 +1,13 @@
 //helpers
 import getStaticUrl from "libs/helper/get-static-url";
-import getImageLoaderSrc, { ImageWidth } from "libs/helper/get-image-loader-absolute-src";
+import getImageLoaderSrc, { Sizes } from "libs/helper/get-image-loader-absolute-src";
 
 interface ImageType {
   src: string;
   srcType: "STATIC" | "EXTERNAL" | string;
 }
 
-function getImageAbsoluteUrl(image: ImageType | null | undefined, width: ImageWidth, quality?: number) {
+function getImageAbsoluteUrl(image: ImageType | null | undefined, width: Sizes, quality?: number) {
   switch (image?.srcType) {
     default:
       return null;

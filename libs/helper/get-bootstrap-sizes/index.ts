@@ -1,11 +1,36 @@
-const widths = [16, 32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840] as const;
+import type { Sizes } from "../sizes";
 
-export type ImageWidth = typeof widths[number];
+interface SizeType {
+  xs: Sizes;
+  sm?: Sizes;
+  md?: Sizes;
+  lg?: Sizes;
+  xl?: Sizes;
+  xxl?: Sizes;
+}
 
-function bootstrapSizer(xs: ImageWidth, sm: ImageWidth, md: ImageWidth, lg: ImageWidth, xl: ImageWidth, xxl: ImageWidth) {
-  return [`(min-width: 1400px) ${xxl}px`, `(min-width: 1200px) ${xl}px`, `(min-width: 992px) ${lg}px`, `(min-width: 768px) ${md}px`, `(min-width: 576px) ${sm}px`, `${xs}px`].join(
-    ","
-  );
+function bootstrapSizer(data: SizeType): string {
+  const sizes: string[] = [];
+
+  if (data.xxl) {
+    sizes.push(`(min-width: 1400px) ${data.xxl}px`);
+  }
+  if (data.xl) {
+    sizes.push(`(min-width: 1200px) ${data.xl}px`);
+  }
+  if (data.lg) {
+    sizes.push(`(min-width: 992px) ${data.lg}px`);
+  }
+  if (data.md) {
+    sizes.push(`(min-width: 768px) ${data.md}px`);
+  }
+  if (data.sm) {
+    sizes.push(`(min-width: 576px) ${data.sm}px`);
+  }
+
+  sizes.push(`${data.xs}px`);
+
+  return sizes.join(",");
 }
 
 export default bootstrapSizer;

@@ -27,7 +27,7 @@ const images = [
 
 import getBootstrapSizes from "libs/helper/get-bootstrap-sizes";
 
-const sizes = getBootstrapSizes(96, 96, 96, 96, 96, 96);
+const sizes = getBootstrapSizes({ xs: 96 });
 
 const TravelPlanComponent: FunctionComponent = () => {
   return (

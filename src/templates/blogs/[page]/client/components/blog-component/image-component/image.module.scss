@@ -1,4 +1,4 @@
-.image {
+.wrapper {
   display: block;
   position: relative;
   margin: 16px;
@@ -10,17 +10,11 @@
   transition: opacity 0.15s;
 }
 
-.image-loading {
+.image {
   transition: filter 0.15s;
-  filter: blur(40px) grayscale(100%);
   background-color: #e5e7eb;
 }
 
-.image-loading-complete {
-  transition: filter 0.15s;
-  filter: blur(0) grayscale(0);
-}
-
-.image:hover {
+.wrapper:hover {
   opacity: 0.7;
 }

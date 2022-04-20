@@ -90,7 +90,9 @@ const defaultConfig = {
   },
 
   images: {
-    minimumCacheTTL: 60 * 60 * 4, //4 hour caching
+    imageSizes: [64, 96, 128, 256, 384],
+    deviceSizes: [640, 750, 1080, 1200, 1920],
+    minimumCacheTTL: 60 * 60 * 6, //6 hour caching
   },
 
   eslint: {

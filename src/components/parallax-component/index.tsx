@@ -24,7 +24,7 @@ interface ParallaxProps {
   quality?: number;
 }
 
-const sizes = getBootstrapSizes(1080, 1080, 1200, 1200, 1920, 1920);
+const sizes = getBootstrapSizes({ xs: 1080, md: 1200, xl: 1920 });
 
 function calculateStyle(strength: number, height: number, percentage: number) {
   const inverse = strength < 0;
@@ -71,7 +71,17 @@ const ParallaxComponent: FunctionComponent<PropsWithChildren<ParallaxProps>> = (
   return (
     <div ref={content} className={styles["content"]}>
       <div ref={image} className={styles["wrapper"]} style={initialStyle}>
-        <NextImage className={styles["image"]} src={bgImage} alt={bgImageAlt} quality={quality || 80} sizes={sizes} objectFit="cover" layout="responsive" priority={priority} />
+        <NextImage
+          className={styles["image"]}
+          src={bgImage}
+          alt={bgImageAlt}
+          quality={quality || 80}
+          sizes={sizes}
+          objectFit="cover"
+          layout="responsive"
+          placeholder={priority ? "empty" : "blur"}
+          priority={priority}
+        />
       </div>
       <ParallaxChildren>{children}</ParallaxChildren>
     </div>

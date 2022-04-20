@@ -9,7 +9,7 @@ import getImageLoaderAbsoluteSrc from "libs/helper/get-image-loader-absolute-src
 import useCanonical from "src/hooks/useCanonical";
 
 //images
-import STATIC_IMAGE from "src/images/5f7cbe2dc628e35784b204b6d16dba89.png";
+import STATIC_IMAGE from "src/images/9f6e0b8e55a228caf31233ec5280b1e4.png";
 
 const title = "Sandals & Beaches Resorts - Adjust to the Good Life Travel";
 const description = "We are a certified Sandals Travel Agency and are always prepared to give you the best Sandals Vacation!";
