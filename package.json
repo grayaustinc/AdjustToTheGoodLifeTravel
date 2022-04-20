@@ -17,6 +17,10 @@
     "docker-build": "docker build . -t reconnite/adjust-to-the-good-life-travel",
     "docker-push": "docker push reconnite/adjust-to-the-good-life-travel:latest"
   },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.0",
     "@fortawesome/free-brands-svg-icons": "^6.0.0",
