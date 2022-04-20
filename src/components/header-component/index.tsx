@@ -98,7 +98,7 @@ const HeaderComponent: FunctionComponent = () => {
   const handleClose = useCallback(() => setShow(false), [setShow]);
 
   return (
-    <header>
+    <header id="header" itemType="https://schema.org/WPHeader" itemScope>
       <Container className={style["container"]} fluid>
         <Row className="g-0">
           <Col lg={3} className="text-center"></Col>
@@ -113,7 +113,7 @@ const HeaderComponent: FunctionComponent = () => {
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Toggle className="ms-auto me-2" onClick={handleShow} />
         <Navbar.Collapse className="d-none d-lg-block">
-          <Nav className={`${style["ff-lato"]} me-auto`}>
+          <Nav id="header-navigation" className={`${style["ff-lato"]} me-auto`} itemType="https://schema.org/SiteNavigationElement" itemScope>
             <NavHeaderLinkComponent {...navigation.Home} />
             <NavHeaderLinkComponent {...navigation.AboutUs} />
             <NavHeaderLinkComponent {...navigation.Testimonials} />

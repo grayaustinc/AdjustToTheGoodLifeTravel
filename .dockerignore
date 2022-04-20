@@ -1,12 +1,7 @@
-node_modules
-pricing.txt
-server-plan.TODO
-captain-definition
-docker-compose.yml
-.TODO
+/.next
+/.vscode
+/test
+/node_modules
 .gitignore
-.prettierrc.json
-.next
-.vscode
 package-lock.json
 Dockerfile
