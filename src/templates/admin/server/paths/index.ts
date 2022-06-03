@@ -2,6 +2,10 @@
 import type { Path, PathHandler } from "libs/ssr-router";
 
 /** Paths **/
+
+//dashboard
+import dashboardHandler from "./dashboard";
+
 //blogs
 import blogsCreateHandler from "./blogs/create";
 import blogsViewHandler from "./blogs/view";
@@ -29,7 +33,7 @@ const getRedirect =
     context.redirect({ permanent: true, destination: destination });
 
 const paths: Path = {
-  dashboard: getEmptyPath,
+  dashboard: dashboardHandler,
   account: {
     "change-password": getEmptyPath,
   },

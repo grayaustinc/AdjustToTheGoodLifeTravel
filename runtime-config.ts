@@ -20,11 +20,12 @@ export interface ServerRuntimeConfig {
   SESSION_COOKIE_NAME: string;
   SESSION_SECRET: string;
   SESSION_SECURE: boolean;
+
+  WEBSITE_EMAIL_DOMAIN: string;
+  WEBSITE_S3_DOMAIN: string;
+  WEBSITE_DATABASE_DOMAIN: string;
 }
 
 export interface PublicRuntimeConfig {
   WEBSITE_DOMAIN: string;
-  WEBSITE_EMAIL_DOMAIN: string;
-  WEBSITE_S3_DOMAIN: string;
-  WEBSITE_DATABASE_DOMAIN: string;
 }

@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
-import getConfig from "next/config";
 import { Container, Row } from "react-bootstrap";
+
+//types
+import type { PageProps } from "src/templates/admin/server/paths/dashboard";
 
 //components
 import CardComponent from "./components/card-component";
@@ -10,10 +12,7 @@ import arango from "src/images/admin/c3f38111eaeef6c3a0714c52d28984f3.png";
 import minio from "src/images/admin/5c24e7851b5cbfdf71c4e44342f06133.png";
 import email from "src/images/admin/c09b534a6250ef549f8233038704f810.png";
 
-const { publicRuntimeConfig } = getConfig();
-const { WEBSITE_EMAIL_DOMAIN, WEBSITE_S3_DOMAIN, WEBSITE_DATABASE_DOMAIN } = publicRuntimeConfig;
-
-const AdminDashboardPage: FunctionComponent<any> = () => {
+const AdminDashboardPage: FunctionComponent<PageProps> = ({ WEBSITE_EMAIL_DOMAIN, WEBSITE_S3_DOMAIN, WEBSITE_DATABASE_DOMAIN }) => {
   return (
     <Container className="my-3">
       <div className="text-center">
